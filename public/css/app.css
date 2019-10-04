@@ -1,0 +1,120 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  position: relative;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+li {
+  list-style-type: none;
+}
+
+.body {
+  background: url("/_OPENCLASSROOMS/game/public/images/BG.jpg") no-repeat;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+  padding: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.body .welcome {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.body .welcome h1 {
+  color: #FFF;
+  text-align: center;
+}
+
+.body .welcome .form {
+  width: 70%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.body .welcome .form input,
+.body .welcome .form button {
+  margin: 10px 0;
+}
+
+.arena {
+  background: rgba(11, 74, 89, 0.7);
+}
+
+.arena .pos-pirate {
+  background: url("/_OPENCLASSROOMS/game/public/images/arena/pirate.png") no-repeat center;
+}
+
+.arena .pos-marines {
+  background: url("/_OPENCLASSROOMS/game/public/images/arena/marines.png") no-repeat center;
+}
+
+.arena .bloc {
+  background-size: contain;
+}
+
+.info {
+  border: 2px solid black;
+  width: 30%;
+  height: 800px;
+  min-width: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  background: rgba(250, 250, 250, 0.7);
+}
+
+.info .player_1 .avatar {
+  background: url("/_OPENCLASSROOMS/game/public/images/perso/pirate.jpg") no-repeat center top;
+}
+
+.info .player_2 .avatar {
+  background: url("/_OPENCLASSROOMS/game/public/images/perso/marines.jpg") no-repeat center top;
+}
+
+.info .player {
+  width: 90%;
+  height: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.info .player .avatar {
+  width: 150px;
+  height: 150px;
+  border: 2px solid black;
+  border-radius: 50%;
+  background-size: cover;
+}
+
+.info .player .life_line {
+  width: 100%;
+  height: 10px;
+  background: limegreen;
+}
+
+.info .player .life {
+  text-align: center;
+}
+

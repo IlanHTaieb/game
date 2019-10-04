@@ -1,0 +1,31 @@
+{
+  "arms": {
+    "sword": {
+      "power": 5,
+      "chance": [1, 2]
+    },
+    "flintlock": {
+      "power": 10,
+      "chance": [1, 2]
+    },
+    "musket": {
+      "power": 15,
+      "chance": [0, 2]
+    },
+    "cannon": {
+      "power": 30,
+      "chance": [0, 1]
+    }
+  },
+  "potions": {
+    "heal": {
+      "power": 10,
+      "chance": [2, 3]
+    },
+    "poison": {
+      "power": 5,
+      "steps": 3,
+      "chance": [1, 2]
+    }
+  }
+}

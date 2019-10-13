@@ -1,5 +1,5 @@
 import {Router} from "./_router";
-import {Map} from "./class/Map"
+import {Map} from "./board/Map"
 
 $(document).ready(function () {
     //Router.home()

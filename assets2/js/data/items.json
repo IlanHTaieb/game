@@ -1,5 +1,5 @@
 {
-  "arms": {
+  "weapons": {
     "sword": {
       "power": 5,
       "chance": [1, 2]

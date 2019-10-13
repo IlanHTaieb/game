@@ -86,10 +86,196 @@
 /************************************************************************/
 /******/ ({
 
-/***/ "./assets/js/_home.js":
-/*!****************************!*\
-  !*** ./assets/js/_home.js ***!
-  \****************************/
+/***/ "./src/js/_router.js":
+/*!***************************!*\
+  !*** ./src/js/_router.js ***!
+  \***************************/
+/*! exports provided: Router */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Router", function() { return Router; });
+/* harmony import */ var _pages_home__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./pages/home */ "./src/js/pages/home.js");
+/* harmony import */ var _pages_arena__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./pages/arena */ "./src/js/pages/arena.js");
+
+
+var Router = {
+  home: function home() {
+    _pages_home__WEBPACK_IMPORTED_MODULE_0__["Home"].render();
+  },
+  arena: function arena(p1, p2) {
+    _pages_arena__WEBPACK_IMPORTED_MODULE_1__["Arena"].render(p1, p2);
+  }
+};
+
+/***/ }),
+
+/***/ "./src/js/app.js":
+/*!***********************!*\
+  !*** ./src/js/app.js ***!
+  \***********************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _router__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./_router */ "./src/js/_router.js");
+/* harmony import */ var _class_Map__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./class/Map */ "./src/js/class/Map.js");
+
+
+$(document).ready(function () {
+  //Router.home()
+  _router__WEBPACK_IMPORTED_MODULE_0__["Router"].arena('Toto', 'Ploufy');
+  var map = new _class_Map__WEBPACK_IMPORTED_MODULE_1__["Map"]();
+  map.init();
+  map.render();
+  $('.submit').click(function () {
+    $('.home').hide();
+    _router__WEBPACK_IMPORTED_MODULE_0__["Router"].arena('Toto', 'Ploufy');
+  });
+});
+
+/***/ }),
+
+/***/ "./src/js/class/Bloc.js":
+/*!******************************!*\
+  !*** ./src/js/class/Bloc.js ***!
+  \******************************/
+/*! exports provided: Bloc */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Bloc", function() { return Bloc; });
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var Bloc =
+/*#__PURE__*/
+function () {
+  function Bloc(posY, posX) {
+    var size = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 100;
+
+    _classCallCheck(this, Bloc);
+
+    _defineProperty(this, "posY", 0);
+
+    _defineProperty(this, "posX", 0);
+
+    _defineProperty(this, "node", '');
+
+    this.posY = posY;
+    this.posX = posX;
+    this.size = size + 'px';
+    this.node = '<div class="bloc" style="width: ' + size + 'px; height: ' + size + 'px;" data-pox-y="' + posY + '" data-pos-x="' + posX + '"></div>';
+  }
+
+  _createClass(Bloc, [{
+    key: "render",
+    value: function render(line) {
+      $(line).append(this.node);
+    }
+  }]);
+
+  return Bloc;
+}();
+
+/***/ }),
+
+/***/ "./src/js/class/Map.js":
+/*!*****************************!*\
+  !*** ./src/js/class/Map.js ***!
+  \*****************************/
+/*! exports provided: Map */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Map", function() { return Map; });
+/* harmony import */ var _Bloc__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Bloc */ "./src/js/class/Bloc.js");
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+var Map =
+/*#__PURE__*/
+function () {
+  function Map() {
+    _classCallCheck(this, Map);
+
+    _defineProperty(this, "maxX", 10);
+
+    _defineProperty(this, "maxY", 10);
+
+    _defineProperty(this, "arena", []);
+
+    _defineProperty(this, "occupedBlocs", []);
+  }
+
+  _createClass(Map, [{
+    key: "init",
+    value: function init() {
+      for (var y = 0; y < this.maxY; y++) {
+        this.arena[y] = [];
+
+        for (var x = 0; x < this.maxX; x++) {
+          this.arena[y][x] = new _Bloc__WEBPACK_IMPORTED_MODULE_0__["Bloc"](y, x);
+        }
+      }
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      this.arena.forEach(function (bloc, line) {
+        $('.arena').append('<div id="line' + line + '" class="line" data-line="' + line + '"></div>');
+        bloc.forEach(function (cases) {
+          cases.render('#line' + line);
+        });
+      });
+    }
+  }]);
+
+  return Map;
+}();
+
+/***/ }),
+
+/***/ "./src/js/pages/arena.js":
+/*!*******************************!*\
+  !*** ./src/js/pages/arena.js ***!
+  \*******************************/
+/*! exports provided: Arena */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Arena", function() { return Arena; });
+var Arena = {
+  component: function component(p1, p2) {
+    return "\n            <div class=\"arena\"></div>\n        \n            <div class=\"info\">\n                <div class=\"player player_1\">\n                    <div class=\"avatar\"></div>\n                    <p class=\"info-player-1\" style=\"text-align: center;\">" + p1 + "</p>\n                    <div class=\"life_line\"></div>\n                    <div class=\"life\">/100</div>\n                </div>\n                <div class=\"player player_2\">\n                    <div class=\"avatar\"></div>\n                    <p class=\"info-player-2\" style=\"text-align: center;\">" + p2 + "</p>\n                    <div class=\"life_line\"></div>\n                    <div class=\"life\">/100</div>\n                </div>\n            </div>\n        ";
+  },
+  render: function render(p1, p2) {
+    $('.body').append(this.component(p1, p2));
+  }
+};
+
+/***/ }),
+
+/***/ "./src/js/pages/home.js":
+/*!******************************!*\
+  !*** ./src/js/pages/home.js ***!
+  \******************************/
 /*! exports provided: Home */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -97,180 +283,18 @@
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Home", function() { return Home; });
 var Home = {
-  component: function component(p1, p2) {
-    return "\n            <div class=\"arena\"></div>\n        \n            <div class=\"info\">\n                <div class=\"player player_1\">\n                    <div class=\"avatar\"></div>\n                    <p class=\"info-player-1\" style=\"text-align: center;\">" + p1 + "</p>\n                    <div class=\"life_line\"></div>\n                    <div class=\"life\">/100</div>\n                </div>\n                <div class=\"player player_2\">\n                    <div class=\"avatar\"></div>\n                    <p class=\"info-player-2\" style=\"text-align: center;\">" + p2 + "</p>\n                    <div class=\"life_line\"></div>\n                    <div class=\"life\">/100</div>\n                </div>\n            </div>\n        ";
-  },
-  render: function render(p1, p2) {
-    return this.component(p1, p2);
-  }
-};
-
-/***/ }),
-
-/***/ "./assets/js/_map.js":
-/*!***************************!*\
-  !*** ./assets/js/_map.js ***!
-  \***************************/
-/*! exports provided: Map */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Map", function() { return Map; });
-var Map = {
-  data: {
-    nbX: 10,
-    nbY: 8,
-    size: 100 + 'px',
-    line: '<div class="line"></div>',
-    bloc: '<div class="bloc"></div>'
-  },
-  init: function init() {
-    for (var i = 0; i <= Map.data.nbY; i++) {
-      $('.arena').append(Map.data.line);
-      $('.line:nth-child(' + i + ')').addClass('line-' + i);
-      $('.line:nth-child(' + i + ')').attr('pos-y', i);
-
-      for (var b = 0; b < Map.data.nbX; b++) {
-        $('.line:nth-child(' + i + ')').append(Map.data.bloc);
-        $('.line:nth-child(' + i + ') .bloc:nth-child(' + b + ')').attr('pos-x', b).attr('pos-y', i);
-      }
-
-      $('.line').css('display', 'flex');
-      $('.bloc').css('border', '2px solid black');
-      $('.bloc').css('width', this.data.size);
-      $('.bloc').css('height', this.data.size);
-    }
-  }
-};
-
-/***/ }),
-
-/***/ "./assets/js/_personnages.js":
-/*!***********************************!*\
-  !*** ./assets/js/_personnages.js ***!
-  \***********************************/
-/*! exports provided: Personnages */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Personnages", function() { return Personnages; });
-var Personnages = {
-  data: {
-    player1: "pirate",
-    player2: "marines",
-    positions: {
-      "pLine": 0,
-      "pBloc": 0,
-      "mLine": 0,
-      "mbloc": 0
-    }
-  },
-  init: function init(lines, blocs) {
-    this.data.positions.pline = this.makeRandom(lines);
-    this.data.positions.pBloc = this.makeRandom(blocs);
-    this.data.positions.mline = this.makeRandom(lines);
-    this.data.positions.mBloc = this.makeRandom(blocs);
-    this.initPirate(this.data.positions.pBloc, this.data.positions.pline);
-    this.initMarines(this.data.positions.mBloc == this.data.positions.pBloc ? this.makeRandom(blocs) : this.data.positions.mBloc, this.data.positions.mline == this.data.positions.pline ? this.makeRandom(lines) : this.data.positions.mline);
-  },
-  initPirate: function initPirate(x, y) {
-    $('.bloc[pos-y=' + y + '][pos-x=' + x + ']').addClass('pos-pirate');
-  },
-  initMarines: function initMarines(x, y) {
-    $('.bloc[pos-y=' + y + '][pos-x=' + x + ']').addClass('pos-marines');
-  },
-  makeRandom: function makeRandom(max) {
-    return Math.floor(Math.random() * max) + 1;
-  }
-};
-
-/***/ }),
-
-/***/ "./assets/js/_router.js":
-/*!******************************!*\
-  !*** ./assets/js/_router.js ***!
-  \******************************/
-/*! exports provided: Router */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Router", function() { return Router; });
-/* harmony import */ var _home__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./_home */ "./assets/js/_home.js");
-/* harmony import */ var _welcome__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./_welcome */ "./assets/js/_welcome.js");
-
-
-var Router = {
-  welcome: function welcome() {
-    return _welcome__WEBPACK_IMPORTED_MODULE_1__["Welcome"].render();
-  },
-  home: function home(p1, p2) {
-    return _home__WEBPACK_IMPORTED_MODULE_0__["Home"].render(p1, p2);
-  }
-};
-
-/***/ }),
-
-/***/ "./assets/js/_welcome.js":
-/*!*******************************!*\
-  !*** ./assets/js/_welcome.js ***!
-  \*******************************/
-/*! exports provided: Welcome */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Welcome", function() { return Welcome; });
-var Welcome = {
-  component: "\n        <div class=\"welcome\">\n            <h1>Rejoignez la bataille</h1>\n            \n            <div class=\"form\">\n                <input class=\"form-control\" type=\"text\" name=\"player1\" id=\"player1\" placeholder=\"Joueur 1\">\n                <input class=\"form-control\" type=\"text\" name=\"player2\" id=\"player2\" placeholder=\"Joueur 2\">\n                <button class=\"submit\">Entrer</button>\n            </div>\n        </div>\n    ",
+  component: "\n        <div class=\"home\">\n            <h1>Rejoignez la bataille</h1>\n            \n            <div class=\"form\">\n                <input class=\"form-control\" type=\"text\" name=\"player1\" id=\"player1\" placeholder=\"Joueur 1\">\n                <input class=\"form-control\" type=\"text\" name=\"player2\" id=\"player2\" placeholder=\"Joueur 2\">\n                <button class=\"submit\">Entrer</button>\n            </div>\n        </div>\n    ",
   render: function render() {
-    return this.component;
+    $('.body').append(this.component);
   }
 };
 
 /***/ }),
 
-/***/ "./assets/js/app.js":
-/*!**************************!*\
-  !*** ./assets/js/app.js ***!
-  \**************************/
-/*! no exports provided */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _map__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./_map */ "./assets/js/_map.js");
-/* harmony import */ var _personnages__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./_personnages */ "./assets/js/_personnages.js");
-/* harmony import */ var _router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./_router */ "./assets/js/_router.js");
-
-
-
-$(document).ready(function () {
-  $('.body').append(_router__WEBPACK_IMPORTED_MODULE_2__["Router"].welcome());
-  var player1 = '';
-  var player2 = '';
-  $('#player1').on('input', function () {
-    player1 = $('#player1').val();
-  });
-  $('#player2').on('input', function () {
-    player2 = $('#player2').val();
-  });
-  $('.submit').click(function () {
-    $('.welcome').hide();
-    $('.body').append(_router__WEBPACK_IMPORTED_MODULE_2__["Router"].home(player1, player2));
-    _map__WEBPACK_IMPORTED_MODULE_0__["Map"].init();
-    _personnages__WEBPACK_IMPORTED_MODULE_1__["Personnages"].init(_map__WEBPACK_IMPORTED_MODULE_0__["Map"].data.nbX, _map__WEBPACK_IMPORTED_MODULE_0__["Map"].data.nbY);
-  });
-});
-
-/***/ }),
-
-/***/ "./assets/sass/app.sass":
-/*!******************************!*\
-  !*** ./assets/sass/app.sass ***!
-  \******************************/
+/***/ "./src/sass/app.sass":
+/*!***************************!*\
+  !*** ./src/sass/app.sass ***!
+  \***************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -279,14 +303,14 @@ $(document).ready(function () {
 /***/ }),
 
 /***/ 0:
-/*!*******************************************************!*\
-  !*** multi ./assets/js/app.js ./assets/sass/app.sass ***!
-  \*******************************************************/
+/*!*************************************************!*\
+  !*** multi ./src/js/app.js ./src/sass/app.sass ***!
+  \*************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\wamp64\www\_OPENCLASSROOMS\game\assets\js\app.js */"./assets/js/app.js");
-module.exports = __webpack_require__(/*! C:\wamp64\www\_OPENCLASSROOMS\game\assets\sass\app.sass */"./assets/sass/app.sass");
+__webpack_require__(/*! C:\wamp64\www\_OPENCLASSROOMS\game\src\js\app.js */"./src/js/app.js");
+module.exports = __webpack_require__(/*! C:\wamp64\www\_OPENCLASSROOMS\game\src\sass\app.sass */"./src/sass/app.sass");
 
 
 /***/ })

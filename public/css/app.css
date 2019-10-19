@@ -64,15 +64,15 @@ li {
   display: flex;
 }
 
-.arena .pos-pirate {
+.arena .pirate {
   background: url("/_OPENCLASSROOMS/game/public/images/arena/pirate.png") no-repeat center;
 }
 
-.arena .pos-marines {
+.arena .marines {
   background: url("/_OPENCLASSROOMS/game/public/images/arena/marines.png") no-repeat center;
 }
 
-.arena .pos-wall {
+.arena .wall {
   background: url("/_OPENCLASSROOMS/game/public/images/arena/wall.png") no-repeat center;
 }
 

@@ -10,10 +10,35 @@
       <change afterPath="$PROJECT_DIR$/../Express_Food/_EF2/dump/.idea/modules.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../Express_Food/_EF2/dump/.idea/php.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../Express_Food/_EF2/dump/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/js/charcters/Character.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/js/charcters/Marines.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/js/charcters/Pirate.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/js/Manager/BlocManager.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/js/Model/Bloc.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/js/Model/Character.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/js/Model/Map.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/js/Model/Thing.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/js/Model/character/Marines.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/js/Model/character/Pirate.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/js/Model/thing/Potion.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/js/Model/thing/Wall.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/js/Model/thing/Weapon.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/js/Model/thing/potion/Fast.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/js/Model/thing/potion/Heal.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/js/Model/thing/potion/Poison.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/js/Model/thing/weapon/Knife.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/js/Model/thing/weapon/Shootgun.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src2/js/app.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src2/js/board/Bloc.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src2/js/characters/Character.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src2/js/things/Potion.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src2/js/things/Thing.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src2/js/things/Wall.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src2/js/things/Weapon.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src2/sass/_mixins.sass" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../generateur-citations/.babelrc" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../generateur-citations/assets/js/_generator.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../generateur-citations/assets/js/app_old.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../generateur-citations/assets/js/class/Citation.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../generateur-citations/assets/js/class/Format.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../generateur-citations/assets/js/class/Generator.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../generateur-citations/assets/sass/_modal.sass" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../generateur-citations/assets/sass/_normalize.sass" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../generateur-citations/assets/sass/_overlay.sass" afterDir="false" />
@@ -21,13 +46,31 @@
       <change afterPath="$PROJECT_DIR$/../generateur-citations/webpack.mix.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../_PERSONNEL/one-shot-date/js/_formater.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../_PERSONNEL/one-shot-date/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/class/Bloc.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/board/Bloc.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/class/Map.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/board/Map.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/board/Bloc.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/board/Map.js" beforeDir="false" afterPath="$PROJECT_DIR$/src2/js/board/Map.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/charcters/Character.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/charcters/Marines.js" beforeDir="false" afterPath="$PROJECT_DIR$/src2/js/characters/Marines.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/charcters/Pirate.js" beforeDir="false" afterPath="$PROJECT_DIR$/src2/js/characters/Pirate.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sass/_arena.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src2/sass/_arena.sass" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sass/_info.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src2/sass/_info.sass" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sass/_main.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src2/sass/_main.sass" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sass/_mixins.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/Manager/CharacterManager.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sass/_normalize.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src2/sass/_normalize.sass" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sass/_variables.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src2/sass/_variables.sass" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sass/app.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src2/sass/app.sass" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../generateur-citations/.idea/generateur-citations.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../generateur-citations/.idea/generateur-citations.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../generateur-citations/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../generateur-citations/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../generateur-citations/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../generateur-citations/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../generateur-citations/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../generateur-citations/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../generateur-citations/assets/js/_generator.js" beforeDir="false" afterPath="$PROJECT_DIR$/../generateur-citations/assets/js/_generator.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../generateur-citations/assets/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/../generateur-citations/assets/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../generateur-citations/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../generateur-citations/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../generateur-citations/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../generateur-citations/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../generateur-citations/package-lock.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../generateur-citations/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../generateur-citations/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../generateur-citations/public/css/app.css" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../generateur-citations/public/js/app.js" beforeDir="false" />
@@ -46,95 +89,96 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/js/app.js">
+        <entry file="file://$PROJECT_DIR$/src/js/Model/character/Marines.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="147">
-              <caret line="3" column="31" lean-forward="true" selection-start-line="3" selection-start-column="31" selection-end-line="3" selection-end-column="31" />
+              <caret line="3" column="19" selection-start-line="3" selection-start-column="19" selection-end-line="3" selection-end-column="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/js/Model/character/Pirate.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="147">
+              <caret line="3" column="18" selection-start-line="3" selection-start-column="18" selection-end-line="3" selection-end-column="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/js/Manager/BlocManager.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="49">
+              <caret line="10" column="10" lean-forward="true" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="10" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/js/Model/Map.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-189">
+              <caret line="19" column="50" selection-start-line="19" selection-start-column="50" selection-end-line="19" selection-end-column="50" />
               <folding>
-                <element signature="e#0#33#0" expanded="true" />
+                <element signature="e#0#28#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/js/Model/thing/Wall.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="98">
+              <caret line="2" column="31" selection-start-line="2" selection-start-column="31" selection-end-line="2" selection-end-column="31" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/js/Model/thing/Potion.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="98">
+              <caret line="2" column="33" selection-start-line="2" selection-start-column="33" selection-end-line="2" selection-end-column="33" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/js/Model/thing/Weapon.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="98">
+              <caret line="2" column="33" selection-start-line="2" selection-start-column="33" selection-end-line="2" selection-end-column="33" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/js/Model/Bloc.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1323">
+              <caret line="27" column="19" lean-forward="true" selection-start-line="27" selection-start-column="19" selection-end-line="27" selection-end-column="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/js/Model/Character.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2842">
+              <caret line="58" column="24" selection-start-line="58" selection-start-column="24" selection-end-line="58" selection-end-column="24" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/js/charcters/Character.js">
+        <entry file="file://$PROJECT_DIR$/src/js/Manager/CharacterManager.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="147">
-              <caret line="3" column="12" selection-start-line="3" selection-start-column="12" selection-end-line="3" selection-end-column="12" />
+            <state relative-caret-position="392">
+              <caret line="8" column="32" selection-start-line="8" selection-start-column="32" selection-end-line="8" selection-end-column="32" />
             </state>
           </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/js/charcters/Pirate.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="98">
-              <caret line="2" column="37" selection-start-line="2" selection-start-column="37" selection-end-line="2" selection-end-column="37" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/js/charcters/Marines.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="98">
-              <caret line="2" column="38" selection-start-line="2" selection-start-column="38" selection-end-line="2" selection-end-column="38" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/js/board/Map.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="735">
-              <caret line="15" column="5" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/js/_router.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="7" selection-start-column="7" selection-end-column="7" />
-              <folding>
-                <element signature="e#0#35#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/js/board/Bloc.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="539">
-              <caret line="11" column="84" selection-start-line="11" selection-start-column="84" selection-end-line="11" selection-end-column="84" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/sass/_arena.sass">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="147">
-              <caret line="3" column="17" selection-start-line="3" selection-start-column="17" selection-end-line="3" selection-end-column="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/sass/_main.sass">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="49">
-              <caret line="9" column="7" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/sass/_info.sass">
-          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
     </leaf>
@@ -152,7 +196,11 @@
       <find>pBloc</find>
       <find>t</find>
       <find>.data</find>
+      <find>maxX</find>
     </findStrings>
+    <replaceStrings>
+      <replace>width</replace>
+    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -160,35 +208,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/assets/app.js" />
-        <option value="$PROJECT_DIR$/../generateur-citations/index.php" />
-        <option value="$PROJECT_DIR$/views/layout/_links.php" />
-        <option value="$PROJECT_DIR$/views/layout/app.php" />
-        <option value="$PROJECT_DIR$/views/layout/_scripts.php" />
-        <option value="$PROJECT_DIR$/assets/sass/__normalize.sass" />
-        <option value="$PROJECT_DIR$/package.json" />
-        <option value="$PROJECT_DIR$/views/layout/_headers.php" />
-        <option value="$PROJECT_DIR$/assets/sass/app.sass" />
-        <option value="$PROJECT_DIR$/assets/sass/_normalize.sass" />
-        <option value="$PROJECT_DIR$/public/css/app.css" />
-        <option value="$PROJECT_DIR$/assets/sass/_variables.sass" />
-        <option value="$PROJECT_DIR$/views/home/index.php" />
-        <option value="$PROJECT_DIR$/assets/js/data/personnages.json" />
-        <option value="$PROJECT_DIR$/assets/js/data/arms.json" />
-        <option value="$PROJECT_DIR$/assets/sass/_info.sass" />
-        <option value="$PROJECT_DIR$/assets/sass/_mixins.sass" />
-        <option value="$PROJECT_DIR$/index.php" />
-        <option value="$PROJECT_DIR$/assets/js/_welcome.js" />
-        <option value="$PROJECT_DIR$/assets/js/_router.js" />
-        <option value="$PROJECT_DIR$/assets/js/_home.js" />
-        <option value="$PROJECT_DIR$/assets/sass/_main.sass" />
-        <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/public/js/app.js" />
-        <option value="$PROJECT_DIR$/assets/js/_wall.js" />
-        <option value="$PROJECT_DIR$/assets/js/_personnages.js" />
-        <option value="$PROJECT_DIR$/assets/sass/_arena.sass" />
-        <option value="$PROJECT_DIR$/assets/js/_weapons.js" />
-        <option value="$PROJECT_DIR$/assets/js/data/items.json" />
         <option value="$APPLICATION_CONFIG_DIR$/phpstorm64.exe.vmoptions" />
         <option value="$PROJECT_DIR$/assets/js/_items.js" />
         <option value="$PROJECT_DIR$/assets/js/_map.js" />
@@ -200,17 +219,46 @@
         <option value="$PROJECT_DIR$/src/js/class/map/Bloc.js" />
         <option value="$PROJECT_DIR$/webpack.mix.js" />
         <option value="$PROJECT_DIR$/.babelrc" />
-        <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/mix-manifest.json" />
-        <option value="$PROJECT_DIR$/src/sass/_arena.sass" />
         <option value="$PROJECT_DIR$/src/js/class/Bloc.js" />
         <option value="$PROJECT_DIR$/src/js/class/Map.js" />
-        <option value="$PROJECT_DIR$/src/js/app.js" />
         <option value="$PROJECT_DIR$/src/js/charcters/Characters.js" />
         <option value="$PROJECT_DIR$/src/js/charcters/_Pirates.js" />
         <option value="$PROJECT_DIR$/src/js/charcters/Marines.js" />
         <option value="$PROJECT_DIR$/src/js/charcters/Pirate.js" />
         <option value="$PROJECT_DIR$/src/js/charcters/Character.js" />
+        <option value="$PROJECT_DIR$/src/js/things/wall.js" />
+        <option value="$PROJECT_DIR$/src/sass/_arena.sass" />
+        <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/src/js/things/Wall.js" />
+        <option value="$PROJECT_DIR$/src/js/things/Weapon.js" />
+        <option value="$PROJECT_DIR$/src/js/things/Potion.js" />
+        <option value="$PROJECT_DIR$/src/js/characters/Character.js" />
+        <option value="$PROJECT_DIR$/src/js/things/Thing.js" />
+        <option value="$PROJECT_DIR$/src/js/board/Map.js" />
+        <option value="$PROJECT_DIR$/src/js/board/Bloc.js" />
+        <option value="$PROJECT_DIR$/src/js/Model/board/Map.js" />
+        <option value="$PROJECT_DIR$/src/js/Manager/board/Bloc.js" />
+        <option value="$PROJECT_DIR$/src/js/Model/board/Bloc.js" />
+        <option value="$PROJECT_DIR$/src/js/Manager/board/BoardManager.js" />
+        <option value="$PROJECT_DIR$/src/_router.js" />
+        <option value="$PROJECT_DIR$/src/js/app.js" />
+        <option value="$PROJECT_DIR$/src/js/Model/Thing.js" />
+        <option value="$PROJECT_DIR$/src/js/Model/thing/Weapon.js" />
+        <option value="$PROJECT_DIR$/src/js/Model/thing/Wall.js" />
+        <option value="$PROJECT_DIR$/src/js/Model/thing/Potion.js" />
+        <option value="$PROJECT_DIR$/src/js/Model/thing/potion/Heal.js" />
+        <option value="$PROJECT_DIR$/src/js/Model/thing/potion/Poison.js" />
+        <option value="$PROJECT_DIR$/src/js/Model/thing/potion/Fast.js" />
+        <option value="$PROJECT_DIR$/src/js/Model/thing/weapon/Knife.js" />
+        <option value="$PROJECT_DIR$/src/js/Model/thing/weapon/Shootgun.js" />
+        <option value="$PROJECT_DIR$/src/js/Model/Map.js" />
+        <option value="$PROJECT_DIR$/src/js/Model/character/Marines.js" />
+        <option value="$PROJECT_DIR$/src/js/Model/character/Pirate.js" />
+        <option value="$PROJECT_DIR$/src/js/Manager/board/BlocManager.js" />
+        <option value="$PROJECT_DIR$/src/js/Model/Bloc.js" />
+        <option value="$PROJECT_DIR$/src/js/Model/Character.js" />
+        <option value="$PROJECT_DIR$/src/js/Manager/CharacterManager.js" />
       </list>
     </option>
   </component>
@@ -228,7 +276,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -239,17 +286,6 @@
             <path>
               <item name="game" type="b2602c69:ProjectViewProjectNode" />
               <item name="game" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="game" type="b2602c69:ProjectViewProjectNode" />
-              <item name="game" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="game" type="b2602c69:ProjectViewProjectNode" />
-              <item name="game" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -262,20 +298,68 @@
               <item name="game" type="b2602c69:ProjectViewProjectNode" />
               <item name="game" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="Manager" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="game" type="b2602c69:ProjectViewProjectNode" />
+              <item name="game" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="Model" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="game" type="b2602c69:ProjectViewProjectNode" />
+              <item name="game" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="Model" type="462c0819:PsiDirectoryNode" />
+              <item name="character" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="game" type="b2602c69:ProjectViewProjectNode" />
+              <item name="game" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="Model" type="462c0819:PsiDirectoryNode" />
+              <item name="thing" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="game" type="b2602c69:ProjectViewProjectNode" />
+              <item name="game" type="462c0819:PsiDirectoryNode" />
+              <item name="src2" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="game" type="b2602c69:ProjectViewProjectNode" />
+              <item name="game" type="462c0819:PsiDirectoryNode" />
+              <item name="src2" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="game" type="b2602c69:ProjectViewProjectNode" />
+              <item name="game" type="462c0819:PsiDirectoryNode" />
+              <item name="src2" type="462c0819:PsiDirectoryNode" />
               <item name="js" type="462c0819:PsiDirectoryNode" />
               <item name="board" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="game" type="b2602c69:ProjectViewProjectNode" />
               <item name="game" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="src2" type="462c0819:PsiDirectoryNode" />
               <item name="js" type="462c0819:PsiDirectoryNode" />
-              <item name="charcters" type="462c0819:PsiDirectoryNode" />
+              <item name="characters" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="game" type="b2602c69:ProjectViewProjectNode" />
               <item name="game" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="src2" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="things" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="game" type="b2602c69:ProjectViewProjectNode" />
+              <item name="game" type="462c0819:PsiDirectoryNode" />
+              <item name="src2" type="462c0819:PsiDirectoryNode" />
               <item name="sass" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -287,32 +371,33 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Color Scheme Font" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\wamp64\www\_OPENCLASSROOMS\game\src\js\class" />
-      <recent name="C:\wamp64\www\_OPENCLASSROOMS\game\src\js\class\map" />
-      <recent name="C:\wamp64\www\_OPENCLASSROOMS\game\public" />
-      <recent name="C:\wamp64\www\_OPENCLASSROOMS\game" />
-      <recent name="C:\wamp64\www\_OPENCLASSROOMS\game\src\assets\js" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\wamp64\www\_OPENCLASSROOMS\game\src" />
       <recent name="C:\wamp64\www\_OPENCLASSROOMS\game\src\js" />
       <recent name="C:\wamp64\www\_OPENCLASSROOMS\game\src\js\pages" />
       <recent name="C:\wamp64\www\_OPENCLASSROOMS\game" />
       <recent name="C:\wamp64\www\_OPENCLASSROOMS\game\assets" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\_OPENCLASSROOMS\game\src\js\Manager" />
+      <recent name="C:\wamp64\www\_OPENCLASSROOMS\game\src\js" />
+      <recent name="C:\wamp64\www\_OPENCLASSROOMS\game\src" />
+      <recent name="C:\wamp64\www\_OPENCLASSROOMS\game\src\js\Model" />
+      <recent name="C:\wamp64\www\_OPENCLASSROOMS\game\src\js\class" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -349,18 +434,24 @@
       <workItem from="1570739697351" duration="4937000" />
       <workItem from="1570744792621" duration="19000" />
       <workItem from="1570792907023" duration="2039000" />
-      <workItem from="1570919561563" duration="7513000" />
+      <workItem from="1570919561563" duration="7745000" />
+      <workItem from="1571168976159" duration="4277000" />
+      <workItem from="1571251624604" duration="2056000" />
+      <workItem from="1571356048742" duration="12000" />
+      <workItem from="1571356377642" duration="9000" />
+      <workItem from="1571395874546" duration="3555000" />
+      <workItem from="1571516079056" duration="5206000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="33852000" />
+    <option name="totallyTimeSpent" value="49199000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1216" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24062166" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25991425" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -408,171 +499,12 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/css/app.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1029">
-          <caret line="21" column="19" selection-start-line="21" selection-start-column="19" selection-end-line="21" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/data/personnages.json" />
-    <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external/lib.es5.d.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="33761">
-          <caret line="702" column="4" selection-start-line="702" selection-start-column="4" selection-end-line="702" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/welcome/index.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/layout/_headers.php" />
-    <entry file="file://$PROJECT_DIR$/views/layout/_scripts.php" />
-    <entry file="file://$PROJECT_DIR$/views/layout/app.php" />
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="49">
-          <caret line="1" column="31" selection-start-line="1" selection-start-column="31" selection-end-line="1" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="13" selection-start-column="13" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/home/index.php" />
-    <entry file="file://$PROJECT_DIR$/assets2/sass/app.sass">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="245">
-          <caret line="5" column="14" selection-start-line="5" selection-start-column="14" selection-end-line="5" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets2/sass/_variables.sass">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="98">
-          <caret line="2" column="34" selection-start-line="2" selection-start-column="34" selection-end-line="2" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets2/sass/_normalize.sass">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="98">
-          <caret line="2" column="1" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets2/sass/_mixins.sass">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets2/sass/_main.sass">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="579">
-          <caret line="14" column="27" selection-start-line="14" selection-start-column="27" selection-end-line="14" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/_weapons.js" />
-    <entry file="file://$APPLICATION_CONFIG_DIR$/phpstorm64.exe.vmoptions">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="49">
-          <caret line="2" column="30" selection-start-line="2" selection-start-column="30" selection-end-line="2" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets2/sass/_info.sass">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets2/sass/_arena.sass">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="4" column="14" selection-start-line="4" selection-start-column="14" selection-end-line="4" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets2/js/data/items.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1127">
-          <caret line="23" column="6" selection-start-line="23" selection-start-column="6" selection-end-line="23" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets2/js/_items.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="392">
-          <caret line="8" selection-start-line="8" selection-end-line="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets2/js/_welcome.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="6" column="82" selection-start-line="6" selection-start-column="75" selection-end-line="6" selection-end-column="82" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets2/js/_home.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="49">
-          <caret line="1" column="31" selection-start-line="1" selection-start-column="31" selection-end-line="1" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets2/js/_wall.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="3" column="26" selection-start-line="3" selection-start-column="26" selection-end-line="5" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/app.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets2/js/_router.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="392">
-          <caret line="8" column="21" selection-start-line="8" selection-start-column="21" selection-end-line="8" selection-end-column="21" />
-          <folding>
-            <element signature="e#0#30#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sass/_normalize.sass">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-287" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sass/app.sass">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sass/_mixins.sass">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sass/_variables.sass">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets2/js/_personnages.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets2/js/_map.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="98">
-          <caret line="5" column="40" selection-start-line="5" selection-start-column="14" selection-end-line="5" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/assets2/js/_home.js" />
+    <entry file="file://$PROJECT_DIR$/assets2/js/_wall.js" />
+    <entry file="file://$PROJECT_DIR$/assets/js/app.js" />
+    <entry file="file://$PROJECT_DIR$/assets2/js/_router.js" />
+    <entry file="file://$PROJECT_DIR$/assets2/js/_personnages.js" />
+    <entry file="file://$PROJECT_DIR$/assets2/js/_map.js" />
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-539">
@@ -587,28 +519,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1763">
-          <caret line="181" column="3" selection-start-line="181" selection-start-column="3" selection-end-line="181" selection-end-column="3" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="n#style#0;n#p#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#p#0;n#div#1;n#div#1;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets2/js/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="441">
-          <caret line="21" column="56" lean-forward="true" selection-start-line="19" selection-start-column="4" selection-end-line="21" selection-end-column="56" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/assets2/js/app.js" />
     <entry file="file://$PROJECT_DIR$/src/js/pages/home.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="98">
@@ -637,41 +548,113 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
+    <entry file="file://$PROJECT_DIR$/src2/js/characters/Marines.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="588">
-          <caret line="26" column="16" selection-start-line="26" selection-start-column="16" selection-end-line="26" selection-end-column="16" />
+        <state relative-caret-position="147">
+          <caret line="3" column="19" selection-start-line="3" selection-start-column="19" selection-end-line="3" selection-end-column="19" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sass/_info.sass">
+    <entry file="file://$PROJECT_DIR$/src2/sass/_info.sass">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sass/_main.sass">
+    <entry file="file://$PROJECT_DIR$/public/js/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="49">
+        <state relative-caret-position="2240">
+          <caret line="181" column="3" selection-start-line="181" selection-start-column="3" selection-end-line="181" selection-end-column="3" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="n#style#0;n#p#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#0;n#div#1;n#div#1;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src2/sass/app.sass">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src2/sass/_variables.sass">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src2/sass/_normalize.sass">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src2/sass/_mixins.sass">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src2/sass/_main.sass">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="441">
           <caret line="9" column="7" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sass/_arena.sass">
+    <entry file="file://$PROJECT_DIR$/src2/js/things/Thing.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="637">
+          <caret line="13" column="62" selection-start-line="13" selection-start-column="62" selection-end-line="13" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src2/js/things/Wall.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="147">
-          <caret line="3" column="17" selection-start-line="3" selection-start-column="17" selection-end-line="3" selection-end-column="17" />
+          <caret line="3" column="16" selection-start-line="3" selection-start-column="16" selection-end-line="3" selection-end-column="16" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/board/Bloc.js">
+    <entry file="file://$PROJECT_DIR$/src2/js/things/Weapon.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="539">
-          <caret line="11" column="84" selection-start-line="11" selection-start-column="84" selection-end-line="11" selection-end-column="84" />
+        <state relative-caret-position="147">
+          <caret line="3" column="18" selection-start-line="3" selection-start-column="18" selection-end-line="3" selection-end-column="18" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/board/Map.js">
+    <entry file="file://$PROJECT_DIR$/src2/js/things/Potion.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="735">
-          <caret line="15" column="5" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
+        <state relative-caret-position="147">
+          <caret line="3" column="12" selection-start-line="3" selection-start-column="12" selection-end-line="3" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src2/js/characters/Pirate.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="98">
+          <caret line="2" column="38" selection-start-line="2" selection-start-column="38" selection-end-line="2" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src2/sass/_arena.sass">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="6" column="10" selection-start-line="6" selection-start-column="10" selection-end-line="6" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/Manager/board/Bloc.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src2/js/board/Map.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="392">
+          <caret line="8" column="19" lean-forward="true" selection-end-line="32" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="343">
+          <caret line="23" column="41" selection-start-line="23" selection-start-column="41" selection-end-line="23" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src2/js/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="392">
+          <caret line="8" column="8" selection-end-line="24" selection-end-column="2" />
+          <folding>
+            <element signature="e#0#33#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -685,34 +668,142 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src2/js/board/Bloc.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="332">
+          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="26" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/js/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="3" column="31" lean-forward="true" selection-start-line="3" selection-start-column="31" selection-end-line="3" selection-end-column="31" />
+        <state relative-caret-position="343">
+          <caret line="7" column="16" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
           <folding>
             <element signature="e#0#33#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/charcters/Marines.js">
+    <entry file="file://$PROJECT_DIR$/src/js/Model/Thing.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="98">
-          <caret line="2" column="38" selection-start-line="2" selection-start-column="38" selection-end-line="2" selection-end-column="38" />
+        <state relative-caret-position="49">
+          <caret line="1" column="4" selection-start-line="1" selection-start-column="4" selection-end-line="1" selection-end-column="4" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/charcters/Pirate.js">
+    <entry file="file://$PROJECT_DIR$/src/js/Model/thing/potion/Heal.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="98">
-          <caret line="2" column="37" selection-start-line="2" selection-start-column="37" selection-end-line="2" selection-end-column="37" />
+          <caret line="2" column="32" selection-start-line="2" selection-start-column="32" selection-end-line="2" selection-end-column="32" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/charcters/Character.js">
+    <entry file="file://$PROJECT_DIR$/src/js/Model/thing/potion/Poison.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="98">
+          <caret line="2" column="34" selection-start-line="2" selection-start-column="34" selection-end-line="2" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/Model/thing/potion/Fast.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="98">
+          <caret line="2" column="32" selection-start-line="2" selection-start-column="32" selection-end-line="2" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/Model/thing/weapon/Knife.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="98">
+          <caret line="2" column="33" selection-start-line="2" selection-start-column="33" selection-end-line="2" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/Model/thing/weapon/Shootgun.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="98">
+          <caret line="2" column="36" selection-start-line="2" selection-start-column="36" selection-end-line="2" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src2/js/characters/Character.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="6" column="13" lean-forward="true" selection-start-line="6" selection-start-column="13" selection-end-line="11" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/Model/Map.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-189">
+          <caret line="19" column="50" selection-start-line="19" selection-start-column="50" selection-end-line="19" selection-end-column="50" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/Model/thing/Weapon.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="98">
+          <caret line="2" column="33" selection-start-line="2" selection-start-column="33" selection-end-line="2" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/Model/thing/Wall.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="98">
+          <caret line="2" column="31" selection-start-line="2" selection-start-column="31" selection-end-line="2" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/Model/thing/Potion.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="98">
+          <caret line="2" column="33" selection-start-line="2" selection-start-column="33" selection-end-line="2" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/Model/Bloc.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1323">
+          <caret line="27" column="19" lean-forward="true" selection-start-line="27" selection-start-column="19" selection-end-line="27" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/Model/character/Marines.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="147">
-          <caret line="3" column="12" selection-start-line="3" selection-start-column="12" selection-end-line="3" selection-end-column="12" />
+          <caret line="3" column="19" selection-start-line="3" selection-start-column="19" selection-end-line="3" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/Model/character/Pirate.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="3" column="18" selection-start-line="3" selection-start-column="18" selection-end-line="3" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/Model/Character.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2842">
+          <caret line="58" column="24" selection-start-line="58" selection-start-column="24" selection-end-line="58" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/Manager/BlocManager.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="49">
+          <caret line="10" column="10" lean-forward="true" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/Manager/CharacterManager.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="392">
+          <caret line="8" column="32" selection-start-line="8" selection-start-column="32" selection-end-line="8" selection-end-column="32" />
         </state>
       </provider>
     </entry>

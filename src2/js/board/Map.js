@@ -1,7 +1,7 @@
 import {Bloc} from "./Bloc";
 
 export class Map {
-    maxX = 10
+    maxX = 8
     maxY = 8
     arena = []
     occupedBlocs = []
@@ -23,5 +23,11 @@ export class Map {
                 cases.render('#line' + line)
             })
         })
+    }
+
+    makeRandom(pos) {
+        let random = Math.floor(Math.random() * (pos === 'x' ? this.maxX : this.maxY)) + 1
+        console.log(random)
+        return random
     }
 }

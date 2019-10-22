@@ -5,13 +5,16 @@ export class CharacterManager {
         this.character = character
     }
 
-    render(posY, posX) {
-        return $('.bloc:data("pos-y")')
+    render() {
+        let posY = this.character.getPosY()
+        let posX = this.character.getPosX()
+
+        let node = $('.bloc:data("pos-y")')
             .filter(function () {
-                return $(this).data("pos-y") == posY
+                return $(this).data("pos-y") == posY && $(this).data("pos-x") == posX
             })
-            .filter(function () {
-                return $(this).data("posX") == posX
-            })
+
+        node.data("type", this.character.getType())
+        node.addClass(this.character.getType())
     }
 }

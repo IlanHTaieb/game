@@ -6,9 +6,9 @@ export class Character {
     posX = 0
     type = ''
 
-    constructor(posY, posX) {
-        this.posY = posY
-        this.posX = posX
+    constructor(pos) {
+        this.posY = pos.posY
+        this.posX = pos.posX
     }
 
     getHeal() {

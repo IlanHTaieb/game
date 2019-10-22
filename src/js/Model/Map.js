@@ -8,12 +8,20 @@ export class Map {
     occupedBlocs = []
 
     constructor() {
-        for (let y = 0; y < this.height; y++) {
+        for (let y = 1; y <= this.height; y++) {
             this.arena[y] = []
-            for (let x = 0; x < this.width; x++) {
+            for (let x = 1; x <= this.width; x++) {
                 this.arena[y][x] = new BlocManager(new Bloc(y, x))
             }
         }
+    }
+
+    getHeigth() {
+        return this.height
+    }
+
+    getWidth() {
+        return this.width
     }
 
     render() {
@@ -32,9 +40,21 @@ export class Map {
         })
     }
 
-    makeRandom(pos) {
-        let random = Math.floor(Math.random() * (pos === 'x' ? this.width : this.height)) + 1
-        console.log(random)
-        return random
+    makeRandom() {
+        let posY = Math.floor(Math.random() * (this.height)) + 1
+        let posX = Math.floor(Math.random() * (this.width)) + 1
+
+        let node = $('.bloc:data("pos-y")').filter(function () {
+            return $(this).data("pos-y") == posY && $(this).data("pos-x") == posX
+        })
+
+        if (node.data('type') != 'free') {
+            this.makeRandom(5)
+        }
+
+        return {
+            posY: posY,
+            posX: posX
+        }
     }
 }

@@ -14,7 +14,7 @@ export class Bloc {
     }
 
     getPosX() {
-        return this.posY
+        return this.posX
     }
 
     getSize() {

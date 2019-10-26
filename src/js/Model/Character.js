@@ -6,11 +6,6 @@ export class Character {
     posX = 0
     type = ''
 
-    constructor(pos) {
-        this.posY = pos.posY
-        this.posX = pos.posX
-    }
-
     getHeal() {
         return this.heal
     }

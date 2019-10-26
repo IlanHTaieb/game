@@ -3,11 +3,6 @@ export class Thing {
     posX = 0
     type = ''
 
-    constructor(pos) {
-        this.posY = pos.posY
-        this.posX = pos.posX
-    }
-
     getPosY() {
         return this.posY
     }
@@ -18,5 +13,13 @@ export class Thing {
 
     getType() {
         return this.type
+    }
+
+    setPosY(posY) {
+        this.posY = posY
+    }
+
+    setPosX(posX) {
+        this.posX = posX
     }
 }

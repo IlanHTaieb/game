@@ -12,21 +12,15 @@ $(document).ready(function () {
     let map = new Map()
     map.render()
 
-    let pirate = new CharacterManager(new Pirate(
-        map.makeRandom()
-    ))
+    let pirate = new CharacterManager(new Pirate())
+    let marines = new CharacterManager(new Marines())
 
-    let marines = new CharacterManager(new Marines(
-        map.makeRandom()
-    ))
+    map.init(pirate)
+    map.init(marines)
 
-    pirate.render()
-    marines.render()
     for (let i = 0; i < 20; i++) {
-        let wall = new ThingManager(new Wall(
-            map.makeRandom()
-        ))
+        let wall = new ThingManager(new Wall())
 
-        wall.render()
+        map.init(wall)
     }
 })

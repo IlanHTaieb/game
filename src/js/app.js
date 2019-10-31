@@ -18,9 +18,15 @@ $(document).ready(function () {
     map.init(pirate)
     map.init(marines)
 
-    for (let i = 0; i < 20; i++) {
+    for (let i = 0; i < 15; i++) {
         let wall = new ThingManager(new Wall())
 
         map.init(wall)
     }
+
+    $('.bloc').click(function () {
+        if ($(this).data('type') == 'free') {
+            map.move(pirate, $(this).data())
+        }
+    })
 })

@@ -1,29 +1,47 @@
 export class CharacterManager {
-    instance
+    current
 
-    constructor(instance) {
-        this.instance = instance
+    constructor(current) {
+        this.current = current
     }
 
-    getInstance() {
-        return this.instance
+    getCurrent() {
+        return this.current
     }
 
-    setInstance(posY, posX) {
-        this.instance.setPosY(posY)
-        this.instance.setPosX(posX)
+    setCurrent(posY, posX) {
+        this.current.setPosY(posY)
+        this.current.setPosX(posX)
     }
 
     render() {
-        let posY = this.instance.getPosY()
-        let posX = this.instance.getPosX()
+        let posY = this.current.getPosY()
+        let posX = this.current.getPosX()
 
         let node = $('.bloc:data("pos-y")')
             .filter(function () {
                 return $(this).data("pos-y") == posY && $(this).data("pos-x") == posX
             })
 
-        node.data("type", this.instance.getType())
-        node.addClass(this.instance.getType())
+        node.data("type", this.current.getType())
+        node.addClass(this.current.getType())
+    }
+
+    move(posY, posX) {
+        this.removeOld()
+        this.setCurrent(posY, posX)
+        this.render()
+    }
+
+    removeOld() {
+        let posY = this.current.getPosY()
+        let posX = this.current.getPosX()
+
+        $('.bloc:data("pos-y")')
+            .filter(function () {
+                return $(this).data("pos-y") == posY && $(this).data("pos-x") == posX
+            })
+            .data('type', 'free')
+            .removeClass(this.current.getType())
     }
 }

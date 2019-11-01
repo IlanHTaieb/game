@@ -17,10 +17,9 @@ $(document).ready(function () {
 
     map.init(pirate)
     map.init(marines)
+    let wall = new ThingManager(new Wall())
 
-    for (let i = 0; i < 15; i++) {
-        let wall = new ThingManager(new Wall())
-
+    for (let i = 0; i < 20; i++) {
         map.init(wall)
     }
 

@@ -2,7 +2,7 @@ import {Bloc} from "./Bloc"
 import {BlocManager} from "../Manager/BlocManager"
 
 export class Map {
-    height = 8
+    height = 10
     width = 10
     arena = []
     freeBlocs = []
@@ -45,33 +45,45 @@ export class Map {
 
     init(element) {
         let item = this.chooseBlock()
+        let that = this
 
-        $.when(item).done(function () {
+        if (item) {
             element.setCurrent(
                 item.bloc.getPosY(),
                 item.bloc.getPosX()
             )
 
+            console.log(
+                item.bloc.getPosY(),
+                item.bloc.getPosX())
+
             element.render()
-        })
 
-        this.freeBlocs[item.bloc.getPosY()].splice(item.bloc.getPosX(), 1)
+            that.freeBlocs[item.bloc.getPosY()].splice(item.bloc.getPosX(), 1)
 
-        if (this.freeBlocs[item.bloc.getPosY()].length == 0) {
-            this.freeBlocs.splice(item.bloc.getPosY(), 1)
+            if (that.freeBlocs[item.bloc.getPosY()].length == 0) {
+                that.freeBlocs.splice(item.bloc.getPosY(), 1)
+            }
         }
     }
 
     chooseBlock() {
-        return this.freeBlocs
-            [this.posRandom('line')]
-            [this.posRandom('column')]
+        let line = this.posRandom('line')
+        let column = this.posRandom('column')
+
+        if ('undefined' != this.freeBlocs[line][column]) {
+            return this.freeBlocs[line][column]
+        } else {
+            this.chooseBlock()
+        }
+
     }
 
     move(character, bloc) {
         let posX
         let posY
         let that = this
+
         let moves = [
             {
                 //Move up

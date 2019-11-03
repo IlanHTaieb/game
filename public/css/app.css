@@ -76,8 +76,16 @@ li {
   background: url("/_OPENCLASSROOMS/game/public/images/arena/wall.png") no-repeat center;
 }
 
+.arena .knife {
+  background: url("/_OPENCLASSROOMS/game/public/images/arena/knife.png") no-repeat center;
+}
+
 .arena .bloc {
   background-size: contain;
+}
+
+.arena .bloc:hover {
+  background-color: rgba(84, 168, 212, 0.3);
 }
 
 .info {

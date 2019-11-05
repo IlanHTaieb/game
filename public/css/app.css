@@ -80,6 +80,10 @@ li {
   background: url("/_OPENCLASSROOMS/game/public/images/arena/knife.png") no-repeat center;
 }
 
+.arena .shootgun {
+  background: url("/_OPENCLASSROOMS/game/public/images/arena/shootgun.png") no-repeat center;
+}
+
 .arena .bloc {
   background-size: contain;
 }

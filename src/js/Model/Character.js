@@ -1,10 +1,10 @@
-export class Character {
+import {Model} from "./Model";
+
+export class Character extends Model{
     heal = 200
     power = 10
     move = 3
-    posY = 0
-    posX = 0
-    type = ''
+    round = false
 
     getHeal() {
         return this.heal
@@ -16,18 +16,6 @@ export class Character {
 
     getMove() {
         return this.move
-    }
-
-    getPosY() {
-        return this.posY
-    }
-
-    getPosX() {
-        return this.posX
-    }
-
-    getType() {
-        return this.type
     }
 
     setHeal(heal) {
@@ -42,15 +30,11 @@ export class Character {
         this.move = move
     }
 
-    setPosY(posY) {
-        this.posY = posY
+    getRound() {
+        return this.round
     }
 
-    setPosX(posX) {
-        this.posX = posX
-    }
-
-    setType(type) {
-        this.type = type
+    setRound(round) {
+        this.round = round
     }
 }

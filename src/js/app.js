@@ -1,37 +1,60 @@
 import {Router} from "./_router";
 import {Map} from "./Model/Map";
 import {Pirate} from "./Model/Characters/Pirate";
-import {CharacterManager} from "./Manager/CharacterManager";
+import {CharacterManager} from "./Manager/Elements/CharacterManager";
 import {Marines} from "./Model/Characters/Marines";
-import {ThingManager} from "./Manager/ThingManager";
+import {ThingManager} from "./Manager/Elements/ThingManager";
 import {Wall} from "./Model/Things/Wall";
 import {Knife} from "./Model/Things/Weapons/Knife";
 import {Shootgun} from "./Model/Things/Weapons/Shootgun";
+import {ItemManager} from "./Manager/Elements/ItemManager";
+import {Character} from "./Model/Character";
 
 $(document).ready(function () {
     //Router.home()
-    Router.arena('Toto', 'Ploufy')
-    let map = new Map()
-    map.render()
+    Router.arena('Toto', 'Ploufy');
+    let map = new Map();
+    map.render();
 
-    let pirate = new CharacterManager(new Pirate())
-    let marines = new CharacterManager(new Marines())
-    let knife = new ThingManager(new Knife())
-    let shootgun = new ThingManager(new Shootgun())
+    let characters = {
+        pirate: new CharacterManager(new Pirate()),
+        marines: new CharacterManager(new Marines())
+    };
 
-    map.init(pirate)
-    map.init(marines)
-    map.init(knife)
+    console.log();
 
-    let wall = new ThingManager(new Wall())
+    let knife = new ItemManager(new Knife());
+    let shootgun = new ItemManager(new Shootgun());
+
+    map.init(characters.pirate);
+    map.init(characters.marines);
+    map.init(knife);
+    map.init(shootgun);
+
+    let wall = new ThingManager(new Wall());
 
     for (let i = 0; i <= 15; i++) {
         map.init(wall)
     }
 
+    let firstPlayer = Object.entries(characters)
+        [Math.floor(Math.random() * Object.entries(characters).length)]
+        [1];
+
     $('.bloc').click(function () {
-        if ($(this).data('type') == 'free') {
-            map.move(pirate, $(this).data())
+        let currentPlayer = firstPlayer
+
+        for (let [key, player] of Object.entries(characters)) {
+            if (player.getCurrent().getRound()) {
+                currentPlayer = player
+                player.getCurrent().setRound(false)
+            } else {
+                player.getCurrent().setRound(true)
+            }
+        }
+
+        if ($(this).data('type') == 'free' || $(this).data('type') == 'item') {
+            map.move(currentPlayer, $(this).data())
         }
     })
-})
+});

@@ -3,13 +3,15 @@
   .line
     display: flex
   .pirate
-    background: url($base-uri + "public/images/arena/pirate.png") no-repeat center
+    @include element('pirate')
   .marines
-    background: url($base-uri + "public/images/arena/marines.png") no-repeat center
+    @include element('marines')
   .wall
-    background: url($base-uri + "public/images/arena/wall.png") no-repeat center
+    @include element('wall')
   .knife
-    background: url($base-uri + "public/images/arena/knife.png") no-repeat center
+    @include element('knife')
+  .shootgun
+    @include element('shootgun')
   .bloc
     background-size: contain
     &:hover

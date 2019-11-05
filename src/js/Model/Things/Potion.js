@@ -1,5 +1,5 @@
-import {Thing} from "../Thing";
+import {Item} from "../Item";
 
-export class Potion extends Thing{
+export class Potion extends Item{
 
 }

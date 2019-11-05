@@ -1,4 +1,4 @@
-export class ThingManager {
+export class ElementManager {
     current
 
     constructor(current) {

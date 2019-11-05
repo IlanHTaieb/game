@@ -53,10 +53,6 @@ export class Map {
                 item.bloc.getPosX()
             )
 
-            console.log(
-                item.bloc.getPosY(),
-                item.bloc.getPosX())
-
             element.render()
 
             that.freeBlocs[item.bloc.getPosY()].splice(item.bloc.getPosX(), 1)
@@ -80,77 +76,33 @@ export class Map {
     }
 
     move(character, bloc) {
-        let posX
-        let posY
-        let that = this
+        console.log('- Starting move')
 
-        let moves = [
-            {
-                //Move up
-                dir: 'Y',
-                distance: character.getCurrent().getPosY() - bloc.posY
-            },
-            {
-                //Move down
-                dir: 'Y',
-                distance: bloc.posY - character.getCurrent().getPosY()
-            },
-            {
-                //Move left
-                dir: 'X',
-                distance: character.getCurrent().getPosX() - bloc.posX
-            },
-            {
-                //Move right
-                dir: 'X',
-                distance: bloc.posX - character.getCurrent().getPosX()
-            }
-        ]
+        let currentPosition = {
+            Y: character.getCurrent().getPosY(),
+            X: character.getCurrent().getPosX()
+        }
 
-        $.when(
-            moves.forEach(move => {
-                let line = move.dir == 'X'
-                    ? {
-                        character: character.getCurrent().getPosY(),
-                        bloc: bloc.posY,
-                        speed: character.getCurrent().getMove(),
-                        dir: 'Y'
-                    }
-                    : {
-                        character: character.getCurrent().getPosX(),
-                        bloc: bloc.posX,
-                        speed: character.getCurrent().getMove(),
-                        dir: 'X'
-                    }
+        let destinationPosition = {
+            Y: bloc.posY,
+            X: bloc.posX
+        }
 
-                    let init = this.checkMove(move, line)
+        let move = {
+            Y: destinationPosition.Y - currentPosition.Y,
+            X: destinationPosition.X - currentPosition.X
+        }
 
-                if (line.character == line.bloc) {
-                    if (init.result) {
-                        init.dir == 'X' ? posX = true : posY = true
-                    }
-                }
-            })
-        ).done(function () {
-            if (posY || posX) {
-                that.createFreeBloc(bloc.posY, bloc.posX)
-                character.move(bloc.posY, bloc.posX)
-            }
-        })
-    }
+        console.log('- Character position')
+        console.log(currentPosition)
+        console.log('- Bloc position')
+        console.log(destinationPosition)
+        console.log('- Move length')
+        console.log(move)
 
-    checkMove(move, line) {
-        let moveExists = move.distance > 0
-        let moveNotTooLong = move.distance <= line.speed
-
-        if (moveExists && moveNotTooLong) {
-            return line.dir == 'X'
-                ? {result:move.distance, dir: 'Y'}
-                : {result:move.distance, dir: 'X'}
-        } else {
-            return line.dir == 'X'
-                ? {result:false, dir: 'Y'}
-                : {result:false, dir: 'X'}
+        if ((move.Y + move.X) <= character.getCurrent().getMove() && (move.Y + move.X) > -4) {
+            this.createFreeBloc(bloc.posY, bloc.posX)
+            character.move(bloc.posY, bloc.posX)
         }
     }
 

@@ -634,7 +634,6 @@ function () {
 
       if (item) {
         element.setCurrent(item.bloc.getPosY(), item.bloc.getPosX());
-        console.log(item.bloc.getPosY(), item.bloc.getPosX());
         element.render();
         that.freeBlocs[item.bloc.getPosY()].splice(item.bloc.getPosX(), 1);
 
@@ -658,77 +657,29 @@ function () {
   }, {
     key: "move",
     value: function move(character, bloc) {
-      var _this = this;
+      console.log('- Starting move');
+      var currentPosition = {
+        Y: character.getCurrent().getPosY(),
+        X: character.getCurrent().getPosX()
+      };
+      var destinationPosition = {
+        Y: bloc.posY,
+        X: bloc.posX
+      };
+      var move = {
+        Y: destinationPosition.Y - currentPosition.Y,
+        X: destinationPosition.X - currentPosition.X
+      };
+      console.log('- Character position');
+      console.log(currentPosition);
+      console.log('- Bloc position');
+      console.log(destinationPosition);
+      console.log('- Move length');
+      console.log(move);
 
-      var posX;
-      var posY;
-      var that = this;
-      var moves = [{
-        //Move up
-        dir: 'Y',
-        distance: character.getCurrent().getPosY() - bloc.posY
-      }, {
-        //Move down
-        dir: 'Y',
-        distance: bloc.posY - character.getCurrent().getPosY()
-      }, {
-        //Move left
-        dir: 'X',
-        distance: character.getCurrent().getPosX() - bloc.posX
-      }, {
-        //Move right
-        dir: 'X',
-        distance: bloc.posX - character.getCurrent().getPosX()
-      }];
-      $.when(moves.forEach(function (move) {
-        var line = move.dir == 'X' ? {
-          character: character.getCurrent().getPosY(),
-          bloc: bloc.posY,
-          speed: character.getCurrent().getMove(),
-          dir: 'Y'
-        } : {
-          character: character.getCurrent().getPosX(),
-          bloc: bloc.posX,
-          speed: character.getCurrent().getMove(),
-          dir: 'X'
-        };
-
-        var init = _this.checkMove(move, line);
-
-        if (line.character == line.bloc) {
-          if (init.result) {
-            init.dir == 'X' ? posX = true : posY = true;
-          }
-        }
-      })).done(function () {
-        if (posY || posX) {
-          that.createFreeBloc(bloc.posY, bloc.posX);
-          character.move(bloc.posY, bloc.posX);
-        }
-      });
-    }
-  }, {
-    key: "checkMove",
-    value: function checkMove(move, line) {
-      var moveExists = move.distance > 0;
-      var moveNotTooLong = move.distance <= line.speed;
-
-      if (moveExists && moveNotTooLong) {
-        return line.dir == 'X' ? {
-          result: move.distance,
-          dir: 'Y'
-        } : {
-          result: move.distance,
-          dir: 'X'
-        };
-      } else {
-        return line.dir == 'X' ? {
-          result: false,
-          dir: 'Y'
-        } : {
-          result: false,
-          dir: 'X'
-        };
+      if (move.Y + move.X <= character.getCurrent().getMove() && move.Y + move.X > -4) {
+        this.createFreeBloc(bloc.posY, bloc.posX);
+        character.move(bloc.posY, bloc.posX);
       }
     }
   }, {
@@ -1088,6 +1039,7 @@ $(document).ready(function () {
   map.init(pirate);
   map.init(marines);
   map.init(knife);
+  map.init(shootgun);
   var wall = new _Manager_ThingManager__WEBPACK_IMPORTED_MODULE_5__["ThingManager"](new _Model_Things_Wall__WEBPACK_IMPORTED_MODULE_6__["Wall"]());
 
   for (var i = 0; i <= 15; i++) {

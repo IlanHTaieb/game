@@ -19,7 +19,7 @@ li {
 }
 
 .body {
-  background: url("/_OPENCLASSROOMS/game/public/images/BG.jpg") no-repeat;
+  background: url("/public/images/BG.jpg") no-repeat;
   background-size: cover;
   height: 100%;
   width: 100%;
@@ -65,23 +65,23 @@ li {
 }
 
 .arena .pirate {
-  background: url("/_OPENCLASSROOMS/game/public/images/arena/pirate.png") no-repeat center;
+  background: url("/public/images/arena/pirate.png") no-repeat center;
 }
 
 .arena .marines {
-  background: url("/_OPENCLASSROOMS/game/public/images/arena/marines.png") no-repeat center;
+  background: url("/public/images/arena/marines.png") no-repeat center;
 }
 
 .arena .wall {
-  background: url("/_OPENCLASSROOMS/game/public/images/arena/wall.png") no-repeat center;
+  background: url("/public/images/arena/wall.png") no-repeat center;
 }
 
 .arena .knife {
-  background: url("/_OPENCLASSROOMS/game/public/images/arena/knife.png") no-repeat center;
+  background: url("/public/images/arena/knife.png") no-repeat center;
 }
 
 .arena .shootgun {
-  background: url("/_OPENCLASSROOMS/game/public/images/arena/shootgun.png") no-repeat center;
+  background: url("/public/images/arena/shootgun.png") no-repeat center;
 }
 
 .arena .bloc {
@@ -105,11 +105,11 @@ li {
 }
 
 .info .player_1 .avatar {
-  background: url("/_OPENCLASSROOMS/game/public/images/perso/pirate.jpg") no-repeat center top;
+  background: url("/public/images/perso/pirate.jpg") no-repeat center top;
 }
 
 .info .player_2 .avatar {
-  background: url("/_OPENCLASSROOMS/game/public/images/perso/marines.jpg") no-repeat center top;
+  background: url("/public/images/perso/marines.jpg") no-repeat center top;
 }
 
 .info .player {

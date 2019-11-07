@@ -1,14 +1,16 @@
-import {Router} from "./_router";
-import {Map} from "./Model/Map";
-import {Pirate} from "./Model/Characters/Pirate";
-import {CharacterManager} from "./Manager/Elements/CharacterManager";
-import {Marines} from "./Model/Characters/Marines";
-import {ThingManager} from "./Manager/Elements/ThingManager";
-import {Wall} from "./Model/Things/Wall";
-import {Knife} from "./Model/Things/Weapons/Knife";
-import {Shootgun} from "./Model/Things/Weapons/Shootgun";
-import {ItemManager} from "./Manager/Elements/ItemManager";
-import {Character} from "./Model/Character";
+import {Router} from "./_router.js";
+import {Map} from "./Model/Map.js";
+import {Pirate} from "./Model/Characters/Pirate.js";
+import {CharacterManager} from "./Manager/Elements/CharacterManager.js";
+import {Marines} from "./Model/Characters/Marines.js";
+import {ThingManager} from "./Manager/Elements/ThingManager.js";
+import {Wall} from "./Model/Things/Wall.js";
+import {Knife} from "./Model/Things/Weapons/Knife.js";
+import {Shootgun} from "./Model/Things/Weapons/Shootgun.js";
+import {ItemManager} from "./Manager/Elements/ItemManager.js";
+import {Character} from "./Model/Character.js";
+
+
 
 $(document).ready(function () {
     //Router.home()

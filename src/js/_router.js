@@ -1,5 +1,5 @@
-import { Home } from './pages/home'
-import { Arena } from "./pages/arena";
+import { Home } from "./pages/home.js"
+import { Arena } from "./pages/arena.js"
 
 export const Router = {
     home: function () {

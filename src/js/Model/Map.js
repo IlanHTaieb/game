@@ -1,5 +1,5 @@
-import {Bloc} from "./Bloc"
-import {BlocManager} from "../Manager/BlocManager"
+import {Bloc} from "./Bloc.js"
+import {BlocManager} from "../Manager/BlocManager.js"
 
 export class Map {
     height = 10

@@ -1,4 +1,4 @@
-import {ElementManager} from "../ElementManager";
+import {ElementManager} from "../ElementManager.js";
 
 export class ThingManager extends ElementManager{
     //

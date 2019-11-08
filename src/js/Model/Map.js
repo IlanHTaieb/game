@@ -12,7 +12,8 @@ export class Map {
     constructor(characters) {
         console.log('- Setting all characters')
         console.log(characters)
-        console.log('- Nb: ' + (Object.keys(characters).length))
+        console.log('- Number of participants: ' + (Object.keys(characters).length))
+
         this.characters = characters
 
         for (let y = 1; y <= this.height; y++) {
@@ -81,25 +82,20 @@ export class Map {
         }
     }
 
-    setTestFirstPlayer(characters) {
+    setFirstPlayer(characters) {
         let first = Math.floor(
             Math.random() * Object.entries(characters).length
         )
 
         this.currentPlayer = first
-        console.log('- the first player is ' + this.getCurrentPlayer().getCurrent().getType())
-
-
-        return first
+        console.log('- The first player is ' + this.getCurrentPlayer().getCurrent().getType())
     }
 
     getCurrentPlayer() {
-        console.log(Object.entries(this.characters), this.currentPlayer)
         return Object.entries(this.characters)[this.currentPlayer][1]
     }
 
     setCurrentPlayer() {
-        console.log(this.currentPlayer)
         this.currentPlayer =
             this.currentPlayer >= (Object.keys(this.characters).length - 1)
                 ? 0
@@ -107,8 +103,6 @@ export class Map {
     }
 
     move(bloc) {
-        console.log(this.getCurrentPlayer())
-
         let currentPosition = {
             Y: this.getCurrentPlayer().getCurrent().getPosY(),
             X: this.getCurrentPlayer().getCurrent().getPosX()
@@ -124,14 +118,12 @@ export class Map {
             X: destinationPosition.X - currentPosition.X
         }
 
-
         if (this.checkMove(move)) {
             this.createFreeBloc(bloc.posY, bloc.posX)
             this.getCurrentPlayer().move(bloc.posY, bloc.posX)
 
-            console.log('- Setting played')
             this.setCurrentPlayer()
-            console.log('- Done')
+            console.log('- The new player is ' + this.getCurrentPlayer().getCurrent().getType())
         }
     }
 
@@ -144,11 +136,7 @@ export class Map {
             ? (move.Y == 1 && move.X == -1) || (move.Y == -1 && move.X == 1)
             : true
 
-        if (horizontalMove && verticalMove && bottomRightMove && toBottomLeftMove) {
-            return true
-        } else  {
-            return false
-        }
+        return horizontalMove && verticalMove && bottomRightMove && toBottomLeftMove
     }
 
     createFreeBloc(posY, posX) {

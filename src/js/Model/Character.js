@@ -4,7 +4,6 @@ export class Character extends Model{
     heal = 200
     power = 10
     move = 3
-    round = false
 
     getHeal() {
         return this.heal
@@ -28,13 +27,5 @@ export class Character extends Model{
 
     setMove(move) {
         this.move = move
-    }
-
-    getRound() {
-        return this.round
-    }
-
-    setRound(round) {
-        this.round = round
     }
 }

@@ -8,13 +8,13 @@ import {Wall} from "./Model/Things/Wall.js";
 import {Knife} from "./Model/Things/Weapons/Knife.js";
 import {Shootgun} from "./Model/Things/Weapons/Shootgun.js";
 import {ItemManager} from "./Manager/Elements/ItemManager.js";
-import {Character} from "./Model/Character.js";
-
 
 $(document).ready(function () {
+    // Routes
     //Router.home()
     Router.arena('Toto', 'Ploufy');
 
+    // Initialization
     let characters = {
         pirate: new CharacterManager(new Pirate()),
         marines: new CharacterManager(new Marines())
@@ -37,47 +37,14 @@ $(document).ready(function () {
         map.init(wall)
     }
 
-    map.setTestFirstPlayer(characters)
+    // Chose the first user
+    map.setFirstPlayer(characters)
 
-    //map.move(player, $(this).data())
-
+    // Actions
     $('.bloc').click(function () {
         console.log('- Click to move')
         if ($(this).data('type') == 'free' || $(this).data('type') == 'item') {
             map.move($(this).data())
         }
     })
-
-    // TODO
-    //console.log('- Setting no played')
-    //character.getCurrent().setHasPlayed(false)
-    //console.log('- Done')
-
-
-    /*
-     $('.bloc').click(function () {
-        console.log('- Click to move')
-        if ($(this).data('type') == 'free' || $(this).data('type') == 'item') {
-            console.log('- No obstacles')
-            for (let [key, player] of Object.entries(characters)) {
-                console.log('- Fetch user')
-                if (player.getCurrent().getRound() === true) {
-                    console.log('- Round ok for ' + player.getCurrent().getType())
-                    map.move(player, $(this).data())
-                    map.setCurrentPlayer(player, false)
-                } else {
-                    console.log('- Round not ok for ' + player.getCurrent().getType())
-                    if (map.getLastPlayer() != player.getCurrent().getType()) {
-                        console.log('- ' + player.getCurrent().getType() + ' is not the last player')
-                        if (map.getFirstMoveActed() === true) {
-                            console.log('- First move acted')
-                            player.getCurrent().setRound(true)
-                            map.setCurrentPlayer(player, true)
-                        }
-                    }
-                }
-            }
-        }
-    })
-     */
 });

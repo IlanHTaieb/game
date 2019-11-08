@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7522dd99-0152-44b2-8ea2-3c6beb25db06" name="Default Changelist" comment="">
+      <change afterPath="C:/Program Files/MongoDB/Server/4.0/data/diagnostic.data/metrics.interim" afterDir="false" />
       <change afterPath="$USER_HOME$/.PhpStorm2019.1/system/workspace/dump.a6780513.xml" afterDir="false" />
       <change afterPath="$USER_HOME$/.PhpStorm2019.1/system/workspace/game.cd251276.xml" afterDir="false" />
       <change afterPath="$USER_HOME$/.PhpStorm2019.1/system/workspace/one-shot-date.c9b38250.xml" afterDir="false" />
@@ -36,7 +37,6 @@
       <change afterPath="C:/wamp64/www/_PRO/swarper/.idea/swarper.iml" afterDir="false" />
       <change afterPath="C:/wamp64/www/_PRO/swarper/.idea/vcs.xml" afterDir="false" />
       <change afterPath="C:/wamp64/www/_PRO/swarper/resources/sass/app.sass" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/js/Model/Map.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/Model/Map.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/app.js" afterDir="false" />
     </list>
@@ -67,6 +67,7 @@
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -143,7 +144,7 @@
       <workItem from="1572593830589" duration="356000" />
       <workItem from="1572722976416" duration="1738000" />
       <workItem from="1572981874884" duration="6282000" />
-      <workItem from="1573165731018" duration="10022000" />
+      <workItem from="1573165731018" duration="10517000" />
     </task>
     <servers />
   </component>
@@ -160,5 +161,8 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
 </project>

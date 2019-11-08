@@ -37,21 +37,14 @@ $(document).ready(function () {
         map.init(wall)
     }
 
-    let currentPlayer = map.setTestFirstPlayer(characters)
-    let nextPlayer
+    map.setTestFirstPlayer(characters)
 
     //map.move(player, $(this).data())
 
     $('.bloc').click(function () {
         console.log('- Click to move')
         if ($(this).data('type') == 'free' || $(this).data('type') == 'item') {
-            $.when(checkRound($(this).data()))
-                .done(function () {
-                    currentPlayer = nextPlayer
-                    console.log('- After done')
-                    console.log('- Next: ' + nextPlayer.getCurrent().getType())
-                    console.log('- Current: ' + currentPlayer.getCurrent().getType())
-                })
+            map.move($(this).data())
         }
     })
 
@@ -59,26 +52,6 @@ $(document).ready(function () {
     //console.log('- Setting no played')
     //character.getCurrent().setHasPlayed(false)
     //console.log('- Done')
-
-    function checkRound(bloc) {
-        for (let [key, player] of Object.entries(characters)) {
-            if (player === currentPlayer) {
-                map.move(currentPlayer, bloc)
-            } else {
-                console.log('- No current')
-                console.log('- Player: ' + player.getCurrent().getType())
-                console.log('- Current: ' + currentPlayer.getCurrent().getType())
-                console.log('- Current has played: ' + currentPlayer.getCurrent().getHasPlayed())
-                nextPlayer =
-                    currentPlayer.getCurrent().getHasPlayed()
-                        ? player
-                        : currentPlayer
-
-                console.log('- Next: ' + nextPlayer.getCurrent().getType())
-                console.log('- Current: ' + currentPlayer.getCurrent().getType())
-            }
-        }
-    }
 
 
     /*

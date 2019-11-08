@@ -37,7 +37,6 @@
       <change afterPath="C:/wamp64/www/_PRO/swarper/.idea/vcs.xml" afterDir="false" />
       <change afterPath="C:/wamp64/www/_PRO/swarper/resources/sass/app.sass" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/Model/Character.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/Model/Character.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/js/Model/Map.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/Model/Map.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/app.js" afterDir="false" />
     </list>
@@ -59,39 +58,6 @@
         <option value="JavaScript File" />
       </list>
     </option>
-  </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>pBloc</find>
-      <find>t</find>
-      <find>.data</find>
-      <find>maxX</find>
-      <find>character</find>
-      <find>getInstance()</find>
-      <find>.getInstance()</find>
-      <find>getInstance</find>
-      <find>Instance</find>
-      <find>setInstance</find>
-      <find>setCurrentCharacter</find>
-      <find>current(</find>
-      <find>.instance</find>
-      <find>current()</find>
-      <find>;</find>
-      <find>currentCharacter</find>
-    </findStrings>
-    <replaceStrings>
-      <replace>width</replace>
-      <replace>thing</replace>
-      <replace>prototype</replace>
-      <replace>CurrentCharacter</replace>
-      <replace>setCurrent</replace>
-      <replace>.current</replace>
-      <replace>getCurrent()</replace>
-      <replace>current</replace>
-    </replaceStrings>
-    <dirStrings>
-      <dir>C:\wamp64\www\_OPENCLASSROOMS\game</dir>
-    </dirStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -177,7 +143,7 @@
       <workItem from="1572593830589" duration="356000" />
       <workItem from="1572722976416" duration="1738000" />
       <workItem from="1572981874884" duration="6282000" />
-      <workItem from="1573165731018" duration="8828000" />
+      <workItem from="1573165731018" duration="10022000" />
     </task>
     <servers />
   </component>

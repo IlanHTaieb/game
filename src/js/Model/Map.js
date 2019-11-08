@@ -82,35 +82,36 @@ export class Map {
     }
 
     setTestFirstPlayer(characters) {
-        let first =  Object.entries(characters)[
-            Math.floor(
-                Math.random() * Object.entries(characters).length
-            )
-            ][1]
+        let first = Math.floor(
+            Math.random() * Object.entries(characters).length
+        )
 
-        console.log('- The first player is ' + first.getCurrent().getType())
         this.currentPlayer = first
+        console.log('- the first player is ' + this.getCurrentPlayer().getCurrent().getType())
+
 
         return first
     }
 
-    getCurrentplayer() {
-        return this.characters[this.currentPlayer][1]
+    getCurrentPlayer() {
+        console.log(Object.entries(this.characters), this.currentPlayer)
+        return Object.entries(this.characters)[this.currentPlayer][1]
     }
 
-    setCurrentPlayer(character) {
+    setCurrentPlayer() {
+        console.log(this.currentPlayer)
         this.currentPlayer =
             this.currentPlayer >= (Object.keys(this.characters).length - 1)
                 ? 0
                 : this.currentPlayer + 1
-
-        character.getCurrent().setRound(val)
     }
 
-    move(character, bloc) {
+    move(bloc) {
+        console.log(this.getCurrentPlayer())
+
         let currentPosition = {
-            Y: character.getCurrent().getPosY(),
-            X: character.getCurrent().getPosX()
+            Y: this.getCurrentPlayer().getCurrent().getPosY(),
+            X: this.getCurrentPlayer().getCurrent().getPosX()
         }
 
         let destinationPosition = {
@@ -124,22 +125,18 @@ export class Map {
         }
 
 
-        if (this.checkMove(character, move)) {
+        if (this.checkMove(move)) {
             this.createFreeBloc(bloc.posY, bloc.posX)
-            character.move(bloc.posY, bloc.posX)
+            this.getCurrentPlayer().move(bloc.posY, bloc.posX)
 
             console.log('- Setting played')
-            character.getCurrent().setHasPlayed(true)
+            this.setCurrentPlayer()
             console.log('- Done')
         }
     }
 
-    checkMove(character, move) {
-        console.log('- Setting no played')
-        character.getCurrent().setHasPlayed(false)
-        console.log('- Done')
-
-        let speed = character.getCurrent().getMove()
+    checkMove(move) {
+        let speed = this.getCurrentPlayer().getCurrent().getMove()
         let horizontalMove = move.X <= speed && move.X >= -speed
         let verticalMove = move.Y <= speed && move.Y >= -speed
         let bottomRightMove = (move.X + move.Y) <= speed && (move.X + move.Y) >= -speed

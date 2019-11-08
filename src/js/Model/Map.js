@@ -6,8 +6,15 @@ export class Map {
     width = 10
     arena = []
     freeBlocs = []
+    characters
+    currentPlayer
 
-    constructor() {
+    constructor(characters) {
+        console.log('- Setting all characters')
+        console.log(characters)
+        console.log('- Nb: ' + (Object.keys(characters).length))
+        this.characters = characters
+
         for (let y = 1; y <= this.height; y++) {
             this.arena[y] = []
 
@@ -72,12 +79,35 @@ export class Map {
         } else {
             this.chooseBlock()
         }
+    }
 
+    setTestFirstPlayer(characters) {
+        let first =  Object.entries(characters)[
+            Math.floor(
+                Math.random() * Object.entries(characters).length
+            )
+            ][1]
+
+        console.log('- The first player is ' + first.getCurrent().getType())
+        this.currentPlayer = first
+
+        return first
+    }
+
+    getCurrentplayer() {
+        return this.characters[this.currentPlayer][1]
+    }
+
+    setCurrentPlayer(character) {
+        this.currentPlayer =
+            this.currentPlayer >= (Object.keys(this.characters).length - 1)
+                ? 0
+                : this.currentPlayer + 1
+
+        character.getCurrent().setRound(val)
     }
 
     move(character, bloc) {
-        console.log('- Starting move')
-
         let currentPosition = {
             Y: character.getCurrent().getPosY(),
             X: character.getCurrent().getPosX()
@@ -93,16 +123,34 @@ export class Map {
             X: destinationPosition.X - currentPosition.X
         }
 
-        console.log('- Character position')
-        console.log(currentPosition)
-        console.log('- Bloc position')
-        console.log(destinationPosition)
-        console.log('- Move length')
-        console.log(move)
 
-        if ((move.Y + move.X) <= character.getCurrent().getMove() && (move.Y + move.X) > -4) {
+        if (this.checkMove(character, move)) {
             this.createFreeBloc(bloc.posY, bloc.posX)
             character.move(bloc.posY, bloc.posX)
+
+            console.log('- Setting played')
+            character.getCurrent().setHasPlayed(true)
+            console.log('- Done')
+        }
+    }
+
+    checkMove(character, move) {
+        console.log('- Setting no played')
+        character.getCurrent().setHasPlayed(false)
+        console.log('- Done')
+
+        let speed = character.getCurrent().getMove()
+        let horizontalMove = move.X <= speed && move.X >= -speed
+        let verticalMove = move.Y <= speed && move.Y >= -speed
+        let bottomRightMove = (move.X + move.Y) <= speed && (move.X + move.Y) >= -speed
+        let toBottomLeftMove = (move.Y + move.X) == 0
+            ? (move.Y == 1 && move.X == -1) || (move.Y == -1 && move.X == 1)
+            : true
+
+        if (horizontalMove && verticalMove && bottomRightMove && toBottomLeftMove) {
+            return true
+        } else  {
+            return false
         }
     }
 

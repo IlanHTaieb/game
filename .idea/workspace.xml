@@ -37,30 +37,9 @@
       <change afterPath="C:/wamp64/www/_PRO/swarper/.idea/vcs.xml" afterDir="false" />
       <change afterPath="C:/wamp64/www/_PRO/swarper/resources/sass/app.sass" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/Manager/Elements/CharacterManager.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/Manager/Elements/CharacterManager.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/Manager/Elements/ItemManager.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/Manager/Elements/ItemManager.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/Manager/Elements/ThingManager.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/Manager/Elements/ThingManager.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/Model/Bloc.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/Model/Bloc.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/js/Model/Character.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/Model/Character.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/Model/Characters/Marines.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/Model/Characters/Marines.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/Model/Characters/Pirate.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/Model/Characters/Pirate.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/Model/Item.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/Model/Item.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/js/Model/Map.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/Model/Map.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/Model/Thing.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/Model/Thing.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/Model/Things/Potion.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/Model/Things/Potion.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/Model/Things/Wall.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/Model/Things/Wall.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/Model/Things/Weapon.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/Model/Things/Weapon.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/Model/Things/Weapons/Knife.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/Model/Things/Weapons/Knife.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/Model/Things/Weapons/Shootgun.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/Model/Things/Weapons/Shootgun.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/Model/Things/potion/Fast.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/Model/Things/potion/Fast.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/Model/Things/potion/Heal.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/Model/Things/potion/Heal.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/Model/Things/potion/Poison.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/Model/Things/potion/Poison.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/_router.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/_router.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sass/_variables.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/sass/_variables.sass" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -117,11 +96,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="260" />
-    <option name="width" value="1400" />
-    <option name="height" value="1207" />
-  </component>
+  <component name="ProjectId" id="1TJ6DITi4rBzo1QNcfEHKqbL2Yq" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
@@ -134,6 +109,7 @@
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+    <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\PhpStorm\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -201,10 +177,22 @@
       <workItem from="1572593830589" duration="356000" />
       <workItem from="1572722976416" duration="1738000" />
       <workItem from="1572981874884" duration="6282000" />
+      <workItem from="1573165731018" duration="8828000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

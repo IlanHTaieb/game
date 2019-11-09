@@ -27,7 +27,7 @@ export class Map {
         this.freeBlocs = this.arena
     }
 
-    getHeigth() {
+    getHeight() {
         return this.height
     }
 
@@ -65,7 +65,7 @@ export class Map {
 
             that.freeBlocs[item.bloc.getPosY()].splice(item.bloc.getPosX(), 1)
 
-            if (that.freeBlocs[item.bloc.getPosY()].length == 0) {
+            if (0 === that.freeBlocs[item.bloc.getPosY()].length) {
                 that.freeBlocs.splice(item.bloc.getPosY(), 1)
             }
         }
@@ -75,7 +75,7 @@ export class Map {
         let line = this.posRandom('line')
         let column = this.posRandom('column')
 
-        if ('undefined' != this.freeBlocs[line][column]) {
+        if ('undefined' !== this.freeBlocs[line][column]) {
             return this.freeBlocs[line][column]
         } else {
             this.chooseBlock()
@@ -127,16 +127,86 @@ export class Map {
         }
     }
 
+    showCase(bloc, element) {
+        var line;
+        let currentPosition = {
+            Y: this.getCurrentPlayer().getCurrent().getPosY(),
+            X: this.getCurrentPlayer().getCurrent().getPosX()
+        }
+
+        let destinationPosition = {
+            Y: bloc.posY,
+            X: bloc.posX
+        }
+
+        let move = {
+            Y: destinationPosition.Y - currentPosition.Y,
+            X: destinationPosition.X - currentPosition.X
+        }
+
+
+        if (
+            this.checkMove(move)
+            && (
+                element.data("posY") !== currentPosition.Y
+                || element.data("posX") !== currentPosition.X
+            )
+        ) {
+            move.Y = 0 < move.Y
+                ? move.Y
+                : -move.Y
+
+            move.X = 0 < move.X
+                ? move.X
+                : -move.X
+
+            for (let l = currentPosition.Y-move.Y; l < currentPosition.Y+move.Y; l++) {
+                line =
+                    $('.bloc').filter(function () {
+                        return $(this).data("posY") == l
+                    })
+
+                line.map(function (element) {
+                    for (let c = currentPosition.X-move.X; c < currentPosition.X+move.X; c++) {
+                        let bloc =
+                            $('.bloc').filter(function () {
+                                return $(this).data("posX") == c
+                            })
+
+                        console.log(bloc)
+                    }
+                })
+
+                for (let c = 1; c < move.X; c++) {
+                    let bloc =
+                        $('.bloc').filter(function () {
+                            return $(this).data("posX") == currentPosition.X + l
+                        })
+
+                    //console.log(bloc)
+
+                }
+            }
+
+
+            element.css('background-color', 'green')
+        } else {
+            $('.bloc').css('background-color', 'rgba(11, 74, 89, 0.7)')
+        }
+    }
+
     checkMove(move) {
         let speed = this.getCurrentPlayer().getCurrent().getMove()
-        let horizontalMove = move.X <= speed && move.X >= -speed
-        let verticalMove = move.Y <= speed && move.Y >= -speed
-        let bottomRightMove = (move.X + move.Y) <= speed && (move.X + move.Y) >= -speed
-        let toBottomLeftMove = (move.Y + move.X) == 0
-            ? (move.Y == 1 && move.X == -1) || (move.Y == -1 && move.X == 1)
-            : true
 
-        return horizontalMove && verticalMove && bottomRightMove && toBottomLeftMove
+        move.Y = 0 < move.Y
+            ? move.Y
+            : -move.Y
+
+        move.X = move.X > 0
+            ? move.X
+            : -move.X
+
+        return (move.Y + move.X) <= speed
     }
 
     createFreeBloc(posY, posX) {

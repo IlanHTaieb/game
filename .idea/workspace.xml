@@ -2,11 +2,57 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7522dd99-0152-44b2-8ea2-3c6beb25db06" name="Default Changelist" comment="">
+      <change afterPath="C:/$Recycle.Bin/S-1-5-21-830684433-125130549-1213568632-1001/$R5V71XT/babel-merge/.idea/babel-merge.iml" afterDir="false" />
+      <change afterPath="C:/$Recycle.Bin/S-1-5-21-830684433-125130549-1213568632-1001/$R5V71XT/node-releases/.idea/node-releases.iml" afterDir="false" />
+      <change afterPath="C:/PARCOURS/Gulp/node_modules/blob/.idea/blob.iml" afterDir="false" />
+      <change afterPath="C:/PARCOURS/Gulp/node_modules/clone/clone.iml" afterDir="false" />
+      <change afterPath="C:/PARCOURS/Gulp/node_modules/less/node_modules/clone/clone.iml" afterDir="false" />
+      <change afterPath="C:/PARCOURS/Gulp/node_modules/node-releases/.idea/node-releases.iml" afterDir="false" />
+      <change afterPath="C:/PARCOURS/Gulp/node_modules/vinyl-fs/node_modules/clone/clone.iml" afterDir="false" />
+      <change afterPath="C:/PARCOURS/Gulp/node_modules/vinyl-sourcemap/node_modules/clone/clone.iml" afterDir="false" />
+      <change afterPath="C:/Program Files (x86)/Microsoft Visual Studio/2017/Community/Web/External/node_modules/tslint/.idea/tslint.iml" afterDir="false" />
       <change afterPath="C:/Program Files/MongoDB/Server/4.0/data/diagnostic.data/metrics.interim" afterDir="false" />
+      <change afterPath="C:/Program Files/nodejs/node_modules/npm/node_modules/clone/clone.iml" afterDir="false" />
+      <change afterPath="C:/REVISIONS/next/hello-next/node_modules/node-releases/.idea/node-releases.iml" afterDir="false" />
       <change afterPath="$USER_HOME$/.PhpStorm2019.1/system/workspace/dump.a6780513.xml" afterDir="false" />
       <change afterPath="$USER_HOME$/.PhpStorm2019.1/system/workspace/game.cd251276.xml" afterDir="false" />
       <change afterPath="$USER_HOME$/.PhpStorm2019.1/system/workspace/one-shot-date.c9b38250.xml" afterDir="false" />
+      <change afterPath="$USER_HOME$/.vscode/extensions/msjsdiag.vscode-react-native-0.13.0/node_modules/applicationinsights/AppInsights-node.js.iml" afterDir="false" />
+      <change afterPath="$USER_HOME$/.vscode/extensions/pranaygp.vscode-css-peek-3.0.2/node_modules/clone/clone.iml" afterDir="false" />
+      <change afterPath="$USER_HOME$/.vscode/extensions/pranaygp.vscode-css-peek-3.0.2/node_modules/gulp-vinyl-zip/node_modules/clone/clone.iml" afterDir="false" />
+      <change afterPath="$USER_HOME$/AppData/Local/Yarn/Cache/v2/npm-lottie-react-native-2.5.0-0711b8b34bec7741552c24b71efd3d4cab347571/lottie-react-native.iml" afterDir="false" />
+      <change afterPath="$USER_HOME$/AppData/Local/Yarn/Cache/v2/npm-lottie-react-native-2.5.0-0711b8b34bec7741552c24b71efd3d4cab347571/src/android/lottie-react-native-lib.iml" afterDir="false" />
+      <change afterPath="$USER_HOME$/AppData/Local/Yarn/Cache/v2/npm-lottie-react-native-2.5.0-0711b8b34bec7741552c24b71efd3d4cab347571/src/android/lottie-react-native-lottie-react-native.iml" afterDir="false" />
+      <change afterPath="$USER_HOME$/AppData/Local/Yarn/Cache/v2/npm-node-releases-1.0.0-alpha.14-da9e2780add4bbb59ad890af9e2018a1d9c0034b/.idea/node-releases.iml" afterDir="false" />
+      <change afterPath="$USER_HOME$/AppData/Local/Yarn/Cache/v2/npm-node-releases-1.1.6-47d160033e24a64e79487a62de63cf691052ec54/.idea/node-releases.iml" afterDir="false" />
+      <change afterPath="$USER_HOME$/AppData/Local/Yarn/Cache/v2/npm-react-native-safe-module-1.2.0-a23824ca24edc2901913694a76646475113d570d/.idea/react-native-safe-module.iml" afterDir="false" />
+      <change afterPath="$USER_HOME$/AppData/Local/atom/app-1.32.0/resources/app/apm/node_modules/npm/node_modules/clone/clone.iml" afterDir="false" />
+      <change afterPath="$USER_HOME$/AppData/Roaming/npm/node_modules/browser-sync/node_modules/blob/.idea/blob.iml" afterDir="false" />
+      <change afterPath="$USER_HOME$/AppData/Roaming/npm/node_modules/expo-cli/node_modules/clone/clone.iml" afterDir="false" />
+      <change afterPath="$USER_HOME$/AppData/Roaming/npm/node_modules/expo-cli/node_modules/safe-json-stringify/.idea/safe-json-stringify.iml" afterDir="false" />
+      <change afterPath="$USER_HOME$/AppData/Roaming/npm/node_modules/forever/node_modules/clone/clone.iml" afterDir="false" />
+      <change afterPath="$USER_HOME$/AppData/Roaming/npm/node_modules/gulp/node_modules/clone/clone.iml" afterDir="false" />
+      <change afterPath="$USER_HOME$/AppData/Roaming/npm/node_modules/npm/node_modules/clone/clone.iml" afterDir="false" />
+      <change afterPath="$USER_HOME$/AppData/Roaming/npm/node_modules/react-scripts/node_modules/node-releases/.idea/node-releases.iml" afterDir="false" />
+      <change afterPath="$USER_HOME$/AppData/Roaming/npm/node_modules/vue-cli/node_modules/clone/clone.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../bin/nodejs/node-v12/node_modules/npm/node_modules/clone/clone.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/projects.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jsLinters/jshint.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jsLinters/jslint.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/js/Game.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Features/characters.test.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../phpinfo.php" afterDir="false" />
+      <change afterPath="C:/projets/MERN/cinema/node_modules/node-releases/.idea/node-releases.iml" afterDir="false" />
+      <change afterPath="C:/projets/MERN/voyage/node_modules/node-releases/.idea/node-releases.iml" afterDir="false" />
+      <change afterPath="C:/projets/MERN/voyage2/node_modules/node-releases/.idea/node-releases.iml" afterDir="false" />
+      <change afterPath="C:/projets/MERN/voyage3/dev/node_modules/blob/.idea/blob.iml" afterDir="false" />
+      <change afterPath="C:/projets/MERN/voyage3/dev/node_modules/clone/clone.iml" afterDir="false" />
+      <change afterPath="C:/projets/MERN/voyage3/dev/node_modules/gulp-sourcemaps/node_modules/clone/clone.iml" afterDir="false" />
+      <change afterPath="C:/projets/MERN/voyage3/dev/node_modules/gulp-util/node_modules/clone/clone.iml" afterDir="false" />
+      <change afterPath="C:/projets/MERN/voyage3/dev/node_modules/gutil/.idea/gutil.iml" afterDir="false" />
+      <change afterPath="C:/wamp64/www/_OPENCLASSROOMS/Express_Food/.idea/Express_Food.iml" afterDir="false" />
       <change afterPath="C:/wamp64/www/_OPENCLASSROOMS/Express_Food/_EF2/dump/.idea/dump.iml" afterDir="false" />
       <change afterPath="C:/wamp64/www/_OPENCLASSROOMS/Express_Food/_EF2/dump/.idea/misc.xml" afterDir="false" />
       <change afterPath="C:/wamp64/www/_OPENCLASSROOMS/Express_Food/_EF2/dump/.idea/modules.xml" afterDir="false" />
@@ -23,12 +69,14 @@
       <change afterPath="C:/wamp64/www/_OPENCLASSROOMS/game/package.json" afterDir="false" />
       <change afterPath="C:/wamp64/www/_OPENCLASSROOMS/game/views/welcome/index.php" afterDir="false" />
       <change afterPath="C:/wamp64/www/_OPENCLASSROOMS/game/webpack.mix.js" afterDir="false" />
+      <change afterPath="C:/wamp64/www/_OPENCLASSROOMS/generateur-citations/.idea/generateur-citations.iml" afterDir="false" />
       <change afterPath="C:/wamp64/www/_OPENCLASSROOMS/generateur-citations/assets/js/_generator.js" afterDir="false" />
       <change afterPath="C:/wamp64/www/_OPENCLASSROOMS/generateur-citations/assets/sass/_modal.sass" afterDir="false" />
       <change afterPath="C:/wamp64/www/_OPENCLASSROOMS/generateur-citations/assets/sass/_normalize.sass" afterDir="false" />
       <change afterPath="C:/wamp64/www/_OPENCLASSROOMS/generateur-citations/assets/sass/_overlay.sass" afterDir="false" />
       <change afterPath="C:/wamp64/www/_OPENCLASSROOMS/generateur-citations/public/css/BG.css" afterDir="false" />
       <change afterPath="C:/wamp64/www/_OPENCLASSROOMS/generateur-citations/webpack.mix.js" afterDir="false" />
+      <change afterPath="C:/wamp64/www/_PERSONNEL/one-shot-date/.idea/one-shot-date.iml" afterDir="false" />
       <change afterPath="C:/wamp64/www/_PERSONNEL/one-shot-date/js/_formater.js" afterDir="false" />
       <change afterPath="C:/wamp64/www/_PERSONNEL/one-shot-date/js/app.js" afterDir="false" />
       <change afterPath="C:/wamp64/www/_PRO/swarper/.idea/misc.xml" afterDir="false" />
@@ -37,7 +85,15 @@
       <change afterPath="C:/wamp64/www/_PRO/swarper/.idea/swarper.iml" afterDir="false" />
       <change afterPath="C:/wamp64/www/_PRO/swarper/.idea/vcs.xml" afterDir="false" />
       <change afterPath="C:/wamp64/www/_PRO/swarper/resources/sass/app.sass" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/Manager/ElementManager.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/Manager/ElementManager.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/Manager/Elements/ItemManager.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/Manager/Elements/ItemManager.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/Model/Item.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/Model/Item.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/js/Model/Map.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/Model/Map.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/Model/Things/Weapons/Knife.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/Model/Things/Weapons/Knife.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/Model/Things/Weapons/Shootgun.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/Model/Things/Weapons/Shootgun.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/app.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -71,11 +127,20 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../swarper" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.jscs" value="true" />
+    <property name="node.js.detected.package.standard" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.jscs" value="project" />
+    <property name="node.js.path.for.package.standard" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.jscs" value="" />
+    <property name="node.js.selected.package.standard" value="" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.appearance" />
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\PhpStorm\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
@@ -144,7 +209,9 @@
       <workItem from="1572593830589" duration="356000" />
       <workItem from="1572722976416" duration="1738000" />
       <workItem from="1572981874884" duration="6282000" />
-      <workItem from="1573165731018" duration="10517000" />
+      <workItem from="1573165731018" duration="13982000" />
+      <workItem from="1573179799635" duration="1863000" />
+      <workItem from="1573212585531" duration="3088000" />
     </task>
     <servers />
   </component>
@@ -156,7 +223,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>

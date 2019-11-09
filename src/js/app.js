@@ -37,8 +37,17 @@ $(document).ready(function () {
         map.init(wall)
     }
 
-    // Chose the first user
+    // Chose the first player
     map.setFirstPlayer(characters)
+
+    // Events
+    $('.bloc').on('mouseover', function () {
+        if ($(this).data('type') == 'free' || $(this).data('type') == 'item') {
+            map.showCase($(this).data(), $(this))
+        } else {
+            $('.bloc').css('background-color', 'rgba(11, 74, 89, 0.7)')
+        }
+    })
 
     // Actions
     $('.bloc').click(function () {

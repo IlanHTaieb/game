@@ -24,6 +24,10 @@ export class ElementManager {
             })
 
         node.data("type", this.current.getType())
+        this.addTypeClass(node)
+    }
+
+    addTypeClass(node) {
         node.addClass(this.current.getType())
     }
 }

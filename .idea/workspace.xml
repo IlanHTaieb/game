@@ -37,12 +37,6 @@
       <change afterPath="$USER_HOME$/AppData/Roaming/npm/node_modules/vue-cli/node_modules/clone/clone.iml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../bin/nodejs/node-v12/node_modules/npm/node_modules/clone/clone.iml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../.idea/projects.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jsLinters/jshint.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jsLinters/jslint.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/js/Game.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Features/characters.test.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../phpinfo.php" afterDir="false" />
       <change afterPath="C:/projets/MERN/cinema/node_modules/node-releases/.idea/node-releases.iml" afterDir="false" />
       <change afterPath="C:/projets/MERN/voyage/node_modules/node-releases/.idea/node-releases.iml" afterDir="false" />
@@ -86,15 +80,6 @@
       <change afterPath="C:/wamp64/www/_PRO/swarper/.idea/vcs.xml" afterDir="false" />
       <change afterPath="C:/wamp64/www/_PRO/swarper/resources/sass/app.sass" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/Manager/ElementManager.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/Manager/ElementManager.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/Manager/Elements/ItemManager.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/Manager/Elements/ItemManager.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/Model/Item.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/Model/Item.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/Model/Map.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/Model/Map.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/Model/Things/Weapons/Knife.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/Model/Things/Weapons/Knife.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/Model/Things/Weapons/Shootgun.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/Model/Things/Weapons/Shootgun.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/app.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -127,7 +112,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../swarper" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.jscs" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
@@ -212,6 +197,9 @@
       <workItem from="1573165731018" duration="13982000" />
       <workItem from="1573179799635" duration="1863000" />
       <workItem from="1573212585531" duration="3088000" />
+      <workItem from="1573443685384" duration="291000" />
+      <workItem from="1573594804315" duration="1197000" />
+      <workItem from="1573676340630" duration="2539000" />
     </task>
     <servers />
   </component>

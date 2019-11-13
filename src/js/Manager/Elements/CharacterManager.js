@@ -1,9 +1,9 @@
 import {ElementManager} from "../ElementManager.js";
 
 export class CharacterManager extends ElementManager{
-    move(posY, posX) {
+    move(bloc) {
         this.removeOld()
-        this.setCurrent(posY, posX)
+        this.setCurrent(bloc.posY, bloc.posX)
         this.render()
     }
 

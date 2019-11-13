@@ -119,11 +119,24 @@ export class Map {
         }
 
         if (this.checkMove(move)) {
-            this.createFreeBloc(bloc.posY, bloc.posX)
-            this.getCurrentPlayer().move(bloc.posY, bloc.posX)
+            $.when(this.dropItem(bloc)).done(() => {
+                this.createFreeBloc(bloc.posY, bloc.posX)
+                this.getCurrentPlayer().move(bloc)
+                this.setCurrentPlayer()
+            })
+        }
+    }
 
-            this.setCurrentPlayer()
-            console.log('- The new player is ' + this.getCurrentPlayer().getCurrent().getType())
+    dropItem(bloc) {
+        if (bloc.type === 'item') {
+            this.getCurrentPlayer().current.setPower(
+                (this.getCurrentPlayer().current.getPower() + bloc.instance.getPower())
+            )
+
+            $('.' + bloc.instance.name)
+                .data('type', 'free')
+                .data('instance', undefined)
+                .removeClass(bloc.instance.name)
         }
     }
 
@@ -160,20 +173,18 @@ export class Map {
                 ? move.X
                 : -move.X
 
-            for (let l = currentPosition.Y-move.Y; l < currentPosition.Y+move.Y; l++) {
+            for (let l = currentPosition.Y - move.Y; l < currentPosition.Y + move.Y; l++) {
                 line =
                     $('.bloc').filter(function () {
                         return $(this).data("posY") == l
                     })
 
-                line.map(function (element) {
-                    for (let c = currentPosition.X-move.X; c < currentPosition.X+move.X; c++) {
+                line.map((element) => {
+                    for (let c = currentPosition.X - move.X; c < currentPosition.X + move.X; c++) {
                         let bloc =
                             $('.bloc').filter(function () {
                                 return $(this).data("posX") == c
                             })
-
-                        console.log(bloc)
                     }
                 })
 
@@ -182,9 +193,6 @@ export class Map {
                         $('.bloc').filter(function () {
                             return $(this).data("posX") == currentPosition.X + l
                         })
-
-                    //console.log(bloc)
-
                 }
             }
 

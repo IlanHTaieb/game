@@ -24,6 +24,7 @@ export class ElementManager {
             })
 
         node.data("type", this.current.getType())
+        node.data("instance", this.current)
         this.addTypeClass(node)
     }
 

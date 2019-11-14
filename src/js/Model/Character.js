@@ -4,6 +4,7 @@ export class Character extends Model{
     heal = 200
     power = 10
     move = 3
+    name
 
     getHeal() {
         return this.heal
@@ -17,6 +18,10 @@ export class Character extends Model{
         return this.move
     }
 
+    getName() {
+        return this.name
+    }
+
     setHeal(heal) {
         this.heal = heal
     }
@@ -27,5 +32,9 @@ export class Character extends Model{
 
     setMove(move) {
         this.move = move
+    }
+
+    setName(name) {
+        this.name = name
     }
 }

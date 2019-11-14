@@ -183,6 +183,12 @@ function () {
         return $(this).data("pos-y") == posY && $(this).data("pos-x") == posX;
       });
       node.data("type", this.current.getType());
+      node.data("instance", this.current);
+      this.addTypeClass(node);
+    }
+  }, {
+    key: "addTypeClass",
+    value: function addTypeClass(node) {
       node.addClass(this.current.getType());
     }
   }]);
@@ -235,9 +241,9 @@ function (_ElementManager) {
 
   _createClass(CharacterManager, [{
     key: "move",
-    value: function move(posY, posX) {
+    value: function move(bloc) {
       this.removeOld();
-      this.setCurrent(posY, posX);
+      this.setCurrent(bloc.posY, bloc.posX);
       this.render();
     }
   }, {
@@ -271,6 +277,10 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
 function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
@@ -292,6 +302,13 @@ function (_ElementManager) {
 
     return _possibleConstructorReturn(this, _getPrototypeOf(ItemManager).apply(this, arguments));
   }
+
+  _createClass(ItemManager, [{
+    key: "addTypeClass",
+    value: function addTypeClass(node) {
+      node.addClass(this.current.getName());
+    }
+  }]);
 
   return ItemManager;
 }(_ElementManager_js__WEBPACK_IMPORTED_MODULE_0__["ElementManager"]);
@@ -467,7 +484,7 @@ function (_Model) {
 
     _defineProperty(_assertThisInitialized(_this), "move", 3);
 
-    _defineProperty(_assertThisInitialized(_this), "round", false);
+    _defineProperty(_assertThisInitialized(_this), "name", void 0);
 
     return _this;
   }
@@ -488,6 +505,11 @@ function (_Model) {
       return this.move;
     }
   }, {
+    key: "getName",
+    value: function getName() {
+      return this.name;
+    }
+  }, {
     key: "setHeal",
     value: function setHeal(heal) {
       this.heal = heal;
@@ -503,14 +525,9 @@ function (_Model) {
       this.move = move;
     }
   }, {
-    key: "getRound",
-    value: function getRound() {
-      return this.round;
-    }
-  }, {
-    key: "setRound",
-    value: function setRound(round) {
-      this.round = round;
+    key: "setName",
+    value: function setName(name) {
+      this.name = name;
     }
   }]);
 
@@ -646,15 +663,21 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
 var Item =
@@ -663,10 +686,31 @@ function (_Model) {
   _inherits(Item, _Model);
 
   function Item() {
+    var _getPrototypeOf2;
+
+    var _this;
+
     _classCallCheck(this, Item);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(Item).apply(this, arguments));
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(Item)).call.apply(_getPrototypeOf2, [this].concat(args)));
+
+    _defineProperty(_assertThisInitialized(_this), "type", 'item');
+
+    _defineProperty(_assertThisInitialized(_this), "name", '');
+
+    return _this;
   }
+
+  _createClass(Item, [{
+    key: "getName",
+    value: function getName() {
+      return this.name;
+    }
+  }]);
 
   return Item;
 }(_Model_js__WEBPACK_IMPORTED_MODULE_0__["Model"]);
@@ -698,7 +742,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 var Map =
 /*#__PURE__*/
 function () {
-  function Map() {
+  function Map(characters) {
     _classCallCheck(this, Map);
 
     _defineProperty(this, "height", 10);
@@ -708,6 +752,15 @@ function () {
     _defineProperty(this, "arena", []);
 
     _defineProperty(this, "freeBlocs", []);
+
+    _defineProperty(this, "characters", void 0);
+
+    _defineProperty(this, "currentPlayer", void 0);
+
+    console.log('- Setting all characters');
+    console.log(characters);
+    console.log('- Number of participants: ' + Object.keys(characters).length);
+    this.characters = characters;
 
     for (var y = 1; y <= this.height; y++) {
       this.arena[y] = [];
@@ -721,8 +774,8 @@ function () {
   }
 
   _createClass(Map, [{
-    key: "getHeigth",
-    value: function getHeigth() {
+    key: "getHeight",
+    value: function getHeight() {
       return this.height;
     }
   }, {
@@ -754,7 +807,7 @@ function () {
         element.render();
         that.freeBlocs[item.bloc.getPosY()].splice(item.bloc.getPosX(), 1);
 
-        if (that.freeBlocs[item.bloc.getPosY()].length == 0) {
+        if (0 === that.freeBlocs[item.bloc.getPosY()].length) {
           that.freeBlocs.splice(item.bloc.getPosY(), 1);
         }
       }
@@ -765,19 +818,37 @@ function () {
       var line = this.posRandom('line');
       var column = this.posRandom('column');
 
-      if ('undefined' != this.freeBlocs[line][column]) {
+      if ('undefined' !== this.freeBlocs[line][column]) {
         return this.freeBlocs[line][column];
       } else {
         this.chooseBlock();
       }
     }
   }, {
+    key: "setFirstPlayer",
+    value: function setFirstPlayer(characters) {
+      var first = Math.floor(Math.random() * Object.entries(characters).length);
+      this.currentPlayer = first;
+      console.log('- The first player is ' + this.getCurrentPlayer().getCurrent().getType());
+    }
+  }, {
+    key: "getCurrentPlayer",
+    value: function getCurrentPlayer() {
+      return Object.entries(this.characters)[this.currentPlayer][1];
+    }
+  }, {
+    key: "setCurrentPlayer",
+    value: function setCurrentPlayer() {
+      this.currentPlayer = this.currentPlayer >= Object.keys(this.characters).length - 1 ? 0 : this.currentPlayer + 1;
+    }
+  }, {
     key: "move",
-    value: function move(character, bloc) {
-      console.log('- Starting move');
+    value: function move(bloc) {
+      var _this = this;
+
       var currentPosition = {
-        Y: character.getCurrent().getPosY(),
-        X: character.getCurrent().getPosX()
+        Y: this.getCurrentPlayer().getCurrent().getPosY(),
+        X: this.getCurrentPlayer().getCurrent().getPosX()
       };
       var destinationPosition = {
         Y: bloc.posY,
@@ -787,17 +858,85 @@ function () {
         Y: destinationPosition.Y - currentPosition.Y,
         X: destinationPosition.X - currentPosition.X
       };
-      console.log('- Character position');
-      console.log(currentPosition);
-      console.log('- Bloc position');
-      console.log(destinationPosition);
-      console.log('- Move length');
-      console.log(move);
 
-      if (move.Y + move.X <= character.getCurrent().getMove() && move.Y + move.X > -4) {
-        this.createFreeBloc(bloc.posY, bloc.posX);
-        character.move(bloc.posY, bloc.posX);
+      if (this.checkMove(move)) {
+        $.when(this.dropItem(bloc)).done(function () {
+          _this.createFreeBloc(bloc.posY, bloc.posX);
+
+          _this.getCurrentPlayer().move(bloc);
+
+          _this.setCurrentPlayer();
+        });
       }
+    }
+  }, {
+    key: "dropItem",
+    value: function dropItem(bloc) {
+      if (bloc.type === 'item') {
+        this.getCurrentPlayer().current.setPower(this.getCurrentPlayer().current.getPower() + bloc.instance.getPower());
+        $('.' + bloc.instance.name).data('type', 'free').data('instance', undefined).removeClass(bloc.instance.name);
+      }
+    }
+  }, {
+    key: "showCase",
+    value: function showCase(bloc, element) {
+      var line;
+      var currentPosition = {
+        Y: this.getCurrentPlayer().getCurrent().getPosY(),
+        X: this.getCurrentPlayer().getCurrent().getPosX()
+      };
+      var destinationPosition = {
+        Y: bloc.posY,
+        X: bloc.posX
+      };
+      var move = {
+        Y: destinationPosition.Y - currentPosition.Y,
+        X: destinationPosition.X - currentPosition.X
+      };
+
+      if (this.checkMove(move) && (element.data("posY") !== currentPosition.Y || element.data("posX") !== currentPosition.X)) {
+        move.Y = 0 < move.Y ? move.Y : -move.Y;
+        move.X = 0 < move.X ? move.X : -move.X;
+
+        var _loop = function _loop(l) {
+          line = $('.bloc').filter(function () {
+            return $(this).data("posY") == l;
+          });
+          line.map(function (element) {
+            var _loop2 = function _loop2(c) {
+              var bloc = $('.bloc').filter(function () {
+                return $(this).data("posX") == c;
+              });
+            };
+
+            for (var c = currentPosition.X - move.X; c < currentPosition.X + move.X; c++) {
+              _loop2(c);
+            }
+          });
+
+          for (var c = 1; c < move.X; c++) {
+            var _bloc = $('.bloc').filter(function () {
+              return $(this).data("posX") == currentPosition.X + l;
+            });
+          }
+        };
+
+        for (var l = currentPosition.Y - move.Y; l < currentPosition.Y + move.Y; l++) {
+          _loop(l);
+        }
+
+        element.css('background-color', 'green');
+      } else {
+        $('.bloc').css('background-color', 'rgba(11, 74, 89, 0.7)');
+      }
+    }
+  }, {
+    key: "checkMove",
+    value: function checkMove(move) {
+      var speed = this.getCurrentPlayer().getCurrent().getMove();
+      move.Y = 0 < move.Y ? move.Y : -move.Y;
+      move.X = move.X > 0 ? move.X : -move.X;
+      return move.Y + move.X <= speed;
     }
   }, {
     key: "createFreeBloc",
@@ -995,15 +1134,21 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
 var Weapon =
@@ -1012,10 +1157,29 @@ function (_Item) {
   _inherits(Weapon, _Item);
 
   function Weapon() {
+    var _getPrototypeOf2;
+
+    var _this;
+
     _classCallCheck(this, Weapon);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(Weapon).apply(this, arguments));
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(Weapon)).call.apply(_getPrototypeOf2, [this].concat(args)));
+
+    _defineProperty(_assertThisInitialized(_this), "power", void 0);
+
+    return _this;
   }
+
+  _createClass(Weapon, [{
+    key: "getPower",
+    value: function getPower() {
+      return this.power;
+    }
+  }]);
 
   return Weapon;
 }(_Item_js__WEBPACK_IMPORTED_MODULE_0__["Item"]);
@@ -1068,7 +1232,9 @@ function (_Weapon) {
 
     _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(Knife)).call.apply(_getPrototypeOf2, [this].concat(args)));
 
-    _defineProperty(_assertThisInitialized(_this), "type", 'knife');
+    _defineProperty(_assertThisInitialized(_this), "name", 'knife');
+
+    _defineProperty(_assertThisInitialized(_this), "power", 20);
 
     return _this;
   }
@@ -1124,7 +1290,9 @@ function (_Weapon) {
 
     _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(Shootgun)).call.apply(_getPrototypeOf2, [this].concat(args)));
 
-    _defineProperty(_assertThisInitialized(_this), "type", 'shootgun');
+    _defineProperty(_assertThisInitialized(_this), "name", 'shootgun');
+
+    _defineProperty(_assertThisInitialized(_this), "power", 40);
 
     return _this;
   }
@@ -1146,6 +1314,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Router", function() { return Router; });
 /* harmony import */ var _pages_home_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./pages/home.js */ "./src/js/pages/home.js");
 /* harmony import */ var _pages_arena_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./pages/arena.js */ "./src/js/pages/arena.js");
+/* harmony import */ var _pages_fight_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./pages/fight.js */ "./src/js/pages/fight.js");
+
 
 
 var Router = {
@@ -1154,6 +1324,9 @@ var Router = {
   },
   arena: function arena(p1, p2) {
     _pages_arena_js__WEBPACK_IMPORTED_MODULE_1__["Arena"].render(p1, p2);
+  },
+  fight: function fight() {
+    _pages_fight_js__WEBPACK_IMPORTED_MODULE_2__["Fight"].render();
   }
 };
 
@@ -1178,16 +1351,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Model_Things_Weapons_Knife_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./Model/Things/Weapons/Knife.js */ "./src/js/Model/Things/Weapons/Knife.js");
 /* harmony import */ var _Model_Things_Weapons_Shootgun_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./Model/Things/Weapons/Shootgun.js */ "./src/js/Model/Things/Weapons/Shootgun.js");
 /* harmony import */ var _Manager_Elements_ItemManager_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./Manager/Elements/ItemManager.js */ "./src/js/Manager/Elements/ItemManager.js");
-/* harmony import */ var _Model_Character_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./Model/Character.js */ "./src/js/Model/Character.js");
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
-
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
-
-function _iterableToArrayLimit(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
-
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-
-
 
 
 
@@ -1199,48 +1362,68 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 $(document).ready(function () {
-  //Router.home()
-  _router_js__WEBPACK_IMPORTED_MODULE_0__["Router"].arena('Toto', 'Ploufy');
-  var map = new _Model_Map_js__WEBPACK_IMPORTED_MODULE_1__["Map"]();
-  map.render();
-  var characters = {
-    pirate: new _Manager_Elements_CharacterManager_js__WEBPACK_IMPORTED_MODULE_3__["CharacterManager"](new _Model_Characters_Pirate_js__WEBPACK_IMPORTED_MODULE_2__["Pirate"]()),
-    marines: new _Manager_Elements_CharacterManager_js__WEBPACK_IMPORTED_MODULE_3__["CharacterManager"](new _Model_Characters_Marines_js__WEBPACK_IMPORTED_MODULE_4__["Marines"]())
-  };
-  console.log();
-  var knife = new _Manager_Elements_ItemManager_js__WEBPACK_IMPORTED_MODULE_9__["ItemManager"](new _Model_Things_Weapons_Knife_js__WEBPACK_IMPORTED_MODULE_7__["Knife"]());
-  var shootgun = new _Manager_Elements_ItemManager_js__WEBPACK_IMPORTED_MODULE_9__["ItemManager"](new _Model_Things_Weapons_Shootgun_js__WEBPACK_IMPORTED_MODULE_8__["Shootgun"]());
-  map.init(characters.pirate);
-  map.init(characters.marines);
-  map.init(knife);
-  map.init(shootgun);
-  var wall = new _Manager_Elements_ThingManager_js__WEBPACK_IMPORTED_MODULE_5__["ThingManager"](new _Model_Things_Wall_js__WEBPACK_IMPORTED_MODULE_6__["Wall"]());
+  var pirateName = 'Pirate';
+  var marinesName = 'Marines'; // Routes
 
-  for (var i = 0; i <= 15; i++) {
-    map.init(wall);
-  }
+  _router_js__WEBPACK_IMPORTED_MODULE_0__["Router"].home();
+  $('.home form').submit(function (e) {
+    e.preventDefault();
+    pirateName = $('#player1').val() ? $('#player1').val() : 'Pirate';
+    marinesName = $('#player2').val() ? $('#player2').val() : 'Marines';
+    $('.home').hide();
+    _router_js__WEBPACK_IMPORTED_MODULE_0__["Router"].arena(pirateName, marinesName); /////////
+    // Initialization
 
-  var firstPlayer = Object.entries(characters)[Math.floor(Math.random() * Object.entries(characters).length)][1];
-  $('.bloc').click(function () {
-    var currentPlayer = firstPlayer;
+    var characters = {
+      pirate: new _Manager_Elements_CharacterManager_js__WEBPACK_IMPORTED_MODULE_3__["CharacterManager"](new _Model_Characters_Pirate_js__WEBPACK_IMPORTED_MODULE_2__["Pirate"]()),
+      marines: new _Manager_Elements_CharacterManager_js__WEBPACK_IMPORTED_MODULE_3__["CharacterManager"](new _Model_Characters_Marines_js__WEBPACK_IMPORTED_MODULE_4__["Marines"]())
+    };
+    characters.pirate.current.setName(pirateName);
+    characters.marines.current.setName(marinesName);
+    var map = new _Model_Map_js__WEBPACK_IMPORTED_MODULE_1__["Map"](characters);
+    map.render();
+    var knife = new _Manager_Elements_ItemManager_js__WEBPACK_IMPORTED_MODULE_9__["ItemManager"](new _Model_Things_Weapons_Knife_js__WEBPACK_IMPORTED_MODULE_7__["Knife"]());
+    var shootgun = new _Manager_Elements_ItemManager_js__WEBPACK_IMPORTED_MODULE_9__["ItemManager"](new _Model_Things_Weapons_Shootgun_js__WEBPACK_IMPORTED_MODULE_8__["Shootgun"]());
+    map.init(characters.pirate);
+    map.init(characters.marines);
+    map.init(knife);
+    map.init(shootgun);
+    var wall = new _Manager_Elements_ThingManager_js__WEBPACK_IMPORTED_MODULE_5__["ThingManager"](new _Model_Things_Wall_js__WEBPACK_IMPORTED_MODULE_6__["Wall"]());
 
-    for (var _i = 0, _Object$entries = Object.entries(characters); _i < _Object$entries.length; _i++) {
-      var _Object$entries$_i = _slicedToArray(_Object$entries[_i], 2),
-          key = _Object$entries$_i[0],
-          player = _Object$entries$_i[1];
+    for (var i = 0; i <= 15; i++) {
+      map.init(wall);
+    } // Chose the first player
 
-      if (player.getCurrent().getRound()) {
-        currentPlayer = player;
-        player.getCurrent().setRound(false);
+
+    map.setFirstPlayer(characters); // Events
+
+    $('.bloc').on('mouseover', function () {
+      if ($(this).data('type') == 'free' || $(this).data('type') == 'item') {
+        map.showCase($(this).data(), $(this));
       } else {
-        player.getCurrent().setRound(true);
+        $('.bloc').css('background-color', 'rgba(11, 74, 89, 0.7)');
       }
-    }
+    }); // Actions
 
-    if ($(this).data('type') == 'free' || $(this).data('type') == 'item') {
-      map.move(currentPlayer, $(this).data());
-    }
-  });
+    $('.bloc').click(function () {
+      console.log('- Click to move');
+
+      if ($(this).data('type') == 'free' || $(this).data('type') == 'item') {
+        map.move($(this).data());
+        console.log('- End move');
+        var compareY = characters.marines.current.getPosY() - characters.pirate.current.getPosY();
+        var compareX = characters.marines.current.getPosX() - characters.pirate.current.getPosX();
+        compareY = compareY < 0 ? -compareY : compareY;
+        compareX = compareX < 0 ? -compareX : compareX;
+
+        if (1 === compareY && 0 === compareX || 0 === compareY && 1 === compareX) {
+          $('.info').hide();
+          $('.arena').hide();
+          _router_js__WEBPACK_IMPORTED_MODULE_0__["Router"].fight();
+        }
+      }
+    }); ///////
+  }); //
 });
 
 /***/ }),
@@ -1266,6 +1449,26 @@ var Arena = {
 
 /***/ }),
 
+/***/ "./src/js/pages/fight.js":
+/*!*******************************!*\
+  !*** ./src/js/pages/fight.js ***!
+  \*******************************/
+/*! exports provided: Fight */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Fight", function() { return Fight; });
+var Fight = {
+  component: "\n        <div class=\"fight h-100\">\n            <h1>Fight !</h1>\n        \n            <div class=\"fight-body h-100 row flex-column justify-content-between\">\n                <div class=\"row justify-content-md-end\">\n                    <div class=\"col-md-5 info border\">\n                        Player 2\n                    </div>\n                </div>\n        \n                <div class=\"row justify-content-start\">\n                    <div class=\"col-md-5 info border\">\n                        Player 1\n                    </div>\n                </div>\n            </div>\n        \n            <div class=\"form\">\n                <input class=\"form-control\" type=\"text\" name=\"player1\" id=\"player1\" placeholder=\"Joueur 1\">\n                <input class=\"form-control\" type=\"text\" name=\"player2\" id=\"player2\" placeholder=\"Joueur 2\">\n                <button class=\"submit\">Entrer</button>\n            </div>\n        </div>\n    ",
+  render: function render() {
+    console.log('ok');
+    $('.body').append(this.component);
+  }
+};
+
+/***/ }),
+
 /***/ "./src/js/pages/home.js":
 /*!******************************!*\
   !*** ./src/js/pages/home.js ***!
@@ -1277,7 +1480,7 @@ var Arena = {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Home", function() { return Home; });
 var Home = {
-  component: "\n        <div class=\"home\">\n            <h1>Rejoignez la bataille</h1>\n            \n            <div class=\"form\">\n                <input class=\"form-control\" type=\"text\" name=\"player1\" id=\"player1\" placeholder=\"Joueur 1\">\n                <input class=\"form-control\" type=\"text\" name=\"player2\" id=\"player2\" placeholder=\"Joueur 2\">\n                <button class=\"submit\">Entrer</button>\n            </div>\n        </div>\n    ",
+  component: "\n        <div class=\"home\">\n            <h1>Rejoignez la bataille</h1>\n            \n            <div class=\"card container p-0\">\n                <div class=\"card-header\">\n                    <h2>Entrez le nom de vos personnages</h2>\n                </div>\n                <div class=\"card-body\">\n                    <form>\n                        <input class=\"my-3 form-control\" type=\"text\" name=\"player1\" id=\"player1\" placeholder=\"Pirate\">\n                        <input class=\"my-3 form-control\" type=\"text\" name=\"player2\" id=\"player2\" placeholder=\"Marines\">\n                        <button type=\"submit\" class=\"m-auto w-25 d-block submit btn btn-primary\">Entrer</button>\n                    </form>\n                </div>\n            </div>\n        </div>\n    ",
   render: function render() {
     $('.body').append(this.component);
   }

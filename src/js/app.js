@@ -1,5 +1,5 @@
 import {Router} from "./_router.js";
-import {Map} from "./Model/Map.js";
+import {Map} from "./Model/map.js";
 import {Pirate} from "./Model/Characters/Pirate.js";
 import {CharacterManager} from "./Manager/Elements/CharacterManager.js";
 import {Marines} from "./Model/Characters/Marines.js";
@@ -8,6 +8,7 @@ import {Wall} from "./Model/Things/Wall.js";
 import {Knife} from "./Model/Things/Weapons/Knife.js";
 import {Shootgun} from "./Model/Things/Weapons/Shootgun.js";
 import {ItemManager} from "./Manager/Elements/ItemManager.js";
+import {Game} from "./Game.js";
 
 $(document).ready(function () {
     let pirateName = 'Pirate'
@@ -38,39 +39,27 @@ $(document).ready(function () {
 
         /////////
         // Initialization
-        let characters = {
-            pirate: new CharacterManager(new Pirate()),
-            marines: new CharacterManager(new Marines())
-        };
+        const game = new Game(pirateName, marinesName)
 
-        characters.pirate.current.setName(pirateName)
-        characters.marines.current.setName(marinesName)
+        game.map.render()
 
-        let map = new Map(characters);
-        map.render();
-
-        let knife = new ItemManager(new Knife());
-        let shootgun = new ItemManager(new Shootgun());
-
-        map.init(characters.pirate);
-        map.init(characters.marines);
-        map.init(knife);
-        map.init(shootgun);
-
-        let wall = new ThingManager(new Wall());
+        game.map.init(game.characters.pirate);
+        game.map.init(game.characters.marines);
+        game.map.init(game.things.items.knife);
+        game.map.init(game.things.items.shootgun);
 
         for (let i = 0; i <= 15; i++) {
-            map.init(wall)
+            game.map.init(game.things.wall)
         }
 
         // Chose the first player
-        map.setFirstPlayer(characters)
+        game.map.setFirstPlayer(game.characters)
 
 
         // Events
         $('.bloc').on('mouseover', function () {
             if ($(this).data('type') == 'free' || $(this).data('type') == 'item') {
-                map.showCase($(this).data(), $(this))
+                game.map.showCase($(this).data(), $(this))
             } else {
                 $('.bloc').css('background-color', 'rgba(11, 74, 89, 0.7)')
             }
@@ -80,14 +69,14 @@ $(document).ready(function () {
         $('.bloc').click(function () {
             console.log('- Click to move')
             if ($(this).data('type') == 'free' || $(this).data('type') == 'item') {
-                map.move($(this).data())
+                game.map.move($(this).data())
                 console.log('- End move')
 
                 let compareY =
-                    characters.marines.current.getPosY() - characters.pirate.current.getPosY()
+                    game.characters.marines.current.getPosY() - game.characters.pirate.current.getPosY()
 
                 let compareX =
-                    characters.marines.current.getPosX() - characters.pirate.current.getPosX()
+                    game.characters.marines.current.getPosX() - game.characters.pirate.current.getPosX()
 
                 compareY = compareY < 0 ? - compareY : compareY
                 compareX = compareX < 0 ? - compareX : compareX

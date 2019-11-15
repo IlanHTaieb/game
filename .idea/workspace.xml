@@ -95,8 +95,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JavaScript File" />
         <option value="HTML File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -125,23 +125,23 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.appearance" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\PhpStorm\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\laragon\projects\game\src\js" />
+      <recent name="C:\laragon\projects\game\src\js\Manager" />
+      <recent name="C:\wamp64\www\_OPENCLASSROOMS\game\src\js\Manager\Elements" />
+      <recent name="C:\wamp64\www\_OPENCLASSROOMS\game\src" />
+      <recent name="C:\wamp64\www\_OPENCLASSROOMS\game\src\js\Model\Character" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\wamp64\www\_OPENCLASSROOMS\game\src" />
       <recent name="C:\wamp64\www\_OPENCLASSROOMS\game\src\js" />
       <recent name="C:\wamp64\www\_OPENCLASSROOMS\game\src\js\pages" />
       <recent name="C:\wamp64\www\_OPENCLASSROOMS\game" />
       <recent name="C:\wamp64\www\_OPENCLASSROOMS\game\assets" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\wamp64\www\_OPENCLASSROOMS\game\src\js\Manager\Elements" />
-      <recent name="C:\wamp64\www\_OPENCLASSROOMS\game\src" />
-      <recent name="C:\wamp64\www\_OPENCLASSROOMS\game\src\js\Model\Character" />
-      <recent name="C:\wamp64\www\_OPENCLASSROOMS\game\src\js\Model" />
-      <recent name="C:\wamp64\www\_OPENCLASSROOMS\game\src\js\Manager" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -200,7 +200,7 @@
       <workItem from="1573443685384" duration="291000" />
       <workItem from="1573594804315" duration="1197000" />
       <workItem from="1573676340630" duration="3609000" />
-      <workItem from="1573760758202" duration="6837000" />
+      <workItem from="1573760758202" duration="17654000" />
     </task>
     <servers />
   </component>

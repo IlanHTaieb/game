@@ -6,16 +6,11 @@ export class Map {
     width = 10
     arena = []
     freeBlocs = []
-    characters
-    currentPlayer
 
-    constructor(characters) {
-        console.log('- Setting all characters')
-        console.log(characters)
-        console.log('- Number of participants: ' + (Object.keys(characters).length))
-
-        this.characters = characters
-
+    /**
+     * The Map constructor.
+     */
+    constructor() {
         for (let y = 1; y <= this.height; y++) {
             this.arena[y] = []
 
@@ -27,14 +22,27 @@ export class Map {
         this.freeBlocs = this.arena
     }
 
+    /**
+     * Get height of the map.
+     *
+     * @returns {number}
+     */
     getHeight() {
         return this.height
     }
 
+    /**
+     * Get width of the map.
+     *
+     * @returns {number}
+     */
     getWidth() {
         return this.width
     }
 
+    /**
+     * Append the map to DOM.
+     */
     render() {
         this.arena.forEach(function (bloc, line) {
             $('.arena').append(
@@ -51,178 +59,41 @@ export class Map {
         })
     }
 
-    init(element) {
-        let item = this.chooseBlock()
-        let that = this
-
-        if (item) {
-            element.setCurrent(
-                item.bloc.getPosY(),
-                item.bloc.getPosX()
-            )
-
-            element.render()
-
-            that.freeBlocs[item.bloc.getPosY()].splice(item.bloc.getPosX(), 1)
-
-            if (0 === that.freeBlocs[item.bloc.getPosY()].length) {
-                that.freeBlocs.splice(item.bloc.getPosY(), 1)
-            }
-        }
-    }
-
-    chooseBlock() {
+    /**
+     * Select one bloc in the map.
+     *
+     * @returns {*}
+     */
+    getRandomBlock() {
         let line = this.posRandom('line')
         let column = this.posRandom('column')
 
         if ('undefined' !== this.freeBlocs[line][column]) {
             return this.freeBlocs[line][column]
         } else {
-            this.chooseBlock()
+            this.getRandomBlock()
         }
     }
 
-    setFirstPlayer(characters) {
-        let first = Math.floor(
-            Math.random() * Object.entries(characters).length
-        )
-
-        this.currentPlayer = first
-        console.log('- The first player is ' + this.getCurrentPlayer().getCurrent().getType())
-    }
-
-    getCurrentPlayer() {
-        return Object.entries(this.characters)[this.currentPlayer][1]
-    }
-
-    setCurrentPlayer() {
-        this.currentPlayer =
-            this.currentPlayer >= (Object.keys(this.characters).length - 1)
-                ? 0
-                : this.currentPlayer + 1
-    }
-
-    move(bloc) {
-        let currentPosition = {
-            Y: this.getCurrentPlayer().getCurrent().getPosY(),
-            X: this.getCurrentPlayer().getCurrent().getPosX()
-        }
-
-        let destinationPosition = {
-            Y: bloc.posY,
-            X: bloc.posX
-        }
-
-        let move = {
-            Y: destinationPosition.Y - currentPosition.Y,
-            X: destinationPosition.X - currentPosition.X
-        }
-
-        if (this.checkMove(move)) {
-            $.when(this.dropItem(bloc)).done(() => {
-                this.createFreeBloc(bloc.posY, bloc.posX)
-                this.getCurrentPlayer().move(bloc)
-                this.setCurrentPlayer()
-            })
-        }
-    }
-
-    dropItem(bloc) {
-        if (bloc.type === 'item') {
-            this.getCurrentPlayer().current.setPower(
-                (this.getCurrentPlayer().current.getPower() + bloc.instance.getPower())
-            )
-
-            $('.' + bloc.instance.name)
-                .data('type', 'free')
-                .data('instance', undefined)
-                .removeClass(bloc.instance.name)
-        }
-    }
-
-    showCase(bloc, element) {
-        var line;
-        let currentPosition = {
-            Y: this.getCurrentPlayer().getCurrent().getPosY(),
-            X: this.getCurrentPlayer().getCurrent().getPosX()
-        }
-
-        let destinationPosition = {
-            Y: bloc.posY,
-            X: bloc.posX
-        }
-
-        let move = {
-            Y: destinationPosition.Y - currentPosition.Y,
-            X: destinationPosition.X - currentPosition.X
-        }
-
-
-        if (
-            this.checkMove(move)
-            && (
-                element.data("posY") !== currentPosition.Y
-                || element.data("posX") !== currentPosition.X
-            )
-        ) {
-            move.Y = 0 < move.Y
-                ? move.Y
-                : -move.Y
-
-            move.X = 0 < move.X
-                ? move.X
-                : -move.X
-
-            for (let l = currentPosition.Y - move.Y; l < currentPosition.Y + move.Y; l++) {
-                line =
-                    $('.bloc').filter(function () {
-                        return $(this).data("posY") == l
-                    })
-
-                line.map((element) => {
-                    for (let c = currentPosition.X - move.X; c < currentPosition.X + move.X; c++) {
-                        let bloc =
-                            $('.bloc').filter(function () {
-                                return $(this).data("posX") == c
-                            })
-                    }
-                })
-
-                for (let c = 1; c < move.X; c++) {
-                    let bloc =
-                        $('.bloc').filter(function () {
-                            return $(this).data("posX") == currentPosition.X + l
-                        })
-                }
-            }
-
-
-            element.css('background-color', 'green')
-        } else {
-            $('.bloc').css('background-color', 'rgba(11, 74, 89, 0.7)')
-        }
-    }
-
-    checkMove(move) {
-        let speed = this.getCurrentPlayer().getCurrent().getMove()
-
-        move.Y = 0 < move.Y
-            ? move.Y
-            : -move.Y
-
-        move.X = move.X > 0
-            ? move.X
-            : -move.X
-
-        return (move.Y + move.X) <= speed
-    }
-
+    /**
+     * Make the selected bloc free.
+     *
+     * @param posY
+     * @param posX
+     */
     createFreeBloc(posY, posX) {
         this.freeBlocs[posY][posX] = new BlocManager(
             new Bloc(posY, posX)
         )
     }
 
+    /**
+     * Generate a random index with freeBlocs's metrix.
+     *
+     * @param dir
+     * @param line
+     * @returns {number}
+     */
     posRandom(dir, line = 1) {
         return Math.floor(Math.random() * (
             dir == 'line'

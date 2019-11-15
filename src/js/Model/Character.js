@@ -1,7 +1,7 @@
 import {Model} from "./Model.js";
 
 export class Character extends Model{
-    heal = 200
+    heal = 100
     power = 10
     move = 3
     name

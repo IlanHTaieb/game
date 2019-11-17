@@ -1,2 +1,11 @@
 @mixin element($item)
   background: url($base-uri + "public/images/arena/" + $item + ".png") no-repeat center
+
+@mixin button
+  background: transparent
+  color: #D2AA4F
+  border: 2px solid #D2AA4F
+  border-radius: 0
+  &:hover
+    color: #D2AA4F
+    background: rgba($color: #D2AA4F, $alpha: 0.3)

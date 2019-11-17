@@ -91,8 +91,6 @@ export class Game {
         )
 
         this.currentPlayer = first
-        console.log('- The first player is ' + this.getCurrentPlayer().getCurrent().getType())
-        $('#info-arena').text('Au tour de ' + this.getCurrentPlayer().getCurrent().getName())
     }
 
     /**
@@ -133,10 +131,10 @@ export class Game {
 
 
         if (this.checkMove(move) && (element.data("posY") !== currentPosition.Y || element.data("posX") !== currentPosition.X)) {
-            $('.bloc').css('background-color', 'rgba(11, 74, 89, 0.7)')
+            $('.bloc').css('background-color', 'rgba(49, 145, 196, 0.5)')
             element.css('background-color', 'green')
         } else {
-            $('.bloc').css('background-color', 'rgba(11, 74, 89, 0.7)')
+            $('.bloc').css('background-color', 'rgba(49, 145, 196, 0.5)')
         }
     }
 
@@ -156,7 +154,7 @@ export class Game {
                 this.map.createFreeBloc(bloc.posY, bloc.posX)
                 this.getCurrentPlayer().move(bloc)
                 this.setCurrentPlayer()
-                $('#info-arena').text('Au tour de ' + this.getCurrentPlayer().getCurrent().getName())
+                $('.infos-arena-text').text('Au tour de ' + this.getCurrentPlayer().getCurrent().getName())
             })
         }
     }

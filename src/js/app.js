@@ -38,12 +38,14 @@ $(document).ready(function () {
 
         Router.info(game.characters.pirate, game.characters.marines)
 
+        $('.infos-arena-text').text('Au tour de ' + game.getCurrentPlayer().getCurrent().getName())
+
         // Events
         $('.bloc').on('mouseover', function () {
             if ($(this).data('type') == 'free' || $(this).data('type') == 'item') {
                 game.showCase($(this).data(), $(this))
             } else {
-                $('.bloc').css('background-color', 'rgba(11, 74, 89, 0.7)')
+                $('.bloc').css('background-color', 'rgba(49, 145, 196, 0.5)')
             }
         })
 

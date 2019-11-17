@@ -1,18 +1,24 @@
-.arena
-  background: rgba(11, 74, 89, 0.7)
-  .line
-    display: flex
-  .pirate
-    @include element('pirate')
-  .marines
-    @include element('marines')
-  .wall
-    @include element('wall')
-  .knife
-    @include element('knife')
-  .shootgun
-    @include element('shootgun')
-  .bloc
-    background-size: contain
-    &:hover
-      background-color: lighten(rgba($bg-modal, 0.3), 10%)
+.arena-page
+  height: 100%
+  width: 100%
+  min-height: $min-height
+  background: url($base-uri + "public/images/BG_arena.jpg") no-repeat
+  background-size: cover
+  .arena
+    background: url($base-uri + "public/images/BG.jpg") no-repeat
+    background-size: cover
+    .line
+      display: flex
+    .pirate
+      @include element('pirate')
+    .marines
+      @include element('marines')
+    .wall
+      @include element('wall')
+    .knife
+      @include element('knife')
+    .shootgun
+      @include element('shootgun')
+    .bloc
+      background-size: contain
+      background-color: rgba($color: $bg-modal, $alpha: 0.5)

@@ -206,8 +206,6 @@ function () {
     value: function setFirstPlayer() {
       var first = Math.floor(Math.random() * Object.entries(this.characters).length);
       this.currentPlayer = first;
-      console.log('- The first player is ' + this.getCurrentPlayer().getCurrent().getType());
-      $('#info-arena').text('Au tour de ' + this.getCurrentPlayer().getCurrent().getName());
     }
     /**
      * Get the current player.
@@ -248,10 +246,10 @@ function () {
       };
 
       if (this.checkMove(move) && (element.data("posY") !== currentPosition.Y || element.data("posX") !== currentPosition.X)) {
-        $('.bloc').css('background-color', 'rgba(11, 74, 89, 0.7)');
+        $('.bloc').css('background-color', 'rgba(49, 145, 196, 0.5)');
         element.css('background-color', 'green');
       } else {
-        $('.bloc').css('background-color', 'rgba(11, 74, 89, 0.7)');
+        $('.bloc').css('background-color', 'rgba(49, 145, 196, 0.5)');
       }
     }
     /**
@@ -278,7 +276,7 @@ function () {
 
           _this.setCurrentPlayer();
 
-          $('#info-arena').text('Au tour de ' + _this.getCurrentPlayer().getCurrent().getName());
+          $('.infos-arena-text').text('Au tour de ' + _this.getCurrentPlayer().getCurrent().getName());
         });
       }
     }
@@ -375,8 +373,6 @@ function () {
       var first = Math.floor(Math.random() * Object.entries(this.characters).length);
       this.currentPlayer = first;
       this.setTarget();
-      console.log('- The first player is ' + this.getCurrentPlayer().getCurrent().getName());
-      console.log('- The current target is ' + this.getTarget().current.getName());
     }
     /**
      * Get the current player.
@@ -395,7 +391,6 @@ function () {
     key: "setCurrentPlayer",
     value: function setCurrentPlayer() {
       this.currentPlayer = this.currentPlayer >= Object.keys(this.characters).length - 1 ? 0 : this.currentPlayer + 1;
-      console.log('- The new current player is ' + this.getCurrentPlayer().current.getName());
     }
   }, {
     key: "getTarget",
@@ -410,17 +405,12 @@ function () {
     key: "setTarget",
     value: function setTarget() {
       var target = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : undefined;
-      console.log('- setting target');
 
       if (target) {
-        console.log('- injected target');
         this.target = target;
-        console.log('- the new target is ' + this.getTarget().current.getName());
       } else {
-        console.log('- First target');
         var range = this.currentPlayer >= Object.keys(this.characters).length - 1 ? 0 : this.currentPlayer + 1;
         this.target = Object.entries(this.characters)[range][1];
-        console.log('- The first target is ' + this.getTarget().current.getName());
       }
     }
     /**
@@ -446,7 +436,7 @@ function () {
       target.setHeal(target.getHeal() - currentPlayer.getPower());
 
       if (target.getHeal() <= 0) {
-        $.when(_router_js__WEBPACK_IMPORTED_MODULE_0__["Router"].win(currentPlayer.getName())).done(function () {
+        $.when(_router_js__WEBPACK_IMPORTED_MODULE_0__["Router"].win(currentPlayer.getType())).done(function () {
           $('#replay').click(function () {
             location.reload();
           });
@@ -469,12 +459,12 @@ function () {
     key: "pokeball",
     value: function pokeball() {
       $('#info').addClass('alert-info');
-      this.message(this.getTarget().getCurrent().getName() + ' n\'est pas un pokemon, bien essayé');
+      this.message(this.getTarget().getCurrent().getName() + ' n\'est pas un pokemon.');
     }
   }, {
     key: "flee",
     value: function flee() {
-      $.when(_router_js__WEBPACK_IMPORTED_MODULE_0__["Router"].win(this.getTarget().getCurrent().getName())).done(function () {
+      $.when(_router_js__WEBPACK_IMPORTED_MODULE_0__["Router"].win(this.getTarget().getCurrent().getType())).done(function () {
         $('#replay').click(function () {
           location.reload();
         });
@@ -489,7 +479,6 @@ function () {
   }, {
     key: "message",
     value: function message(_message) {
-      console.log('Messaging');
       $('#info').text(_message);
     }
   }]);
@@ -810,7 +799,7 @@ function (_Model) {
   function Bloc(posY, posX) {
     var _this;
 
-    var size = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 100;
+    var size = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 95;
 
     _classCallCheck(this, Bloc);
 
@@ -1645,7 +1634,7 @@ var Router = {
   },
   fight: function fight() {
     $('.info').remove();
-    $('.arena').remove();
+    $('.arena-page').remove();
     _pages_fight_js__WEBPACK_IMPORTED_MODULE_2__["Fight"].render();
   },
   info: function info(p1, p2) {
@@ -1694,13 +1683,14 @@ $(document).ready(function () {
     // Initialization
     var game = new _Game_js__WEBPACK_IMPORTED_MODULE_3__["Game"](pirateName, marinesName);
     game.start();
-    _router_js__WEBPACK_IMPORTED_MODULE_0__["Router"].info(game.characters.pirate, game.characters.marines); // Events
+    _router_js__WEBPACK_IMPORTED_MODULE_0__["Router"].info(game.characters.pirate, game.characters.marines);
+    $('.infos-arena-text').text('Au tour de ' + game.getCurrentPlayer().getCurrent().getName()); // Events
 
     $('.bloc').on('mouseover', function () {
       if ($(this).data('type') == 'free' || $(this).data('type') == 'item') {
         game.showCase($(this).data(), $(this));
       } else {
-        $('.bloc').css('background-color', 'rgba(11, 74, 89, 0.7)');
+        $('.bloc').css('background-color', 'rgba(49, 145, 196, 0.5)');
       }
     }); // Actions
 
@@ -1751,10 +1741,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Info", function() { return Info; });
 var Info = {
   component: function component(p1, p2) {
-    return "\n                <div class=\"info\">\n                    <div class=\"player player_1\">\n                        <div class=\"avatar\"></div>\n                        <p class=\"info-player-1\" style=\"text-align: center;\">".concat(p1.current.getName(), "</p>\n                        <div class=\"power\">Vous avez une puissance de <span class=\"power-value-").concat(p1.current.getName(), "\">").concat(p1.current.getPower(), "</span></div>\n                        <div class=\"life_line\"></div>\n                        <div class=\"life\">").concat(p1.current.getHeal(), "/100</div>\n                    </div>\n                    \n                    <div class=\"player player_2\">\n                        <div class=\"avatar\"></div>\n                        <p class=\"info-player-2\" style=\"text-align: center;\">").concat(p2.current.getName(), "</p>\n                        <div class=\"power\">Vous avez une puissance de <span class=\"power-value-").concat(p2.current.getName(), "\">").concat(p2.current.getPower(), "</span></div>\n                        <div class=\"life_line\"></div>\n                        <div class=\"life\">").concat(p2.current.getHeal(), "/100</div>\n                    </div>\n                    </div>\n    ");
+    return "\n                <div class=\"info p-5\">\n                    <div class=\"row d-flex justify-content-between h-50\">\n                        <div class=\"player player_1\">\n                            <div class=\"avatar\"></div>\n                            <p class=\"info-player-1\" style=\"text-align: center;\">".concat(p1.current.getName(), "</p>\n                            <div class=\"power\">Vous avez une puissance de <span class=\"power-value-").concat(p1.current.getName(), "\">").concat(p1.current.getPower(), "</span></div>\n                            <div class=\"life_line\"></div>\n                            <div class=\"life\">").concat(p1.current.getHeal(), "/100</div>\n                        </div>\n                    \n                        <div class=\"player player_2\">\n                            <div class=\"avatar\"></div>\n                            <p class=\"info-player-2\" style=\"text-align: center;\">").concat(p2.current.getName(), "</p>\n                            <div class=\"power\">Vous avez une puissance de <span class=\"power-value-").concat(p2.current.getName(), "\">").concat(p2.current.getPower(), "</span></div>\n                            <div class=\"life_line\"></div>\n                            <div class=\"life\">").concat(p2.current.getHeal(), "/100</div>\n                        </div>\n                    </div>\n                    \n                    <div class=\"infos-arena w-75 m-auto d-flex justify-content-center align-items-center\">\n                        <p class=\"infos-arena-text\"></p>\n                    </div>\n                </div>\n    ");
   },
   render: function render(p1, p2) {
-    $('.body').append(this.component(p1, p2));
+    $('.arena-page').append(this.component(p1, p2));
   }
 };
 
@@ -1772,7 +1762,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Arena", function() { return Arena; });
 var Arena = {
   component: function component() {
-    return "\n            <div class=\"arena\">\n                <div id=\"info-arena\" class=\"alert alert-info\"></div>\n            </div>";
+    return "\n            <div class=\"arena-page row justify-content-between align-items-center m-0 px-5\">\n                <div class=\"arena\"></div>\n            </div>\n        ";
   },
   render: function render() {
     $('.body').append(this.component());
@@ -1792,7 +1782,7 @@ var Arena = {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Fight", function() { return Fight; });
 var Fight = {
-  component: "\n        <div class=\"fight h-100\">\n            <h1>Fight !</h1>\n            \n            \n<div id=\"info\" class=\"alert\" role=\"alert\"></div>\n        \n            <div class=\"fight-body h-100 row flex-column justify-content-between\">\n                <div class=\"row justify-content-md-end\">\n                    <div class=\"col-md-5 info border\">\n                        Player 2\n                    </div>\n                </div>\n        \n                <div class=\"row justify-content-start\">\n                    <div class=\"col-md-5 info border\">\n                        Player 1\n                    </div>\n                </div>\n            </div>\n        \n            <div class=\"row\">\n                <div class=\"col-md-6 col-sm-12\">\n                    <button type=\"button\" id=\"hit\" class=\"btn btn-danger\">Attaquer</button>\n                </div>\n                \n                <div class=\"col-md-6 col-sm-12\">\n                    <button type=\"button\" id=\"pokeball\" class=\"btn btn-info\">Pokeball</button>\n                </div>\n                \n                <div class=\"col-md-6 col-sm-12\">\n                    <button type=\"button\" id=\"items\" class=\"btn btn-success\">Sac \xE0 dos</button>\n                </div>\n                \n                <div class=\"col-md-6 col-sm-12\">\n                    <button type=\"button\" id=\"flee\" class=\"btn btn-dark\">Fuir</button>\n                </div>\n            </div>\n        </div>\n    ",
+  component: "\n        <div class=\"fight-page h-100 w-100 py-5\">\n            <div class=\"fight container h-100\">\n                <h1 style=\"color: white\">Fight !</h1>\n                \n                <div id=\"info\" class=\"alert\" role=\"alert\"></div>\n            \n                <div class=\"fight-body row justify-content-between\">\n                        <div class=\"col-md-5 h-100 d-flex flex-column justify-content-end fight-info\">\n                            <img src=\"../../../public/images/perso/fight-marines.png\" alt=\"\">\n                        </div>\n            \n                        <div class=\"col-md-5 h-100 d-flex flex-column justify-content-start fight-info\">\n                            <img src=\"../../../public/images/perso/fight-pirate.png\" alt=\"\">\n                        </div>\n                </div>\n            \n                <div class=\"row text-center py-5\">\n                    <div class=\"col-md-6 col-sm-12 py-2\">\n                        <button type=\"button\" id=\"hit\" class=\"btn btn-danger\">Attaquer</button>\n                    </div>\n                    \n                    <div class=\"col-md-6 col-sm-12 py-2\">\n                        <button type=\"button\" id=\"pokeball\" class=\"btn btn-info\">Pokeball</button>\n                    </div>\n                    \n                    <div class=\"col-md-6 col-sm-12 py-2\">\n                        <button type=\"button\" id=\"items\" class=\"btn btn-success\">Sac \xE0 dos</button>\n                    </div>\n                    \n                    <div class=\"col-md-6 col-sm-12 py-2\">\n                        <button type=\"button\" id=\"flee\" class=\"btn btn-dark\">Fuir</button>\n                    </div>\n                </div>\n            </div>\n        </div>\n    ",
   render: function render() {
     $('.body').append(this.component);
   }
@@ -1811,7 +1801,7 @@ var Fight = {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Home", function() { return Home; });
 var Home = {
-  component: "\n        <div class=\"home\">\n            <h1>Rejoignez la bataille</h1>\n            \n            <div class=\"card container p-0\">\n                <div class=\"card-header\">\n                    <h2>Entrez le nom de vos personnages</h2>\n                </div>\n                <div class=\"card-body\">\n                    <form>\n                        <input class=\"my-3 form-control\" type=\"text\" name=\"player1\" id=\"player1\" placeholder=\"Pirate\">\n                        <input class=\"my-3 form-control\" type=\"text\" name=\"player2\" id=\"player2\" placeholder=\"Marines\">\n                        <button type=\"submit\" class=\"m-auto w-25 d-block submit btn btn-primary\">Entrer</button>\n                    </form>\n                </div>\n            </div>\n        </div>\n    ",
+  component: "\n        <div class=\"home h-100\">\n            <div class=\"container home-content\">\n                <div class=\"row h-100\">\n                    <div class=\"col-md-7 h-100\">\n                    </div>\n                    \n                    <div class=\"game-container position-relative col-md-5 h-100 px-5 d-flex flex-column justify-content-center\">\n                        <img src=\"https://fontmeme.com/permalink/191117/ea3ac8f33b05521ce8b2b9eba1950ad4.png\" alt=\"polices-de-calligraphie\" border=\"0\">                        \n                        \n                        <form>\n                            <input class=\"my-3 form-control border-bottom\" type=\"text\" name=\"player1\" id=\"player1\" placeholder=\"Pirate\">\n                            <input class=\"my-3 form-control border-bottom\" type=\"text\" name=\"player2\" id=\"player2\" placeholder=\"Marines\">\n                            <button type=\"submit\" class=\"w-100 submit btn btn-primary\">Entrer</button>\n                        </form>\n                    </div>\n                </div>\n            </div>\n        </div>\n    ",
   render: function render() {
     $('.body').append(this.component);
   }
@@ -1831,10 +1821,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Win", function() { return Win; });
 var Win = {
   component: function component(winner) {
-    return "\n                <div class=\"win container\">\n                    <div class=\"card card-light\">\n                    \n                        <div class=\"card-body\">\n                            <h2 class=\"card-title\">".concat(winner, " a Gagn\xE9 !</h2>\n                            <button id=\"replay\" class=\"btn btn-primary\">Recommencer</button>\n                        </div>\n                    </div>\n                </div>\n    ");
+    return "\n                <div class=\"win-page h-100 w-100\">\n                    <div class=\"win row m-0 justify-content-end\">\n                        <div class=\"col-md-7 py-5 d-flex justify-content-end\">\n                            <div class=\"w-75 h-25 d-flex justify-content-between align-items-start\">\n                                <img src=\"https://fontmeme.com/permalink/191117/150ab97b0a737e05259fcade8dfa1322.png\" alt=\"polices-de-calligraphie\" border=\"0\">\n                                <button id=\"replay\" class=\"btn\">Rejouer</button>\n                            </div>\n                        </div>\n                        \n                        <div class=\"col-md-5 py-5\">\n                            <img height=\"1300\" src=\"../../../public/images/perso/fight-".concat(winner.toLowerCase(), ".png\" alt=\"\">\n                        </div>\n                    </div>\n                </div>\n    ");
   },
   render: function render(winner) {
-    $('.fight').remove();
+    $('.fight-page').remove();
     $('.body').append(this.component(winner));
   }
 };

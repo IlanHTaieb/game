@@ -20,8 +20,6 @@ export class InstantFight {
 
         this.currentPlayer = first
         this.setTarget()
-        console.log('- The first player is ' + this.getCurrentPlayer().getCurrent().getName())
-        console.log('- The current target is ' + this.getTarget().current.getName())
     }
 
     /**
@@ -39,7 +37,6 @@ export class InstantFight {
             this.currentPlayer >= (Object.keys(this.characters).length - 1)
                 ? 0
                 : this.currentPlayer + 1
-        console.log('- The new current player is ' + this.getCurrentPlayer().current.getName())
     }
 
     getTarget() {
@@ -50,22 +47,15 @@ export class InstantFight {
      * Set target.
      */
     setTarget(target = undefined) {
-        console.log('- setting target')
         if (target) {
-            console.log('- injected target')
             this.target = target
-
-            console.log('- the new target is ' + this.getTarget().current.getName())
         } else {
-            console.log(('- First target'))
             let range =
                 this.currentPlayer >= (Object.keys(this.characters).length - 1)
                     ? 0
                     : this.currentPlayer + 1
 
             this.target = Object.entries(this.characters)[range][1]
-
-            console.log('- The first target is ' + this.getTarget().current.getName())
         }
     }
 
@@ -93,7 +83,7 @@ export class InstantFight {
 
 
         if (target.getHeal() <= 0) {
-            $.when(Router.win(currentPlayer.getName()))
+            $.when(Router.win(currentPlayer.getType()))
                 .done(() => {
                     $('#replay').click(() => {
                         location.reload()
@@ -117,11 +107,11 @@ export class InstantFight {
 
     pokeball() {
         $('#info').addClass('alert-info')
-        this.message(this.getTarget().getCurrent().getName() + ' n\'est pas un pokemon, bien essayé')
+        this.message(this.getTarget().getCurrent().getName() + ' n\'est pas un pokemon.')
     }
 
     flee() {
-        $.when(Router.win(this.getTarget().getCurrent().getName()))
+        $.when(Router.win(this.getTarget().getCurrent().getType()))
             .done(() => {
                 $('#replay').click(() => {
                     location.reload()
@@ -135,7 +125,6 @@ export class InstantFight {
      * @param message
      */
     message(message) {
-        console.log('Messaging')
         $('#info').text(message)
     }
 }

@@ -1,19 +1,24 @@
 export const Win = {
     component: (winner) => {
         return `
-                <div class="win container">
-                    <div class="card card-light">
-                    
-                        <div class="card-body">
-                            <h2 class="card-title">${winner} a Gagné !</h2>
-                            <button id="replay" class="btn btn-primary">Recommencer</button>
+                <div class="win-page h-100 w-100">
+                    <div class="win row m-0 justify-content-end">
+                        <div class="col-md-7 py-5 d-flex justify-content-end">
+                            <div class="w-75 h-25 d-flex justify-content-between align-items-start">
+                                <img src="https://fontmeme.com/permalink/191117/150ab97b0a737e05259fcade8dfa1322.png" alt="polices-de-calligraphie" border="0">
+                                <button id="replay" class="btn">Rejouer</button>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-5 py-5">
+                            <img height="1300" src="../../../public/images/perso/fight-${winner.toLowerCase()}.png" alt="">
                         </div>
                     </div>
                 </div>
     `;
     },
     render: function (winner) {
-        $('.fight').remove()
+        $('.fight-page').remove()
         $('.body').append(this.component(winner))
     }
 }

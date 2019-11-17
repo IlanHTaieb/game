@@ -13,7 +13,7 @@ export const Router = {
     },
     fight: function () {
         $('.info').remove()
-        $('.arena').remove()
+        $('.arena-page').remove()
 
         Fight.render()
     },

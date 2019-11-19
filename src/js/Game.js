@@ -163,17 +163,15 @@ export class Game {
             X: bloc.posX - this.getCurrentPlayer().getCurrent().getPosX()
         }
 
-        console.log('start')
-        this.checkObstacle(
+        let wayIsFree = this.checkObstacle(
             {
                 posY: this.getCurrentPlayer().getCurrent().getPosY(),
                 posX: this.getCurrentPlayer().getCurrent().getPosX()
             },
             bloc
         )
-        console.log('ok')
 
-        if (this.checkMove(move)) {
+        if (this.checkMove(move) && wayIsFree) {
             $.when(this.dropItem(bloc)).done(() => {
                 this.map.createFreeBloc(bloc.posY, bloc.posX)
                 this.getCurrentPlayer().move(bloc)
@@ -192,7 +190,6 @@ export class Game {
         if (bloc.type === 'item') {
             this.getCurrentPlayer().getCurrent().getBag().push(bloc.instance)
 
-            console.log(this.getCurrentPlayer().getCurrent())
             $('.' + bloc.instance.name)
                 .data('type', 'free')
                 .data('instance', undefined)
@@ -216,20 +213,57 @@ export class Game {
     checkObstacle(player, bloc) {
         let positionsY = [player.posY, bloc.posY]
         let positionsX = [player.posX, bloc.posX]
+        let moveBlocs = []
 
-        for (let l = Math.min(...positionsY); l < Math.max(...positionsY); l++) {
-            console.log(
-                this.getbloc({posY: l, posX: bloc.posX})
-            )
+        for (let y = Math.min(...positionsY); y <= Math.max(...positionsY); y++) {
+            moveBlocs[y] = []
+            for (let x = Math.min(...positionsX); x <= Math.max(...positionsX); x++) {
+                moveBlocs.push(this.getbloc({posY: y, posX: x}))
+            }
         }
 
-        for (let x = Math.min(...positionsX); x < Math.max(...positionsX); x++) {
-            console.log(
-                this.getbloc({posY: bloc.posY, posX: x})
-            )
+        let moveBlocsY = this.groupByPosY(moveBlocs)
+        let moveBlocsX = this.groupByPosX(moveBlocs)
+
+        delete moveBlocsY.undefined
+        delete moveBlocsX.undefined
+
+        for (let [key, value] of Object.entries(moveBlocsY)) {
+            value.some(e => {
+                if (moveBlocsY.hasOwnProperty(key)) {
+                    if ('wall' === e.type) {
+                        delete moveBlocsY[key]
+                        return true
+                    }
+                }
+            })
+        }
+
+        for (let [key, value] of Object.entries(moveBlocsX)) {
+            value.some(e => {
+                if (moveBlocsX.hasOwnProperty(key)) {
+                    if ('wall' === e.type) {
+                        delete moveBlocsX[key]
+                        return true
+                    }
+                }
+            })
+        }
+
+
+        if (0 < Object.entries(moveBlocsY).length && 0 < Object.entries(moveBlocsX).length) {
+            return true
+        } else {
+            return false
         }
     }
 
+    /**
+     * Get the required bloc.
+     *
+     * @param bloc
+     * @returns {*|jQuery}
+     */
     getbloc(bloc) {
         let node = $('.bloc:data("pos-y")')
             .filter(function () {
@@ -237,6 +271,32 @@ export class Game {
             })
 
         return node.data()
+    }
+
+    /**
+     * Group moveBloc array by posY.
+     *
+     * @param element
+     * @returns {*}
+     */
+    groupByPosY(element) {
+        return element.reduce((r, a) => {
+            r[a.posY] = [...r[a.posY] || [], a]
+            return r
+        }, {})
+    }
+
+    /**
+     * Group moveBloc array by posX.
+     *
+     * @param element
+     * @returns {*}
+     */
+    groupByPosX(element) {
+        return element.reduce((r, a) => {
+            r[a.posX] = [...r[a.posX] || [], a]
+            return r
+        }, {})
     }
 
     /**

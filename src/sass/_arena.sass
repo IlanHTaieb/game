@@ -7,18 +7,43 @@
   .arena
     background: url($base-uri + "public/images/BG.jpg") no-repeat
     background-size: cover
+    left: 190px
+    bottom: 0
+    transform: rotateX(70deg) rotateY(-8deg) rotateZ(40deg)
+    .arena-fighter
+      position: absolute
+      bottom: -20%
+      left: -90%
+      transform: rotateX(-30deg) rotateY(0deg) rotateZ(-35deg)
+      pointer-events: none
     .line
       display: flex
-    .pirate
-      @include element('pirate')
-    .marines
-      @include element('marines')
-    .wall
-      @include element('wall')
-    .knife
-      @include element('knife')
-    .shootgun
-      @include element('shootgun')
+    .wall img
+      height: 150px
+      width: 55px
+      left: 0
+      bottom: -10%
+    .knife img
+      height: 250px
+      width: 55px
+      bottom: 0
+      left: -80%
+    .shootgun img
+      height: 250px
+      width: 55px
+      bottom: 20%
+      left: -60%
+    .heal img
+      height: 250px
+      width: 55px
+      bottom: 20%
+      left: -60%
+    .poison img
+      height: 250px
+      width: 55px
+      bottom: 20%
+      left: -60%
     .bloc
       background-size: contain
       background-color: rgba($color: $bg-modal, $alpha: 0.5)
+      position: relative

@@ -9,6 +9,7 @@ export const Router = {
         Home.render()
     },
     arena: function () {
+        $('.home').remove()
         Arena.render()
     },
     fight: function () {

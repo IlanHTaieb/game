@@ -6,8 +6,31 @@ export class InstantFight {
     currentPlayer
 
     constructor(characters) {
+        let that = this
+
         this.characters = characters
-        this.setFirstPlayer()
+        $.when(this.setFirstPlayer())
+            .done(function () {
+                that.message('Au tour de ' + that.getCurrentPlayer().getCurrent().getName())
+            })
+    }
+
+    addEvents() {
+        $('#hit').click(() => {
+            this.hit()
+        })
+
+        $('#pokeball').click(() => {
+            this.pokeball()
+        })
+
+        $('#weapons').click(() => {
+            console.log('Items !')
+        })
+
+        $('#flee').click(() => {
+            this.flee()
+        })
     }
 
     /**
@@ -39,6 +62,11 @@ export class InstantFight {
                 : this.currentPlayer + 1
     }
 
+    /**
+     * Get the current target.
+     *
+     * @returns {*}
+     */
     getTarget() {
         return this.target
     }
@@ -70,10 +98,11 @@ export class InstantFight {
         let currentPlayer = this.getCurrentPlayer().getCurrent()
 
         $('.btn').attr("disabled", true)
-        $('#info').addClass('alert-info')
+        document.getElementById('audio-sword').play()
         this.message(currentPlayer.getName() + ' attaque ' + target.getName())
 
         setTimeout(function () {
+            document.getElementById('audio-ouch').play()
             that.message(target.getName() + ' a perdu ' + currentPlayer.getPower() + 'PDV')
         }, 2000)
 
@@ -90,13 +119,15 @@ export class InstantFight {
                     })
                 })
         } else {
+            let that = this
             $.when(this.setTarget(this.getCurrentPlayer()))
                 .done(() => {
+                    this.setCurrentPlayer()
+
                     setTimeout(function () {
-                        that.message('Au tour de ' + currentPlayer.getName())
+                        that.message('Au tour de ' + that.getCurrentPlayer().getCurrent().getName())
                     }, 4500)
 
-                    this.setCurrentPlayer()
 
                     setTimeout(function () {
                         $('.btn').attr("disabled", false)
@@ -106,7 +137,6 @@ export class InstantFight {
     }
 
     pokeball() {
-        $('#info').addClass('alert-info')
         this.message(this.getTarget().getCurrent().getName() + ' n\'est pas un pokemon.')
     }
 
@@ -125,6 +155,8 @@ export class InstantFight {
      * @param message
      */
     message(message) {
-        $('#info').text(message)
+        $('#info')
+            .empty()
+            .append('<p class="fight-message__text">' + message + '</p>')
     }
 }

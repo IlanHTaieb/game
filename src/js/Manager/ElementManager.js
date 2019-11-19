@@ -23,6 +23,7 @@ export class ElementManager {
                 return $(this).data("pos-y") == posY && $(this).data("pos-x") == posX
             })
 
+        node.append('<img height="350px" width="75px" class="arena-fighter ' + this.getCurrent().getType() + '" src="../../../public/images/perso/fight-' + this.getCurrent().getType() + '.png">')
         node.data("type", this.current.getType())
         node.data("instance", this.current)
         this.addTypeClass(node)

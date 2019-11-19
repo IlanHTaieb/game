@@ -17,7 +17,10 @@ export const Home = {
                     </div>
                 </div>
             </div>
+            
+            <audio src="../../../public/sountracks/home_low.mp3" id="audio" loop autoplay></audio>
         </div>
+        
     `,
     render: function () {
         $('.body').append(this.component)

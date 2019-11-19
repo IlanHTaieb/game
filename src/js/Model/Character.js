@@ -4,6 +4,7 @@ export class Character extends Model{
     heal = 100
     power = 10
     move = 3
+    bag = []
     name
 
     getHeal() {
@@ -16,6 +17,10 @@ export class Character extends Model{
 
     getMove() {
         return this.move
+    }
+
+    getBag() {
+        return this.bag
     }
 
     getName() {
@@ -32,6 +37,10 @@ export class Character extends Model{
 
     setMove(move) {
         this.move = move
+    }
+
+    setBag(bag) {
+        this.bag = bag
     }
 
     setName(name) {

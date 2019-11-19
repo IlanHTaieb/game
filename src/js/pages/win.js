@@ -14,7 +14,10 @@ export const Win = {
                             <img height="1300" src="../../../public/images/perso/fight-${winner.toLowerCase()}.png" alt="">
                         </div>
                     </div>
+            
+                    <audio src="../../../public/sountracks/win_low.mp3" id="audio" loop autoplay></audio>
                 </div>
+        
     `;
     },
     render: function (winner) {

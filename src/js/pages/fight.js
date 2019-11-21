@@ -20,7 +20,7 @@ export const Fight = {
                         </div>
                     </div>
             
-                <div class="row text-center py-5">
+                <div class="fight-commands row text-center py-5">
                     <div class="col-md-6 col-sm-12 py-2">
                         <button type="button" id="hit" class="btn btn-danger">Attaquer</button>
                     </div>
@@ -38,6 +38,8 @@ export const Fight = {
                     </div>
                 </div>
             </div>
+            
+            <div class="open-bag row text-center py-5"></div>
             
             <audio src="../../../public/sountracks/fight_low.mp3" id="audio" loop autoplay></audio>
             <audio src="../../../public/sountracks/sword2.mp3" id="audio-sword"></audio>

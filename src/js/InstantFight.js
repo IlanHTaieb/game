@@ -24,8 +24,8 @@ export class InstantFight {
             this.pokeball()
         })
 
-        $('#weapons').click(() => {
-            console.log('Items !')
+        $('#items').click(() => {
+            this.openBag()
         })
 
         $('#flee').click(() => {
@@ -60,6 +60,8 @@ export class InstantFight {
             this.currentPlayer >= (Object.keys(this.characters).length - 1)
                 ? 0
                 : this.currentPlayer + 1
+
+        if (this.currentPlayer.poison) this.currentPlayer.heal = (this.currentPlayer.heal - 10)
     }
 
     /**
@@ -136,6 +138,61 @@ export class InstantFight {
         }
     }
 
+    /**
+     * Open your bag.
+     */
+    openBag() {
+        $('.fight-commands').hide()
+        $('.open-bag').show()
+
+        this.getCurrentPlayer().getCurrent().getBag().map(name => {
+            name.map(item => {
+                $('.open-bag')
+                    .append(
+                        '<button id="' + item.getName() + '">' + item + '</button>'
+                    )
+                    .done(() => {
+                        $('#' + item.getName()).click(e => {
+                            item.item == weapon
+                                ? this.useWeapon(item)
+                                : this.usePotion(item)
+                        })
+                    })
+            })
+        })
+    }
+
+    /**
+     * Use weapon.
+     *
+     * @param weapon
+     */
+    useWeapon(weapon) {
+        let current = this.getCurrentPlayer().getCurrent()
+
+        current.setPower(current.getPower() + weapon.getPower())
+
+        this.hit()
+
+        current.setPower(current.getPower() - weapon.getPower())
+    }
+
+    usePotion(potion) {
+        let current = this.getCurrentPlayer().getCurrent()
+
+        switch (potion.getName()) {
+            case 'heal':
+                current.setHeal(current.getHeal() + potion.getPower())
+                break
+            case 'poison':
+                this.getTarget().getCurrent().poison = true
+        }
+    }
+
+
+    /**
+     * Pokeball Go !
+     */
     pokeball() {
         this.message(this.getTarget().getCurrent().getName() + ' n\'est pas un pokemon.')
     }

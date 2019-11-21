@@ -4,46 +4,29 @@ export class Character extends Model{
     heal = 100
     power = 10
     move = 3
-    bag = []
     name
-
-    getHeal() {
-        return this.heal
+    bag = {
+        weapons: [],
+        potions: []
     }
 
-    getPower() {
-        return this.power
-    }
+    getHeal() {return this.heal}
 
-    getMove() {
-        return this.move
-    }
+    getPower() {return this.power}
 
-    getBag() {
-        return this.bag
-    }
+    getMove() {return this.move}
 
-    getName() {
-        return this.name
-    }
+    getBag(item = null) {return item ? this.bag[item] : this.bag}
 
-    setHeal(heal) {
-        this.heal = heal
-    }
+    getName() {return this.name}
 
-    setPower(power) {
-        this.power = power
-    }
+    setHeal(heal) {this.heal = heal}
 
-    setMove(move) {
-        this.move = move
-    }
+    setPower(power) {this.power = power}
 
-    setBag(bag) {
-        this.bag = bag
-    }
+    setMove(move) {this.move = move}
 
-    setName(name) {
-        this.name = name
-    }
+    setBag(bag, item) {this.bag[item] = bag}
+
+    setName(name) {this.name = name}
 }

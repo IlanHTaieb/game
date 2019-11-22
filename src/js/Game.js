@@ -11,6 +11,7 @@ import {Poison} from "./Model/Things/potion/Poison.js";
 import {Heal} from "./Model/Things/potion/Heal.js";
 import {Router} from "./_router.js";
 import {InstantFight} from "./InstantFight.js";
+import {Move} from "./Model/Move.js";
 
 export class Game {
     characters
@@ -45,6 +46,7 @@ export class Game {
         }
 
         this.map = new Map()
+        this.move = new Move()
     }
 
     /**
@@ -69,6 +71,33 @@ export class Game {
         Router.info(this.characters.pirate, this.characters.marines)
 
         $('.infos-arena-text').text('Au tour de ' + this.getCurrentPlayer().getCurrent().getName())
+
+        this.addEvents()
+    }
+
+    /**
+     * Load event listeners for arena page.
+     */
+    addEvents() {
+        let that = this
+
+        $('.bloc').on('mouseover', function () {
+            if ('free' == $(this).data('type') || 'item' == $(this).data('type')) {
+                that.showCase($(this).data(), $(this))
+            } else {
+                $('.bloc').css('background-color', 'rgba(49, 145, 196, 0.5)')
+            }
+        })
+
+        $('.bloc').click(function () {
+            if ('free' == $(this).data('type') || 'item' == $(this).data('type')) {
+                that.moving($(this).data())
+
+                if (that.isBesideEnemy()) {
+                    that.runFight()
+                }
+            }
+        })
     }
 
     /**
@@ -144,7 +173,7 @@ export class Game {
         }
 
 
-        if (this.checkMove(move) && (element.data("posY") !== currentPosition.Y || element.data("posX") !== currentPosition.X)) {
+        if (this.move.checkMoveLength(this.getCurrentPlayer(), move) && (element.data("posY") !== currentPosition.Y || element.data("posX") !== currentPosition.X)) {
             $('.bloc').css('background-color', 'rgba(49, 145, 196, 0.5)')
             element.css('background-color', 'green')
         } else {
@@ -157,21 +186,8 @@ export class Game {
      *
      * @param bloc
      */
-    move(bloc) {
-        let move = {
-            Y: bloc.posY - this.getCurrentPlayer().getCurrent().getPosY(),
-            X: bloc.posX - this.getCurrentPlayer().getCurrent().getPosX()
-        }
-
-        let wayIsFree = this.checkObstacle(
-            {
-                posY: this.getCurrentPlayer().getCurrent().getPosY(),
-                posX: this.getCurrentPlayer().getCurrent().getPosX()
-            },
-            bloc
-        )
-
-        if (this.checkMove(move) && wayIsFree) {
+    moving(bloc) {
+        if (this.move.movable(this.getCurrentPlayer(), bloc)) {
             $.when(this.dropItem(bloc)).done(() => {
                 this.map.createFreeBloc(bloc.posY, bloc.posX)
                 this.getCurrentPlayer().move(bloc)
@@ -188,45 +204,15 @@ export class Game {
      */
     dropItem(bloc) {
         if ('item' === bloc.type) {
-            switch (bloc.instance.item) {
-                case 'weapon':
-                    this.dropWeapon(bloc.instance)
-                    this.cleanUpBloc(bloc.instance)
-                    break;
-                case 'potion':
-                    this.dropPotion(bloc.instance)
-                    this.cleanUpBloc(bloc.instance)
-                    break;
+            for (let[thingKey, value] of Object.entries(this.things)) {
+                for (let [key, item] of Object.entries(value)) {
+                    if (bloc.instance.name === key && 'item' === bloc.type) {
+                        item.getCurrent().drop(this.getCurrentPlayer().getCurrent().getBag())
+                        this.cleanUpBloc(bloc.instance)
+                    }
+                }
             }
         }
-    }
-
-    /**
-     * Drop required weapon.
-     *
-     * @param weapon
-     */
-    dropWeapon(weapon) {
-        this
-            .getCurrentPlayer()
-            .getCurrent()
-            .getBag('weapons')[weapon.name] = weapon
-
-        this.cleanUpBloc(weapon)
-    }
-
-    /**
-     * Drop required potion.
-     *
-     * @param potion
-     */
-    dropPotion(potion) {
-        this
-            .getCurrentPlayer()
-            .getCurrent()
-            .getBag('potions')[potion.name] = potion
-
-        this.cleanUpBloc(potion)
     }
 
     /**
@@ -240,114 +226,6 @@ export class Game {
             .data('instance', undefined)
             .empty()
             .removeClass(bloc.name)
-    }
-
-    /**
-     * Check if action is possible.
-     *
-     * @param move
-     * @returns {boolean}
-     */
-    checkMove(move) {
-        let speed = this.getCurrentPlayer().getCurrent().getMove()
-
-        return (this.unsigned(move.Y) + this.unsigned(move.X)) <= speed
-    }
-
-    /**
-     * Check if the way is free.
-     *
-     * @param player
-     * @param bloc
-     * @returns {boolean}
-     */
-    checkObstacle(player, bloc) {
-        let positionsY = [player.posY, bloc.posY]
-        let positionsX = [player.posX, bloc.posX]
-        let moveBlocs = []
-
-        for (let y = Math.min(...positionsY); y <= Math.max(...positionsY); y++) {
-            moveBlocs[y] = []
-            for (let x = Math.min(...positionsX); x <= Math.max(...positionsX); x++) {
-                moveBlocs.push(this.getbloc({posY: y, posX: x}))
-            }
-        }
-
-        let moveBlocsY = this.groupByPosY(moveBlocs)
-        let moveBlocsX = this.groupByPosX(moveBlocs)
-
-        delete moveBlocsY.undefined
-        delete moveBlocsX.undefined
-
-        for (let [key, value] of Object.entries(moveBlocsY)) {
-            value.some(e => {
-                if (moveBlocsY.hasOwnProperty(key)) {
-                    if ('wall' === e.type) {
-                        delete moveBlocsY[key]
-                        return true
-                    }
-                }
-            })
-        }
-
-        for (let [key, value] of Object.entries(moveBlocsX)) {
-            value.some(e => {
-                if (moveBlocsX.hasOwnProperty(key)) {
-                    if ('wall' === e.type) {
-                        delete moveBlocsX[key]
-                        return true
-                    }
-                }
-            })
-        }
-
-
-        if (0 < Object.entries(moveBlocsY).length && 0 < Object.entries(moveBlocsX).length) {
-            return true
-        } else {
-            return false
-        }
-    }
-
-    /**
-     * Get the required bloc.
-     *
-     * @param bloc
-     * @returns {*|jQuery}
-     */
-    getbloc(bloc) {
-        let node = $('.bloc:data("pos-y")')
-            .filter(function () {
-                return $(this).data("pos-y") == bloc.posY && $(this).data("pos-x") == bloc.posX
-            })
-
-        return node.data()
-    }
-
-    /**
-     * Group moveBloc array by posY.
-     *
-     * @param element
-     * @returns {*}
-     */
-    groupByPosY(element) {
-        return element.reduce((r, a) => {
-            r[a.posY] = [...r[a.posY] || [], a]
-            return r
-        }, {})
-    }
-
-    /**
-     * Group moveBloc array by posX.
-     *
-     * @param element
-     * @returns {*}
-     */
-    groupByPosX(element) {
-        return element.reduce((r, a) => {
-            r[a.posX] = [...r[a.posX] || [], a]
-            return r
-        }, {})
     }
 
     /**
@@ -377,17 +255,5 @@ export class Game {
                 let fight = new InstantFight(this.characters)
                 fight.addEvents()
             })
-    }
-
-    /**
-     * Format number to unsigned.
-     *
-     * @param value
-     * @returns {number}
-     */
-    unsigned(value) {
-        return value > 0
-            ? value
-            : -value
     }
 }

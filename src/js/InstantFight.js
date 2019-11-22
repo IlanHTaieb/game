@@ -169,7 +169,7 @@ export class InstantFight {
                 $('#' + item.getName()).click(e => {
                     $('.btn').attr("disabled", true)
 
-                    item.item == "weapon"
+                    item.item == "weapons"
                         ? this.useWeapon(item)
                         : this.usePotion(item)
                 })
@@ -183,18 +183,19 @@ export class InstantFight {
      * @param weapon
      */
     useWeapon(weapon) {
+        console.log('ok')
         let current =
             this.getCurrentPlayer().getCurrent()
+        console.log(current)
 
-        $.when(this.hit(weapon.getPower()))
-            .done(() => {
-                $('.fight-commands')
-                    .show()
+        console.log(weapon)
+        this.hit(weapon.getPower())
+        $('.fight-commands')
+            .show()
 
-                $('.open-bag')
-                    .empty()
-                    .hide()
-            })
+        $('.open-bag')
+            .empty()
+            .hide()
     }
 
     /**
@@ -256,6 +257,11 @@ export class InstantFight {
             })
     }
 
+    /**
+     * Process end of the round.
+     *
+     * @param delay
+     */
     endRound(delay) {
         $.when(this.setTarget(this.getCurrentPlayer()))
             .done(() => {

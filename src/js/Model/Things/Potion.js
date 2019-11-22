@@ -1,7 +1,7 @@
 import {Item} from "../Item.js";
 
 export class Potion extends Item{
-    item = 'potion'
+    item = 'potions'
     power
 
     getPower() {

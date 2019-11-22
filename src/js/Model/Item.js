@@ -8,4 +8,8 @@ export class Item extends Model {
     getName() {
         return this.name
     }
+
+    drop(bag) {
+        bag[this.item][this.getName()] = this
+    }
 }

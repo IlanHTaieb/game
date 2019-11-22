@@ -31,25 +31,5 @@ $(document).ready(function () {
         // Initialization
         const game = new Game(pirateName, marinesName)
         game.start()
-
-        // Events
-        $('.bloc').on('mouseover', function () {
-            if ('free' == $(this).data('type') || 'item' == $(this).data('type')) {
-                game.showCase($(this).data(), $(this))
-            } else {
-                $('.bloc').css('background-color', 'rgba(49, 145, 196, 0.5)')
-            }
-        })
-
-        // Actions
-        $('.bloc').click(function () {
-            if ('free' == $(this).data('type') || 'item' == $(this).data('type')) {
-                game.move($(this).data())
-
-                if (game.isBesideEnemy()) {
-                    game.runFight()
-                }
-            }
-        })
     }
 });

@@ -187,15 +187,59 @@ export class Game {
      * @param bloc
      */
     dropItem(bloc) {
-        if (bloc.type === 'item') {
-            this.getCurrentPlayer().getCurrent().getBag().push(bloc.instance)
-
-            $('.' + bloc.instance.name)
-                .data('type', 'free')
-                .data('instance', undefined)
-                .empty()
-                .removeClass(bloc.instance.name)
+        if ('item' === bloc.type) {
+            switch (bloc.instance.item) {
+                case 'weapon':
+                    this.dropWeapon(bloc.instance)
+                    this.cleanUpBloc(bloc.instance)
+                    break;
+                case 'potion':
+                    this.dropPotion(bloc.instance)
+                    this.cleanUpBloc(bloc.instance)
+                    break;
+            }
         }
+    }
+
+    /**
+     * Drop required weapon.
+     *
+     * @param weapon
+     */
+    dropWeapon(weapon) {
+        this
+            .getCurrentPlayer()
+            .getCurrent()
+            .getBag('weapons')[weapon.name] = weapon
+
+        this.cleanUpBloc(weapon)
+    }
+
+    /**
+     * Drop required potion.
+     *
+     * @param potion
+     */
+    dropPotion(potion) {
+        this
+            .getCurrentPlayer()
+            .getCurrent()
+            .getBag('potions')[potion.name] = potion
+
+        this.cleanUpBloc(potion)
+    }
+
+    /**
+     * Clean up the bloc.
+     *
+     * @param bloc
+     */
+    cleanUpBloc(bloc) {
+        $('.' + bloc.name)
+            .data('type', 'free')
+            .data('instance', undefined)
+            .empty()
+            .removeClass(bloc.name)
     }
 
     /**
@@ -210,6 +254,13 @@ export class Game {
         return (this.unsigned(move.Y) + this.unsigned(move.X)) <= speed
     }
 
+    /**
+     * Check if the way is free.
+     *
+     * @param player
+     * @param bloc
+     * @returns {boolean}
+     */
     checkObstacle(player, bloc) {
         let positionsY = [player.posY, bloc.posY]
         let positionsX = [player.posX, bloc.posX]

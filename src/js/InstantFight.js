@@ -15,6 +15,9 @@ export class InstantFight {
             })
     }
 
+    /**
+     * Add event listeners for the fightpage.
+     */
     addEvents() {
         $('#hit').click(() => {
             this.hit()
@@ -94,10 +97,13 @@ export class InstantFight {
      *
      * @param target
      */
-    hit() {
+    hit(hasWeapon) {
         let that = this
         let target = this.getTarget().getCurrent()
         let currentPlayer = this.getCurrentPlayer().getCurrent()
+        let power = hasWeapon
+            ? hasWeapon
+            : currentPlayer.getPower()
 
         $('.btn').attr("disabled", true)
         document.getElementById('audio-sword').play()
@@ -105,11 +111,11 @@ export class InstantFight {
 
         setTimeout(function () {
             document.getElementById('audio-ouch').play()
-            that.message(target.getName() + ' a perdu ' + currentPlayer.getPower() + 'PDV')
+            that.message(target.getName() + ' a perdu ' + power + 'PDV')
         }, 2000)
 
         target.setHeal(
-            target.getHeal() - currentPlayer.getPower()
+            target.getHeal() - power
         )
 
 
@@ -121,20 +127,7 @@ export class InstantFight {
                     })
                 })
         } else {
-            let that = this
-            $.when(this.setTarget(this.getCurrentPlayer()))
-                .done(() => {
-                    this.setCurrentPlayer()
-
-                    setTimeout(function () {
-                        that.message('Au tour de ' + that.getCurrentPlayer().getCurrent().getName())
-                    }, 4500)
-
-
-                    setTimeout(function () {
-                        $('.btn').attr("disabled", false)
-                    }, 4500)
-                })
+            this.endRound(4500)
         }
     }
 
@@ -145,21 +138,43 @@ export class InstantFight {
         $('.fight-commands').hide()
         $('.open-bag').show()
 
-        this.getCurrentPlayer().getCurrent().getBag().map(name => {
-            name.map(item => {
+        $('.open-bag')
+            .append(
+                `
+                        <div class="col-md-6 col-sm-12 py-2">
+                            <button type="button" id="back" class="btn btn-danger">Retour</button>
+                        </div>
+                        `
+            )
+
+        $('#back').click(e => {
+            $('.fight-commands').show()
+
+            $('.open-bag')
+                .empty()
+                .hide()
+        })
+
+        for (let [key, items] of Object.entries(this.getCurrentPlayer().getCurrent().getBag())) {
+            for (let [key, item] of Object.entries(items)) {
                 $('.open-bag')
                     .append(
-                        '<button id="' + item.getName() + '">' + item + '</button>'
+                        `
+                        <div class="col-md-6 col-sm-12 py-2">
+                            <button type="button" id="` + item.getName() + `" class="btn btn-success">` + item.getName() + `</button>
+                        </div>
+                        `
                     )
-                    .done(() => {
-                        $('#' + item.getName()).click(e => {
-                            item.item == weapon
-                                ? this.useWeapon(item)
-                                : this.usePotion(item)
-                        })
-                    })
-            })
-        })
+
+                $('#' + item.getName()).click(e => {
+                    $('.btn').attr("disabled", true)
+
+                    item.item == "weapon"
+                        ? this.useWeapon(item)
+                        : this.usePotion(item)
+                })
+            }
+        }
     }
 
     /**
@@ -168,24 +183,56 @@ export class InstantFight {
      * @param weapon
      */
     useWeapon(weapon) {
-        let current = this.getCurrentPlayer().getCurrent()
+        let current =
+            this.getCurrentPlayer().getCurrent()
 
-        current.setPower(current.getPower() + weapon.getPower())
+        $.when(this.hit(weapon.getPower()))
+            .done(() => {
+                $('.fight-commands')
+                    .show()
 
-        this.hit()
-
-        current.setPower(current.getPower() - weapon.getPower())
+                $('.open-bag')
+                    .empty()
+                    .hide()
+            })
     }
 
+    /**
+     * Use potion.
+     *
+     * @param potion
+     */
     usePotion(potion) {
         let current = this.getCurrentPlayer().getCurrent()
 
         switch (potion.getName()) {
             case 'heal':
-                current.setHeal(current.getHeal() + potion.getPower())
+                $.when(current.setHeal(current.getHeal() + potion.getPower()))
+                    .done(() => {
+                        this.message(current.getName() + ' récupère ' + potion.getPower() + 'PDV')
+                        this.endRound(2000)
+
+                        $('.fight-commands')
+                            .show()
+
+                        $('.open-bag')
+                            .empty()
+                            .hide()
+                    })
                 break
             case 'poison':
-                this.getTarget().getCurrent().poison = true
+                $.when(this.getTarget().getCurrent().poison = true)
+                    .done(() => {
+                        this.endRound(2000)
+
+                        $('.fight-commands')
+                            .show()
+
+                        $('.open-bag')
+                            .empty()
+                            .hide()
+                    })
+                break
         }
     }
 
@@ -197,12 +244,43 @@ export class InstantFight {
         this.message(this.getTarget().getCurrent().getName() + ' n\'est pas un pokemon.')
     }
 
+    /**
+     * Flee the fight?
+     */
     flee() {
         $.when(Router.win(this.getTarget().getCurrent().getType()))
             .done(() => {
                 $('#replay').click(() => {
                     location.reload()
                 })
+            })
+    }
+
+    endRound(delay) {
+        $.when(this.setTarget(this.getCurrentPlayer()))
+            .done(() => {
+                let that = this
+
+                this.setCurrentPlayer()
+
+                if (this.getCurrentPlayer().getCurrent().poison) {
+                    setTimeout(function () {
+                        that.getCurrentPlayer().getCurrent().setHeal(
+                            that.getCurrentPlayer().getCurrent().getHeal() - 5
+                        )
+
+                        that.message(that.getCurrentPlayer().getCurrent().getName() + ' perds 5PVD supplémentaire')
+                    }, delay - 1000)
+                }
+
+                setTimeout(function () {
+                    that.message('Au tour de ' + that.getCurrentPlayer().getCurrent().getName())
+                }, delay)
+
+
+                setTimeout(function () {
+                    $('.btn').attr("disabled", false)
+                }, delay)
             })
     }
 

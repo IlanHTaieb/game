@@ -2,5 +2,5 @@ import {Potion} from "../Potion.js";
 
 export class Heal extends Potion{
     name = 'heal'
-    power = -50
+    power = 20
 }

@@ -34,7 +34,7 @@ $(document).ready(function () {
 
         // Events
         $('.bloc').on('mouseover', function () {
-            if ($(this).data('type') == 'free' || $(this).data('type') == 'item') {
+            if ('free' == $(this).data('type') || 'item' == $(this).data('type')) {
                 game.showCase($(this).data(), $(this))
             } else {
                 $('.bloc').css('background-color', 'rgba(49, 145, 196, 0.5)')
@@ -43,7 +43,7 @@ $(document).ready(function () {
 
         // Actions
         $('.bloc').click(function () {
-            if ($(this).data('type') == 'free' || $(this).data('type') == 'item') {
+            if ('free' == $(this).data('type') || 'item' == $(this).data('type')) {
                 game.move($(this).data())
 
                 if (game.isBesideEnemy()) {

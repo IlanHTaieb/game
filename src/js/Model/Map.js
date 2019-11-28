@@ -1,43 +1,42 @@
 import {Bloc} from "./Bloc.js"
 import {BlocManager} from "../Manager/BlocManager.js"
 
+const MAP_SIZE = {
+    little: 7,
+    medium: 9,
+    large: 10
+}
+
 export class Map {
-    height = 10
-    width = 10
+    mapSize
     arena = []
     freeBlocs = []
+
 
     /**
      * The Map constructor.
      */
-    constructor() {
-        for (let y = 1; y <= this.height; y++) {
+    constructor(mapSize) {
+        this.mapSize = mapSize
+
+        this.createBoard()
+    }
+
+    /**
+     * Set the board.
+     */
+    createBoard() {
+        for (let y = 1; y <= MAP_SIZE[this.mapSize]; y++) {
             this.arena[y] = []
 
-            for (let x = 1; x <= this.width; x++) {
-                this.arena[y][x] = new BlocManager(new Bloc(y, x))
+            for (let x = 1; x <= MAP_SIZE[this.mapSize]; x++) {
+                this.arena[y][x] = new BlocManager(
+                    new Bloc(y, x, (9/MAP_SIZE[this.mapSize]) * 100)
+                )
             }
         }
 
         this.freeBlocs = this.arena
-    }
-
-    /**
-     * Get height of the map.
-     *
-     * @returns {number}
-     */
-    getHeight() {
-        return this.height
-    }
-
-    /**
-     * Get width of the map.
-     *
-     * @returns {number}
-     */
-    getWidth() {
-        return this.width
     }
 
     /**
@@ -97,7 +96,7 @@ export class Map {
     posRandom(dir, line = 1) {
         return Math.floor(Math.random() * (
             dir == 'line'
-                ? this.height
+                ? MAP_SIZE[this.mapSize]
                 : this.freeBlocs[line].length - 1
         )) + 1
     }

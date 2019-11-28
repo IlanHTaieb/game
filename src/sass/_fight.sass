@@ -2,16 +2,20 @@
   background: url($base-uri + "public/images/BG_fight.jpg") no-repeat
   background-size: cover
   min-height: $min-height
+
   .fight
     height: 100%
     width: 100%
     display: flex
     flex-direction: column
+
     .fight-body
       height: 650px
+
       img
         height: auto
         width: 200px
+
       .fight-info
         width: 40%
         height: 450px
@@ -20,6 +24,15 @@
 .fight-message
   background: #000
   border: 2px dotted #D2AA4F
+
   &__text
     color: #D2AA4F
     font-size: 3rem
+
+.action
+  background: transparent
+  color: #D2AA4F
+  border-radius: 0
+
+  &:hover
+    background: rgba($color: #D2AA4F, $alpha: 0.3)

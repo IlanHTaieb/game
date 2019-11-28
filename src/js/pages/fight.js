@@ -22,19 +22,19 @@ export const Fight = {
             
                 <div class="fight-commands row text-center py-5">
                     <div class="col-md-6 col-sm-12 py-2">
-                        <button type="button" id="hit" class="btn btn-danger">Attaquer</button>
+                        <button type="button" id="hit" class="btn action">Attaquer</button>
                     </div>
                     
                     <div class="col-md-6 col-sm-12 py-2">
-                        <button type="button" id="pokeball" class="btn btn-info">Pokeball</button>
+                        <button type="button" id="pokeball" class="btn action">Pokeball</button>
                     </div>
                     
                     <div class="col-md-6 col-sm-12 py-2">
-                        <button type="button" id="items" class="btn btn-success">Sac à dos</button>
+                        <button type="button" id="items" class="btn action">Sac à dos</button>
                     </div>
                     
                     <div class="col-md-6 col-sm-12 py-2">
-                        <button type="button" id="flee" class="btn btn-dark">Fuir</button>
+                        <button type="button" id="flee" class="btn action">Fuir</button>
                     </div>
                 </div>
             </div>

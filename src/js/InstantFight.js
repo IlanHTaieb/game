@@ -161,7 +161,7 @@ export class InstantFight {
                     .append(
                         `
                         <div class="col-md-6 col-sm-12 py-2">
-                            <button type="button" id="` + item.getName() + `" class="btn btn-success">` + item.getName() + `</button>
+                            <button type="button" id="` + item.getName() + `" class="btn action">` + item.getName() + `</button>
                         </div>
                         `
                     )
@@ -183,12 +183,9 @@ export class InstantFight {
      * @param weapon
      */
     useWeapon(weapon) {
-        console.log('ok')
         let current =
             this.getCurrentPlayer().getCurrent()
-        console.log(current)
 
-        console.log(weapon)
         this.hit(weapon.getPower())
         $('.fight-commands')
             .show()

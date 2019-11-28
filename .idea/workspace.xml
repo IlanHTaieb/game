@@ -95,8 +95,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="JavaScript File" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -129,19 +129,19 @@
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\PhpStorm\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\laragon\projects\game\src\js\Model\Things\Weapons\Nuclear" />
+      <recent name="C:\laragon\projects\game\src\js" />
+      <recent name="C:\laragon\projects\game\src\js\Manager" />
+      <recent name="C:\wamp64\www\_OPENCLASSROOMS\game\src\js\Manager\Elements" />
+      <recent name="C:\wamp64\www\_OPENCLASSROOMS\game\src" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\laragon\projects\game\public\images\perso" />
       <recent name="C:\wamp64\www\_OPENCLASSROOMS\game\src" />
       <recent name="C:\wamp64\www\_OPENCLASSROOMS\game\src\js" />
       <recent name="C:\wamp64\www\_OPENCLASSROOMS\game\src\js\pages" />
       <recent name="C:\wamp64\www\_OPENCLASSROOMS\game" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\laragon\projects\game\src\js" />
-      <recent name="C:\laragon\projects\game\src\js\Manager" />
-      <recent name="C:\wamp64\www\_OPENCLASSROOMS\game\src\js\Manager\Elements" />
-      <recent name="C:\wamp64\www\_OPENCLASSROOMS\game\src" />
-      <recent name="C:\wamp64\www\_OPENCLASSROOMS\game\src\js\Model\Character" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -209,6 +209,11 @@
       <workItem from="1574019363450" duration="5718000" />
       <workItem from="1574101707718" duration="9583000" />
       <workItem from="1574192529930" duration="12169000" />
+      <workItem from="1574422541878" duration="4570000" />
+      <workItem from="1574602679120" duration="599000" />
+      <workItem from="1574792684225" duration="5494000" />
+      <workItem from="1574803557652" duration="7437000" />
+      <workItem from="1574898139625" duration="2497000" />
     </task>
     <servers />
   </component>

@@ -1,6 +1,6 @@
 export const Home = {
     component: `
-        <div class="home h-100">
+        <div id="swup" class="home h-100">
             <div class="container home-content">
                 <div class="row h-100">
                     <div class="col-md-7 h-100">
@@ -12,6 +12,13 @@ export const Home = {
                         <form>
                             <input class="my-3 form-control border-bottom" type="text" name="player1" id="player1" placeholder="Pirate">
                             <input class="my-3 form-control border-bottom" type="text" name="player2" id="player2" placeholder="Marines">
+                            
+                            <select name="height-map" id="height-map">
+                                <option value="little">Petite</option>
+                                <option value="medium">Moyenne</option>
+                                <option value="large">Grande</option>
+                            </select>
+                            
                             <button type="submit" class="w-100 submit btn btn-primary">Entrer</button>
                         </form>
                     </div>

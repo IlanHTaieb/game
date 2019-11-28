@@ -1,13 +1,17 @@
-import {Router} from "./_router.js";
 import {Pirate} from "./Model/Characters/Pirate.js";
 import {Marines} from "./Model/Characters/Marines.js";
 import {Game} from "./Game.js";
+import {Router} from "./_router.js";
 
 $(document).ready(function () {
+    //const router = new Router()
     let pirateName = 'Pirate'
     let marinesName = 'Marines'
+    let mapSize
+
 
     Router.home()
+    //$.when(router.renderHome())
 
     $('.home form').submit((e) => {
         e.preventDefault()
@@ -22,14 +26,18 @@ $(document).ready(function () {
                 ? $('#player2').val()
                 : 'Marines'
 
+        mapSize = $('#height-map').val()
+
+
         Router.arena(pirateName, marinesName)
 
         run()
     })
 
+
     const run = () => {
         // Initialization
-        const game = new Game(pirateName, marinesName)
+        const game = new Game(pirateName, marinesName, mapSize)
         game.start()
     }
 });

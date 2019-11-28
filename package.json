@@ -25,7 +25,10 @@
     "@babel/plugin-proposal-class-properties": "^7.5.5",
     "bootstrap": "^4.3.1",
     "css-loader": "^3.1.0",
+    "fs": "0.0.1-security",
     "jquery": "^3.4.1",
-    "popper.js": "^1.16.0"
+    "popper.js": "^1.16.0",
+    "pug": "^2.0.4",
+    "swup": "^2.0.8"
   }
 }

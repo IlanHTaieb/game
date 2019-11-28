@@ -10861,6 +10861,16 @@ li {
   font-size: 3rem;
 }
 
+.action {
+  background: transparent;
+  color: #D2AA4F;
+  border-radius: 0;
+}
+
+.action:hover {
+  background: rgba(210, 170, 79, 0.3);
+}
+
 .win-page {
   min-height: 100vh;
   background: black url("/public/images/BG_home3.png") no-repeat 0 200px;

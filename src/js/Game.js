@@ -24,7 +24,7 @@ export class Game {
      * @param pirateName
      * @param marinesName
      */
-    constructor(pirateName, marinesName) {
+    constructor(pirateName, marinesName, mapSize) {
         this.characters = {
             pirate: new CharacterManager(new Pirate()),
             marines: new CharacterManager(new Marines())
@@ -45,7 +45,7 @@ export class Game {
             wall: new ThingManager(new Wall())
         }
 
-        this.map = new Map()
+        this.map = new Map(mapSize)
         this.move = new Move()
     }
 

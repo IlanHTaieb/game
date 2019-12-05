@@ -13,11 +13,27 @@ export const Home = {
                             <input class="my-3 form-control border-bottom" type="text" name="player1" id="player1" placeholder="Pirate">
                             <input class="my-3 form-control border-bottom" type="text" name="player2" id="player2" placeholder="Marines">
                             
+                            <label class="label-select" for="height-map">Taille de la carte</label>
+                            
                             <select name="height-map" id="height-map">
                                 <option value="little">Petite</option>
                                 <option value="medium">Moyenne</option>
                                 <option value="large">Grande</option>
                             </select>
+                            
+                            <label class="label-select" for="nbWeapons">Nombe d'armes</label>
+                            
+                            <select name="nbWeapons" id="nbWeapons">
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                            
+                            <div class="field">
+                                <input type="checkbox" name="nuclear" id="nuclear">
+                                <label for="nuclear">Bombe nucleaire ?</label>
+                            </div>
                             
                             <button type="submit" class="w-100 submit btn btn-primary">Entrer</button>
                         </form>

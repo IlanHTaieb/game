@@ -3,6 +3,7 @@ import { Arena } from "./pages/arena.js"
 import {Fight} from "./pages/fight.js";
 import {Info} from "./pages/_info.js";
 import {Win} from "./pages/win.js";
+import {Nuclear} from "./pages/nuclear.js";
 
 export const Router = {
     home: function () {
@@ -23,5 +24,8 @@ export const Router = {
     },
     win: (winner) => {
         Win.render(winner)
+    },
+    nuclear: () => {
+        Nuclear.render()
     }
 }

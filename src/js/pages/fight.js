@@ -7,12 +7,22 @@ export const Fight = {
                 <div class="fight-body row justify-content-between">
                         <div class="col-md-5 h-100 d-flex flex-column justify-content-end fight-info">
                             <img src="../../../public/images/perso/fight-marines.png" alt="">
+                            
+                            <div class="w-100 life_line">
+                                <div class="remaining_life remaining_life_marines"></div>
+                                <div class="missing_life missing_life_marines"></div>
+                            </div>
                         </div>
             
                         <div class="col-md-5 h-100 d-flex flex-column justify-content-start fight-info">
                             <div class="row h-100">
                                 <div class="col-12 h-50">
                                     <img src="../../../public/images/perso/fight-pirate.png" alt="">
+                                    
+                                    <div class="w-100 life_line">
+                                        <div class="remaining_life remaining_life_pirate"></div>
+                                        <div class="missing_life missing_life_pirate"></div>
+                                    </div>
                                 </div>
                                 
                                 <div id="info" class="fight-message col-12 h-50 d-flex justify-content-center align-items-center"></div>

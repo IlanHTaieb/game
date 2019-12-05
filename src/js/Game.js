@@ -12,11 +12,18 @@ import {Heal} from "./Model/Things/potion/Heal.js";
 import {Router} from "./_router.js";
 import {InstantFight} from "./InstantFight.js";
 import {Move} from "./Model/Move.js";
+import {NuclearBomb} from "./Model/Things/Weapons/Nuclear/NuclearBomb.js";
+import {NuclearBombCommand} from "./Model/Things/Weapons/Nuclear/NuclearBombCommand.js";
+import {MachineGun} from "./Model/Things/Weapons/MachineGun.js";
+import {Revolver} from "./Model/Things/Weapons/Revolver.js";
+import {RPG} from "./Model/Things/Weapons/RPG.js";
 
 export class Game {
     characters
     things
     map
+    nuclear
+    nbWeapons
 
     /**
      * Game constructor.
@@ -24,11 +31,15 @@ export class Game {
      * @param pirateName
      * @param marinesName
      */
-    constructor(pirateName, marinesName, mapSize) {
+    constructor(pirateName, marinesName, mapSize, nbWeapons, nuclear) {
         this.characters = {
             pirate: new CharacterManager(new Pirate()),
             marines: new CharacterManager(new Marines())
         }
+
+        this.nbWeapons = nbWeapons
+
+        this.nuclear = nuclear
 
         this.characters.pirate.getCurrent().setName(pirateName)
         this.characters.marines.getCurrent().setName(marinesName)
@@ -36,13 +47,21 @@ export class Game {
         this.things = {
             weapons: {
                 knife: new ItemManager(new Knife()),
-                shootgun: new ItemManager(new Shootgun())
+                shootgun: new ItemManager(new Shootgun()),
+                machineGun: new ItemManager(new MachineGun()),
+                revolver: new ItemManager(new Revolver()),
+                RPG: new ItemManager(new RPG())
             },
             potions: {
                 poison: new ItemManager(new Poison()),
                 heal: new ItemManager(new Heal())
             },
             wall: new ThingManager(new Wall())
+        }
+
+        if (this.nuclear) {
+            this.things.weapons.nuclearBomb = new ItemManager(new NuclearBomb())
+            this.things.weapons.nuclearBombCommand = new ItemManager(new NuclearBombCommand())
         }
 
         this.map = new Map(mapSize)
@@ -57,13 +76,20 @@ export class Game {
 
         this.init(this.characters.pirate)
         this.init(this.characters.marines)
-        this.init(this.things.weapons.knife)
-        this.init(this.things.weapons.shootgun)
         this.init(this.things.potions.heal)
         this.init(this.things.potions.poison)
 
+        for (let nb = 0; nb < this.nbWeapons; nb++) {
+            this.init(Object.entries(this.things.weapons)[nb][1])
+        }
+
         for (let i = 0; i <= 15; i++) {
             this.init(this.things.wall)
+        }
+
+        if (this.nuclear) {
+            this.init(this.things.weapons.nuclearBomb)
+            this.init(this.things.weapons.nuclearBombCommand)
         }
 
         this.setFirstPlayer(this.characters)
@@ -188,6 +214,7 @@ export class Game {
      */
     moving(bloc) {
         if (this.move.movable(this.getCurrentPlayer(), bloc)) {
+            // TODO : See Move.js
             $.when(this.dropItem(bloc)).done(() => {
                 this.map.createFreeBloc(bloc.posY, bloc.posX)
                 this.getCurrentPlayer().move(bloc)
@@ -255,5 +282,7 @@ export class Game {
                 let fight = new InstantFight(this.characters)
                 fight.addEvents()
             })
+
+        // TODO : Next => InstantFight.js
     }
 }

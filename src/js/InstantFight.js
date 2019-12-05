@@ -118,6 +118,10 @@ export class InstantFight {
             target.getHeal() - power
         )
 
+        $('.remaining_life_' + target.getType())
+            .css('width', target.getHeal() + '%')
+        $('.missing_life_' + target.getType())
+            .css('width', (100 - target.getHeal()) + '%')
 
         if (target.getHeal() <= 0) {
             $.when(Router.win(currentPlayer.getType()))
@@ -157,23 +161,35 @@ export class InstantFight {
 
         for (let [key, items] of Object.entries(this.getCurrentPlayer().getCurrent().getBag())) {
             for (let [key, item] of Object.entries(items)) {
-                $('.open-bag')
-                    .append(
-                        `
+                $.when(this.showBagCommands(item))
+                    .done(() => {
+                        $('#' + item.getName()).click(e => {
+                            $('.btn').attr("disabled", true)
+
+                            item.item == "weapons"
+                                ? this.useWeapon(item)
+                                : this.usePotion(item)
+                        })
+                    })
+            }
+        }
+    }
+
+    /**
+     * Show items in the menu.
+     *
+     * @param item
+     */
+    showBagCommands(item) {
+        if (item.getName() !== 'nuclearBomb') {
+            $('.open-bag')
+                .append(
+                    `
                         <div class="col-md-6 col-sm-12 py-2">
                             <button type="button" id="` + item.getName() + `" class="btn action">` + item.getName() + `</button>
                         </div>
                         `
-                    )
-
-                $('#' + item.getName()).click(e => {
-                    $('.btn').attr("disabled", true)
-
-                    item.item == "weapons"
-                        ? this.useWeapon(item)
-                        : this.usePotion(item)
-                })
-            }
+                )
         }
     }
 
@@ -186,7 +202,22 @@ export class InstantFight {
         let current =
             this.getCurrentPlayer().getCurrent()
 
-        this.hit(weapon.getPower())
+        if (undefined !== current.getBag('weapons')['nuclearBombCommand']) {
+            if (undefined !== current.getBag('weapons')['nuclearBomb']) {
+                $.when(Router.nuclear())
+                    .done(() => {
+                        $('#replay').click(() => {
+                            location.reload()
+                        })
+                    })
+            } else {
+                this.message('Vous n\'avez pas la bombe')
+                this.endRound(500)
+            }
+        } else {
+            this.hit(weapon.getPower())
+        }
+
         $('.fight-commands')
             .show()
 
@@ -208,6 +239,13 @@ export class InstantFight {
                 $.when(current.setHeal(current.getHeal() + potion.getPower()))
                     .done(() => {
                         this.message(current.getName() + ' récupère ' + potion.getPower() + 'PDV')
+
+                        $('.remaining_life_' + current.getType())
+                            .css('width', current.getHeal() + '%')
+
+                        $('.missing_life_' + current.getType())
+                            .css('width', (100 - current.getHeal()) + '%')
+
                         this.endRound(2000)
 
                         $('.fight-commands')
@@ -273,6 +311,12 @@ export class InstantFight {
                         )
 
                         that.message(that.getCurrentPlayer().getCurrent().getName() + ' perds 5PVD supplémentaire')
+
+                        $('.remaining_life_' + target.getType())
+                            .css('width', target.getHeal() + '%')
+
+                        $('.missing_life' + target.getType())
+                            .css('width', (100 - target.getHeal()) + '%')
                     }, delay - 1000)
                 }
 

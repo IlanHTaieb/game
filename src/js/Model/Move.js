@@ -4,6 +4,8 @@ export class Move {
      *
      * @param currentPlayer
      * @param bloc
+     *
+     * @returns {boolean}
      */
     movable(currentPlayer, bloc) {
         let move = {

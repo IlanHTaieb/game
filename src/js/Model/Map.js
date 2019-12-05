@@ -2,9 +2,9 @@ import {Bloc} from "./Bloc.js"
 import {BlocManager} from "../Manager/BlocManager.js"
 
 const MAP_SIZE = {
-    little: 7,
-    medium: 9,
-    large: 10
+    little: 9,
+    medium: 10,
+    large: 12
 }
 
 export class Map {

@@ -10695,6 +10695,34 @@ li {
   left: 20px;
 }
 
+.body .home .home-content .game-container form #height-map,
+.body .home .home-content .game-container form #nbWeapons {
+  background: transparent;
+  color: #D2AA4F;
+  border: 2px solid #D2AA4F;
+  width: 100%;
+  height: 35px;
+  font-size: 1.2rem;
+  margin-bottom: 2px;
+}
+
+.body .home .home-content .game-container form #height-map option,
+.body .home .home-content .game-container form #nbWeapons option {
+  background-color: transparent;
+}
+
+.body .home .home-content .game-container form .label-select {
+  font-size: 1.4rem;
+  color: #D2AA4F;
+}
+
+.body .home .home-content .game-container form .field {
+  width: 100%;
+  height: 45px;
+  font-size: 1.5rem;
+  color: #D2AA4F;
+}
+
 .body .home .home-content .game-container form button {
   background: transparent;
   color: #D2AA4F;
@@ -10724,7 +10752,7 @@ li {
 .arena-page .arena .arena-fighter {
   position: absolute;
   bottom: -20%;
-  left: -90%;
+  left: -100%;
   transform: rotateX(-30deg) rotateY(0deg) rotateZ(-35deg);
   pointer-events: none;
 }
@@ -10754,6 +10782,20 @@ li {
   left: -60%;
 }
 
+.arena-page .arena .nuclearBomb img {
+  height: 250px;
+  width: 55px;
+  bottom: 20%;
+  left: -60%;
+}
+
+.arena-page .arena .nuclearBombCommand img {
+  height: 250px;
+  width: 55px;
+  bottom: 20%;
+  left: -60%;
+}
+
 .arena-page .arena .heal img {
   height: 250px;
   width: 55px;
@@ -10766,6 +10808,24 @@ li {
   width: 55px;
   bottom: 20%;
   left: -60%;
+}
+
+.arena-page .arena .machineGun img {
+  height: 250px;
+  width: 55px;
+  left: -20%;
+}
+
+.arena-page .arena .revolver img {
+  height: 250px;
+  width: 55px;
+  left: -20%;
+}
+
+.arena-page .arena .RPG img {
+  height: 250px;
+  width: 55px;
+  left: -40%;
 }
 
 .arena-page .arena .bloc {
@@ -10813,12 +10873,6 @@ li {
   background-size: cover;
 }
 
-.info .player .life_line {
-  width: 100%;
-  height: 10px;
-  background: limegreen;
-}
-
 .info .player .life {
   text-align: center;
 }
@@ -10849,6 +10903,21 @@ li {
   width: 40%;
   height: 450px;
   color: #D2AA4F;
+}
+
+.fight-page .fight .fight-body .life_line {
+  display: flex;
+  height: 15px;
+}
+
+.fight-page .fight .fight-body .life_line .remaining_life {
+  background: green;
+  width: 100%;
+}
+
+.fight-page .fight .fight-body .life_line .missing_life {
+  background: red;
+  width: 0%;
 }
 
 .fight-message {
@@ -10885,6 +10954,24 @@ li {
 }
 
 .win-page button:hover {
+  color: #D2AA4F;
+  background: rgba(210, 170, 79, 0.3);
+}
+
+.nuclear-page {
+  min-height: 100vh;
+  background: black url("/public/images/perso/fight-bomb.png") no-repeat 0 200px;
+  background-size: cover;
+}
+
+.nuclear-page button {
+  background: transparent;
+  color: #D2AA4F;
+  border: 2px solid #D2AA4F;
+  border-radius: 0;
+}
+
+.nuclear-page button:hover {
   color: #D2AA4F;
   background: rgba(210, 170, 79, 0.3);
 }

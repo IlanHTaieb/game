@@ -4,14 +4,14 @@ import {Game} from "./Game.js";
 import {Router} from "./_router.js";
 
 $(document).ready(function () {
-    //const router = new Router()
     let pirateName = 'Pirate'
     let marinesName = 'Marines'
+    let nuclear
     let mapSize
+    let nbWeapons
 
 
     Router.home()
-    //$.when(router.renderHome())
 
     $('.home form').submit((e) => {
         e.preventDefault()
@@ -26,7 +26,9 @@ $(document).ready(function () {
                 ? $('#player2').val()
                 : 'Marines'
 
+        nuclear = $('#nuclear').is(':checked')
         mapSize = $('#height-map').val()
+        nbWeapons = $('#nbWeapons').val()
 
 
         Router.arena(pirateName, marinesName)
@@ -37,7 +39,8 @@ $(document).ready(function () {
 
     const run = () => {
         // Initialization
-        const game = new Game(pirateName, marinesName, mapSize)
+        const game = new Game(pirateName, marinesName, mapSize, nbWeapons, nuclear)
         game.start()
+        // TODO : Next => Game.js
     }
 });
